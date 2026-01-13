@@ -1,5 +1,8 @@
 from badge import Badge
+from user import add_badge, badgedata
 from random import randint
+import json
+import discord
 
 from enum import Enum
 
@@ -17,13 +20,31 @@ class Event():
         self.event_type = event_type
 
 roll_events = [
-    Event(chance = 100, event_type = EventType.TEXT_USER, event = "hates the blacks."),
-    Event(chance = 75, event_type= EventType.TEXT_USER, event = "is racially motivated."),
-    Event(chance = 150, event_type = EventType.TEXT, event = f"https://tenor.com/view/confused-stare-at-paper-gif-5257839294650729742"),
-    Event(chance = 300, event_type = EventType.TEXT, event = f"https://tenor.com/view/fnaf-memes-gif-12046621880058457271"),
-    Event(chance = 670, event_type = EventType.TEXT, event= "‼️**6     7**‼️"),
-    Event(chance = 4096, event_type = EventType.TEXT, event= "‼️**A ✨SHINY✨ MESSAGE appeared! Try to catch it while you can.**"),
-    Event(chance = 40960, event_type = EventType.TEXT, event= "‼️**A ✨SHINY✨ 🔥ALPHA🔥 MESSAGE appeared! Try to catch it while you can.**"),
+    Event(chance = 75, event_type= EventType.TEXT_USER, 
+        event = "is racially motivated.",
+        badge="racially_motivated"),
+
+    Event(chance = 100, event_type = EventType.TEXT_USER, 
+        event = "hates the blacks.",
+        badge="maga"),
+
+    Event(chance = 150, event_type = EventType.TEXT, 
+          event = f"https://tenor.com/view/confused-stare-at-paper-gif-5257839294650729742"),
+
+    Event(chance = 300, event_type = EventType.TEXT, 
+        event = f"https://tenor.com/view/fnaf-memes-gif-12046621880058457271"),
+
+    Event(chance = 670, event_type = EventType.TEXT, 
+        event= "‼️**6     7**‼️",
+        badge="six_seven"),
+
+    Event(chance = 4096, event_type = EventType.TEXT, 
+        event= "‼️**A ✨SHINY✨ MESSAGE appeared! Try to catch it while you can.**",
+        badge="shiny_hunter"),
+
+    Event(chance = 40960, event_type = EventType.TEXT, 
+        event= "‼️**A ✨SHINY✨ 🔥ALPHA🔥 MESSAGE appeared! Try to catch it while you can.**",
+        badge="alpha_shiny_hunter"),
 ]
     
    
@@ -50,6 +71,34 @@ async def coinflip(self, message):
 async def dieroll(self, message):
     await message.reply(f"🎲 You rolled a {randint(1,6)}! 🎲")
 
+async def player_badges(self, message):
+    command = str(message.content).split(" ")
+    if len(command) > 1:
+        target = command[1]
+        # if "<" in target:
+        #     target = target.get_user(target.strip("<>@"))
+        #     print(target)
+    else:
+        target = message.author
+        
+
+    output = ""
+    try:
+        with open(f"users/{target}.json", "rb") as userjson:
+            userdata = json.load(userjson)
+        output += f"**{target}'s Badges:**"
+        user_badges = userdata["badges"]
+        for badge in user_badges.keys():
+            badgeinfo = badgedata[badge]
+            badge_level = user_badges[badge]["lvl"]
+            level_text = f"Level {badge_level}" if badge_level > 1 else ""
+            output += f"\n- {badgeinfo.image} *{badgeinfo.title} {level_text}* ({badgeinfo.rarity.name})"
+    except:
+        output += "This user doesn't have any badges!"
+    await message.reply(output)
+
+
+
 async def roll_event(self, message):
     for ev in roll_events:
         if randint(1, ev.chance) == 1:
@@ -59,3 +108,7 @@ async def roll_event(self, message):
                 await message.reply(f"‼️**{str(message.author)} {ev.event}**‼️")
             elif ev.event_type == EventType.ACTION:
                 ev.event()
+            add_badge(message.author, "thrill_seeker")
+            if ev.badge:
+                add_badge(message.author, ev.badge)
+                

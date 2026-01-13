@@ -1,22 +1,22 @@
 {
   "badges": {
-    "six_seven": {
+    "trigger": {
       "lvl": 1
     },
     "hacker": {
       "lvl": 1
     },
-    "trigger": {
-      "lvl": 1
-    },
     "thrill_seeker": {
-      "lvl": 3
+      "lvl": 14
+    },
+    "six_seven": {
+      "lvl": 1
     },
     "maga": {
-      "lvl": 2
+      "lvl": 4
     },
     "racially_motivated": {
-      "lvl": 1
+      "lvl": 3
     }
   }
 }

@@ -30,9 +30,6 @@ class MyClient(discord.Client):
         "!badges":player_badges
     }
         
-        self.rngevents = [
-        ]
-        
     async def on_message(self, message):
         print(f'Message from {message.author}: {message.content}')
 
@@ -42,13 +39,13 @@ class MyClient(discord.Client):
             for key in references.keys():
                 if key in message.content.lower():
                     await message.reply(references[key])
-                    add_badge(message.author, "trigger")
+                    await add_badge(self, message.author, "trigger")
                     break  
             if randint(1,7) == 1:
                 for key in odds_references.keys():
                     if key in message.content.lower():
                         await message.reply(odds_references[key])
-                        add_badge(message.author, "trigger")
+                        await add_badge(self, message.author, "trigger")
                         break     
 
         if (".gif" in message.content or ".mp4" in message.content or "tenor.com" in message.content or "giphy.com" in message.content) and randint(1,25) == 1:
@@ -67,14 +64,15 @@ class MyClient(discord.Client):
             
         if message.content.split(" ")[0].lower() in self.events.keys():
             await self.events[message.content.split(" ")[0].lower()](self, message)
-            add_badge(message.author, "hacker")
+            await add_badge(self, message.author, "hacker")
         elif message.content.lower() in self.events.keys():
             await self.events[message.content.lower()](self, message)
-            add_badge(message.author, "hacker")
+            await add_badge(self, message.author, "hacker")
     
 
 
 intents = discord.Intents.default()
 intents.message_content = True
-client = MyClient(intents=intents)
-client.run('MTA1NjI5NTc1NjE0MDY1ODc3OA.GHiBFv.wkusdFBNnvWeLq2DDHOfZa-3qtO0etd48KB8GU')
+intents.members = True
+bot = MyClient(intents=intents)
+bot.run('')

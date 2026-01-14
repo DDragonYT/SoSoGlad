@@ -57,10 +57,10 @@ async def tell_odds(self, message):
 - 1/670 chance of me wanting to kill myself
 - 1/4096 chance of a shiny message appearing
 - 1/40960 chance of a shalpha message appearing
-There are more events to look forward to, just you wait!""")
-    
+There are more events to look forward to, just you wait!""")    
+
 async def stolengif(self, message):
-            await message.reply(self.stolen_gif)
+    await message.reply(self.stolen_gif)
     
 async def coinflip(self, message):
     if randint(1,2) == 1:
@@ -75,9 +75,12 @@ async def player_badges(self, message):
     command = str(message.content).split(" ")
     if len(command) > 1:
         target = command[1]
-        # if "<" in target:
-        #     target = target.get_user(target.strip("<>@"))
-        #     print(target)
+        print(target)
+        if "<" in target:
+            user_id = int(target.strip("<>@"))
+            print(f"{user_id=}")
+            target = self.get_user(user_id)
+            print(target)
     else:
         target = message.author
         
@@ -91,10 +94,10 @@ async def player_badges(self, message):
         for badge in user_badges.keys():
             badgeinfo = badgedata[badge]
             badge_level = user_badges[badge]["lvl"]
-            level_text = f"Level {badge_level}" if badge_level > 1 else ""
-            output += f"\n- {badgeinfo.image} *{badgeinfo.title} {level_text}* ({badgeinfo.rarity.name})"
+            level_text = f" Level {badge_level}" if badge_level > 1 else ""
+            output += f"\n- {badgeinfo.image} *{badgeinfo.title}{level_text}* ({badgeinfo.rarity.name})"
     except:
-        output += "This user doesn't have any badges!"
+        output += f"{target} doesn't have any badges!"
     await message.reply(output)
 
 
@@ -108,7 +111,7 @@ async def roll_event(self, message):
                 await message.reply(f"‼️**{str(message.author)} {ev.event}**‼️")
             elif ev.event_type == EventType.ACTION:
                 ev.event()
-            add_badge(message.author, "thrill_seeker")
+            await add_badge(self, message.author, "thrill_seeker")
             if ev.badge:
-                add_badge(message.author, ev.badge)
+                await add_badge(self, message.author, ev.badge)
                 

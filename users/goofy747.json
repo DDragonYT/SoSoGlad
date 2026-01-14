@@ -3,17 +3,11 @@
     "hacker": {
       "lvl": 1
     },
-    "trigger": {
+    "thrill_seeker": {
       "lvl": 1
     },
-    "thrill_seeker": {
-      "lvl": 10
-    },
     "racially_motivated": {
-      "lvl": 3
-    },
-    "maga": {
-      "lvl": 2
+      "lvl": 1
     }
   }
 }

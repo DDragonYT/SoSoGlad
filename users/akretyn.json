@@ -1,13 +1,13 @@
 {
   "badges": {
     "thrill_seeker": {
-      "lvl": 20
+      "lvl": 1
     },
     "maga": {
-      "lvl": 6
+      "lvl": 1
     },
-    "racially_motivated": {
-      "lvl": 5
+    "trigger": {
+      "lvl": 1
     }
   }
 }

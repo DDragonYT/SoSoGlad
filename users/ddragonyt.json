@@ -1,19 +1,12 @@
 {
+  "last_daily": "2026-01-18",
+  "coins": 20,
   "badges": {
-    "trigger": {
-      "lvl": 1
-    },
     "hacker": {
       "lvl": 1
     },
-    "thrill_seeker": {
-      "lvl": 6
-    },
-    "racially_motivated": {
-      "lvl": 2
-    },
-    "maga": {
-      "lvl": 3
+    "consistent_6": {
+      "lvl": 1
     }
   }
 }

@@ -1,16 +1,17 @@
-from badge import Badge
-from user import add_badge, badgedata
+from badge import Badge, badgedata, add_badge
 from random import randint
 import json
 import discord
-
 from enum import Enum
+
+ANNOUNCEMENT_CHANNEL = 1461155461075042465
+DIE_SIDES = ["6","10","20","100","1000"]
+
 
 class EventType(Enum):
     TEXT = 1
     TEXT_USER = 2
     ACTION = 3
-
 
 class Event():
     def __init__(self, chance: int, event_type : EventType, event, badge = None):
@@ -19,22 +20,22 @@ class Event():
         self.event = event
         self.event_type = event_type
 
-roll_events = [
-    Event(chance = 75, event_type= EventType.TEXT_USER, 
+ROLL_EVENTS = [
+    Event(chance = 150, event_type= EventType.TEXT_USER, 
         event = "is racially motivated.",
         badge="racially_motivated"),
 
-    Event(chance = 100, event_type = EventType.TEXT_USER, 
+    Event(chance = 200, event_type = EventType.TEXT_USER, 
         event = "hates the blacks.",
         badge="maga"),
 
-    Event(chance = 150, event_type = EventType.TEXT, 
+    Event(chance = 300, event_type = EventType.TEXT, 
           event = f"https://tenor.com/view/confused-stare-at-paper-gif-5257839294650729742"),
 
-    Event(chance = 300, event_type = EventType.TEXT, 
+    Event(chance = 600, event_type = EventType.TEXT, 
         event = f"https://tenor.com/view/fnaf-memes-gif-12046621880058457271"),
 
-    Event(chance = 670, event_type = EventType.TEXT, 
+    Event(chance = 1000, event_type = EventType.TEXT, 
         event= "‼️**6     7**‼️",
         badge="six_seven"),
 
@@ -47,7 +48,14 @@ roll_events = [
         badge="alpha_shiny_hunter"),
 ]
     
-   
+async def help_command(self, message):
+    await message.reply("""**SoSoGlad Commands:**
+- !wallet daily - claims your daily login reward
+- !wallet view [user] - shows yours or target users wallet stats
+- !roll [6/10/20/100/1000] - rolls a random number from 1 to the target
+- !coinflip - returns heads or tails
+- !badges [user] - shows yours or target users badge collection""")   
+
 async def tell_odds(self, message):
         await message.reply(
 
@@ -69,41 +77,26 @@ async def coinflip(self, message):
         await message.reply("It's tails! 🪙 ")
 
 async def dieroll(self, message):
-    await message.reply(f"🎲 You rolled a {randint(1,6)}! 🎲")
-
-async def player_badges(self, message):
-    command = str(message.content).split(" ")
-    if len(command) > 1:
-        target = command[1]
-        print(target)
-        if "<" in target:
-            user_id = int(target.strip("<>@"))
-            print(f"{user_id=}")
-            target = self.get_user(user_id)
-            print(target)
-    else:
-        target = message.author
-        
-
-    output = ""
-    try:
-        with open(f"users/{target}.json", "rb") as userjson:
-            userdata = json.load(userjson)
-        output += f"**{target}'s Badges:**"
-        user_badges = userdata["badges"]
-        for badge in user_badges.keys():
-            badgeinfo = badgedata[badge]
-            badge_level = user_badges[badge]["lvl"]
-            level_text = f" Level {badge_level}" if badge_level > 1 else ""
-            output += f"\n- {badgeinfo.image} *{badgeinfo.title}{level_text}* ({badgeinfo.rarity.name})"
-    except:
-        output += f"{target} doesn't have any badges!"
-    await message.reply(output)
-
-
+    max_roll = 6
+    command_params = message.content.split(" ")
+    if len(command_params) > 1:
+        if command_params[1] in DIE_SIDES:
+            max_roll = int(command_params[1])
+    # roll = randint(1,max_roll)
+    roll = 1
+    self.roll_history[str(max_roll)].append(roll)
+    await message.reply(f"🎲 You rolled a {roll} on a D{max_roll}! 🎲")         
+    if len(self.roll_history[str(max_roll)]) > 2:
+        print(self.roll_history[str(max_roll)])
+        if self.roll_history[str(max_roll)][0] == self.roll_history[str(max_roll)][1] == self.roll_history[str(max_roll)][2]:
+            await add_badge(self, message, f"consistent_{max_roll}")
+            await message.channel.send("That's three in a row!")
+            self.roll_history[str(max_roll)] = []
+        else:
+            self.roll_history[str(max_roll)].pop(0)
 
 async def roll_event(self, message):
-    for ev in roll_events:
+    for ev in ROLL_EVENTS:
         if randint(1, ev.chance) == 1:
             if ev.event_type == EventType.TEXT:
                 await message.reply(ev.event)
@@ -111,7 +104,7 @@ async def roll_event(self, message):
                 await message.reply(f"‼️**{str(message.author)} {ev.event}**‼️")
             elif ev.event_type == EventType.ACTION:
                 ev.event()
-            await add_badge(self, message.author, "thrill_seeker")
             if ev.badge:
-                await add_badge(self, message.author, ev.badge)
-                
+                await add_badge(self, message, ev.badge)
+            else:
+                await add_badge(self, message, "thrill_seeker")

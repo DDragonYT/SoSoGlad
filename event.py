@@ -33,7 +33,8 @@ ROLL_EVENTS = [
           event = f"https://tenor.com/view/confused-stare-at-paper-gif-5257839294650729742"),
 
     Event(chance = 600, event_type = EventType.TEXT, 
-        event = f"https://tenor.com/view/fnaf-memes-gif-12046621880058457271"),
+        event = f"https://tenor.com/view/fnaf-memes-gif-12046621880058457271",
+        badge="scare_survivor"),
 
     Event(chance = 1000, event_type = EventType.TEXT, 
         event= "‼️**6     7**‼️",
@@ -50,18 +51,19 @@ ROLL_EVENTS = [
     
 async def help_command(self, message):
     await message.reply("""**SoSoGlad Commands:**
-- !wallet daily - claims your daily login reward
-- !wallet view [user] - shows yours or target users wallet stats
+- !daily - claims your daily login reward
+- !wallet [user] - shows yours or target users wallet stats
 - !roll [6/10/20/100/1000] - rolls a random number from 1 to the target
 - !coinflip - returns heads or tails
-- !badges [user] - shows yours or target users badge collection""")   
+- !badges [user] - shows yours or target users badge collection
+- !stolengif - sends the last stolen gif""")   
 
 async def tell_odds(self, message):
         await message.reply(
 
         """There is a:
-- 1/75 chance of being racially motivated
-- 1/100 chance of hating the blacks
+- 1/150 chance of being racially motivated
+- 1/200 chance of hating the blacks
 - 1/670 chance of me wanting to kill myself
 - 1/4096 chance of a shiny message appearing
 - 1/40960 chance of a shalpha message appearing
@@ -82,20 +84,22 @@ async def dieroll(self, message):
     if len(command_params) > 1:
         if command_params[1] in DIE_SIDES:
             max_roll = int(command_params[1])
-    # roll = randint(1,max_roll)
-    roll = 1
+    roll = randint(1,max_roll)
     self.roll_history[str(max_roll)].append(roll)
-    await message.reply(f"🎲 You rolled a {roll} on a D{max_roll}! 🎲")         
+    output = f"🎲 You rolled a {roll} on a D{max_roll}! 🎲"
+    print(self.roll_history[str(max_roll)])
     if len(self.roll_history[str(max_roll)]) > 2:
-        print(self.roll_history[str(max_roll)])
         if self.roll_history[str(max_roll)][0] == self.roll_history[str(max_roll)][1] == self.roll_history[str(max_roll)][2]:
             await add_badge(self, message, f"consistent_{max_roll}")
-            await message.channel.send("That's three in a row!")
+            output += ("\nThat's three in a row!")
             self.roll_history[str(max_roll)] = []
         else:
             self.roll_history[str(max_roll)].pop(0)
+    await message.command(output)      
 
 async def roll_event(self, message):
+    # roll = randint(0,len(ROLL_EVENTS)-1)
+    # ev = ROLL_EVENTS[roll]
     for ev in ROLL_EVENTS:
         if randint(1, ev.chance) == 1:
             if ev.event_type == EventType.TEXT:
@@ -106,5 +110,4 @@ async def roll_event(self, message):
                 ev.event()
             if ev.badge:
                 await add_badge(self, message, ev.badge)
-            else:
-                await add_badge(self, message, "thrill_seeker")
+            await add_badge(self, message, "thrill_seeker")

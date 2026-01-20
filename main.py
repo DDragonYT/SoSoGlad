@@ -8,7 +8,7 @@ from badge import Badge
 from random import randint
 
 datajson = json.load(open("data.json","r"))
-REFERENCES = datajson["references"]
+REFERENCES = datajson["references"] 
 ODDS_REFERENCES = datajson["odds_references"]
 COMMANDS = {
         "!odds":tell_odds,
@@ -19,6 +19,7 @@ COMMANDS = {
         "!roll":dieroll,
         "!badges":player_badges,
         "!wallet":wallet,
+        "!daily":wallet_daily,
         "!help":help_command,
     }
 

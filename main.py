@@ -23,6 +23,10 @@ COMMANDS = {
         "!help":help_command,
     }
 
+with open("secret.key", "r") as keysecret:
+    api_key = keysecret.readline()
+
+
 class MyClient(discord.Client):
     user: discord.ClientUser
 
@@ -36,12 +40,12 @@ async def on_ready():
         print(f'Logged on as {bot.user}!')      
         with open("stolengif.txt", "r") as stolen:
             bot.stolen_gif = stolen.readline()
-            bot.roll_history = {
-            "6":[],
-            "10":[],
-            "20":[],
-            "100":[],
-            "1000":[]
+        bot.roll_history = {
+        "6":[],
+        "10":[],
+        "20":[],
+        "100":[],
+        "1000":[]
         }
             
 
@@ -85,8 +89,4 @@ async def on_message(message):
     if str(message.author) == "awenshock" and randint(1,20) == 1:
         await message.reply("https://tenor.com/view/sheppy-shisha-shisha-sheppy-husky-maid-gif-21097707")
         
-    
-
-
-
-bot.run('MTQ2MTE1NDQ4MTg2MDM4MjgzMg.GWlbQA.TPJHNS6dj2Xmd1Mn_S22JkkxXYkt1oYVqD9pwI')
+bot.run(api_key)

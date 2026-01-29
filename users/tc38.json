@@ -1,0 +1,22 @@
+{
+  "coins": 100,
+  "gems": 7,
+  "last_daily": "2026-01-28",
+  "badges": {
+    "hacker": {
+      "lvl": 1
+    },
+    "consistent_6": {
+      "lvl": 6
+    },
+    "six_seven": {
+      "lvl": 1
+    },
+    "thrill_seeker": {
+      "lvl": 2
+    },
+    "maga": {
+      "lvl": 1
+    }
+  }
+}

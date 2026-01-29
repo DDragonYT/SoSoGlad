@@ -1,0 +1,37 @@
+{
+  "badges": {
+    "trigger": {
+      "lvl": 1
+    },
+    "hacker": {
+      "lvl": 1
+    },
+    "thrill_seeker": {
+      "lvl": 42
+    },
+    "six_seven": {
+      "lvl": 1
+    },
+    "maga": {
+      "lvl": 13
+    },
+    "racially_motivated": {
+      "lvl": 12
+    },
+    "consistent_10": {
+      "lvl": 1
+    },
+    "consistent_6": {
+      "lvl": 2
+    },
+    "consistent_20": {
+      "lvl": 1
+    },
+    "scare_survivor": {
+      "lvl": 1
+    }
+  },
+  "coins": 200,
+  "gems": 14,
+  "last_daily": "2026-01-28"
+}

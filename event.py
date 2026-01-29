@@ -4,7 +4,9 @@ import json
 import discord
 from enum import Enum
 
-ANNOUNCEMENT_CHANNEL = 1461155461075042465
+
+datajson = json.load(open("data.json","r"))
+ANNOUNCEMENT_CHANNEL = int(datajson["announcement_channel"])
 DIE_SIDES = ["6","10","20","100","1000"]
 
 
@@ -31,6 +33,9 @@ ROLL_EVENTS = [
 
     Event(chance = 300, event_type = EventType.TEXT, 
           event = f"https://tenor.com/view/confused-stare-at-paper-gif-5257839294650729742"),
+
+    Event(chance = 300, event_type = EventType.TEXT, 
+          event = f"I'm So So Sad..."),
 
     Event(chance = 600, event_type = EventType.TEXT, 
         event = f"https://tenor.com/view/fnaf-memes-gif-12046621880058457271",
@@ -84,7 +89,8 @@ async def dieroll(self, message):
     if len(command_params) > 1:
         if command_params[1] in DIE_SIDES:
             max_roll = int(command_params[1])
-    roll = randint(1,max_roll)
+    roll = randint(1,max_roll)  
+    # roll = max_roll
     self.roll_history[str(max_roll)].append(roll)
     output = f"🎲 You rolled a {roll} on a D{max_roll}! 🎲"
     print(self.roll_history[str(max_roll)])
@@ -95,11 +101,9 @@ async def dieroll(self, message):
             self.roll_history[str(max_roll)] = []
         else:
             self.roll_history[str(max_roll)].pop(0)
-    await message.command(output)      
+    await message.reply(output)
 
 async def roll_event(self, message):
-    # roll = randint(0,len(ROLL_EVENTS)-1)
-    # ev = ROLL_EVENTS[roll]
     for ev in ROLL_EVENTS:
         if randint(1, ev.chance) == 1:
             if ev.event_type == EventType.TEXT:

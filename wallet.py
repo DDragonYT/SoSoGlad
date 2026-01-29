@@ -1,4 +1,4 @@
-DAILY_AMOUNT = 10
+DAILY_AMOUNT = 100
 from datetime import date
 from userdata import *
 from random import randint
@@ -35,7 +35,7 @@ async def wallet_stats(self, message, target=2):
 
 
 async def claim_daily(self, message, userdata=None):
-    gem_reward = randint(0, 1)
+    gem_reward = randint(0, 10)
     wallet_add(userdata, DAILY_AMOUNT)
     wallet_add(userdata, gem_reward, "gems")
     userdata["last_daily"] = str(date.today())

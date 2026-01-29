@@ -1,0 +1,43 @@
+{
+  "coins": 300,
+  "gems": 5,
+  "last_daily": "2026-01-28",
+  "badges": {
+    "hacker": {
+      "lvl": 1
+    },
+    "consistent_6": {
+      "lvl": 7
+    },
+    "maga": {
+      "lvl": 26
+    },
+    "thrill_seeker": {
+      "lvl": 101
+    },
+    "racially_motivated": {
+      "lvl": 49
+    },
+    "scare_survivor": {
+      "lvl": 10
+    },
+    "consistent_10": {
+      "lvl": 1
+    },
+    "consistent_20": {
+      "lvl": 1
+    },
+    "six_seven": {
+      "lvl": 4
+    },
+    "trigger": {
+      "lvl": 1
+    },
+    "shiny_hunter": {
+      "lvl": 1
+    },
+    "consistent_100": {
+      "lvl": 1
+    }
+  }
+}

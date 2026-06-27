@@ -1009,6 +1009,7 @@
   ('email.utils',
    'C:\\Users\\Jasper\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\email\\utils.py',
    'PYMODULE'),
+  ('embed', 'C:\\Users\\Jasper\\Documents\\SoSoGlad\\embed.py', 'PYMODULE'),
   ('event', 'C:\\Users\\Jasper\\Documents\\SoSoGlad\\event.py', 'PYMODULE'),
   ('fnmatch',
    'C:\\Users\\Jasper\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\fnmatch.py',

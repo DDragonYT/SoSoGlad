@@ -1,13 +1,13 @@
 {
-  "coins": 300,
-  "gems": 5,
-  "last_daily": "2026-01-28",
+  "coins": 400,
+  "gems": 9,
+  "last_daily": "2026-02-02",
   "badges": {
     "hacker": {
       "lvl": 1
     },
     "consistent_6": {
-      "lvl": 7
+      "lvl": 12
     },
     "maga": {
       "lvl": 26
@@ -22,7 +22,7 @@
       "lvl": 10
     },
     "consistent_10": {
-      "lvl": 1
+      "lvl": 2
     },
     "consistent_20": {
       "lvl": 1
@@ -39,5 +39,6 @@
     "consistent_100": {
       "lvl": 1
     }
-  }
+  },
+  "badgeinvvalue": 25552
 }

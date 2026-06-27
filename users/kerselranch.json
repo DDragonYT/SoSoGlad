@@ -7,7 +7,7 @@
       "lvl": 1
     },
     "thrill_seeker": {
-      "lvl": 93
+      "lvl": 50
     },
     "racially_motivated": {
       "lvl": 32
@@ -30,14 +30,18 @@
     "consistent_20": {
       "lvl": 1
     },
-    "shiny_hunter": {
-      "lvl": 3
-    },
-    "consistent_100": {
+    "flip_25": {
       "lvl": 1
+    },
+    "flip_5": {
+      "lvl": 2
+    },
+    "victim": {
+      "lvl": 2
     }
   },
-  "coins": 300,
-  "gems": 8,
-  "last_daily": "2026-01-28"
+  "coins": 83888,
+  "gems": 5,
+  "last_daily": "2026-02-02",
+  "badgeinvvalue": 53750
 }

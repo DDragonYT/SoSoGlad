@@ -1,34 +1,40 @@
 from enum import Enum
 from random import randint
 from userdata import *
+import discord
 import os
+from embed import *
+
 datajson = json.load(open("data.json","r"))
 ANNOUNCEMENT_CHANNEL = int(datajson["announcement_channel"])
+SELL_PRICE = int(datajson["sell_price"])
 BADGE_VALUES = {}
 
 
 class BadgeRarity(Enum):
     COMMON = "Common"
-    DRACONIC = "Draconic"
+    UNCOMMON = "Uncommon"
     RARE = "Rare"
-    WHIMSIC = "WHIMSIC"
+    EPIC = "Epic"
     LEGENDARY = "Legendary"
     UNREAL = "Unreal"
     GODLY = "Godly"
 
 rarity_values = {
     BadgeRarity.COMMON: 10,
-    BadgeRarity.RARE: 25,
-    BadgeRarity.WHIMSIC: 50,
-    BadgeRarity.LEGENDARY: 500,
-    BadgeRarity.DRACONIC: 3000,
+    BadgeRarity.UNCOMMON: 25,
+    BadgeRarity.RARE: 50,
+    BadgeRarity.EPIC: 500,
+    BadgeRarity.LEGENDARY: 3000,
     BadgeRarity.UNREAL:20000,
     BadgeRarity.GODLY:50000,
 
 }
 
+BADGE_TYPES = ["badges", "deluxe_badges", "legacy_badges"]
+
 class Badge():
-    def __init__(self, title, description, image, rarity, max_level = 999, sellable = True):
+    def __init__(self, title, description, image, rarity, max_level = 30, sellable = True):
         self.title = title
         self.description = description
         self.image = image
@@ -36,30 +42,32 @@ class Badge():
         self.max_level = max_level
         self.sellable = sellable
 
-badgedata = {
+BADGE_DATA = {
     "scare_survivor": Badge(
         title="Scare Survivor Badge",
-        description="Survive a super scary encounter. So brave.",
+        description="Survive a super scary encounter. So so brave.",
         image="👻",
-        rarity=BadgeRarity.WHIMSIC
+        rarity=BadgeRarity.RARE
     ),
     "high_roller":Badge(
         title="High Roller Badge",
         description="Roll a 1000! You really should hit Crown.",
         image="🎰",
-        rarity=BadgeRarity.DRACONIC
+        rarity=BadgeRarity.EPIC
     ),
     "consistent_6":Badge(
         title="Rookie Gambler Badge",
         description="Roll the same number three times in a row on a D6.",
         image="🎲",
-        rarity=BadgeRarity.RARE
+        rarity=BadgeRarity.UNCOMMON,
+        max_level=50
     ),
     "consistent_10":Badge(
         title="Novice Gambler Badge",
         description="Roll the same number three times in a row on a D10. Nice!",
         image="🎲",
-        rarity=BadgeRarity.RARE
+        rarity=BadgeRarity.UNCOMMON,
+        max_level=50
     ),
     "consistent_20":Badge(
         title="Pro Gambler Badge",
@@ -84,41 +92,43 @@ badgedata = {
         title="Kirkified Badge",
         description="Earned by getting Kirkified 100 times.",
         image="🔫",
-        rarity=BadgeRarity.RARE
+        rarity=BadgeRarity.UNCOMMON
     ),
     "victim":Badge(
         title="The Victim Badge",
         description="Get absolutely unfairly robbed.",
         image="🍺",
-        rarity=BadgeRarity.RARE
-    ),
-    "flip_3":Badge(
-        title="Micro Flipper Badge",
-        description="Get absolutely unfairly robbed.",
-        image="🪙",
-        rarity=BadgeRarity.RARE
+        rarity=BadgeRarity.COMMON
     ),
     "flip_5":Badge(
         title="Mini Flipper Badge",
-        description="Get absolutely unfairly robbed.",
+        description="Flip the same face 5 times in a row! Nice job!",
         image="🪙",
-        rarity=BadgeRarity.RARE
+        rarity=BadgeRarity.COMMON,
+        max_level=50
     ),
     "flip_7":Badge(
         title="Medium Flipper Badge",
-        description="Get absolutely unfairly robbed.",
+        description="Flip the same face 7 times in a row! Wow! Thats almost unbelievable",
         image="🪙",
-        rarity=BadgeRarity.WHIMSIC
+        rarity=BadgeRarity.UNCOMMON,
+        max_level=50
     ),
     "flip_10":Badge(
-        title="Elder Flipper Badge",
-        description="Get absolutely unfairly robbed.",
+        title="Massive Flipper Badge",
+        description="Flip the same face 10 times in a row! Are you cheating?",
         image="🪙",
-        rarity=BadgeRarity.DRACONIC
+        rarity=BadgeRarity.EPIC
+    ),
+    "flip_15":Badge(
+        title="Elder Flipper Badge",
+        description="Flip the same face 15 times in a row! Bro is wallhacking.",
+        image="🪙",
+        rarity=BadgeRarity.UNREAL
     ),
     "flip_25":Badge(
-        title="Statical Anomaly Badge",
-        description="Get absolutely unfairly robbed.",
+        title="Statistical Anomaly Badge",
+        description="Flip the same face 25 times IN A ROW. Are we fucking for real.",
         image="🪙",
         rarity=BadgeRarity.GODLY
     ),
@@ -126,19 +136,19 @@ badgedata = {
         title="Yapper Badge",
         description="Send 1000 messages, holy fucking yap.",
         image="🗣️",
-        rarity=BadgeRarity.WHIMSIC,
+        rarity=BadgeRarity.EPIC,
     ),
     "deluxe_badge":Badge(
         title="Badge Hunter DX",
         description="Acquire a deluxe badge!",
         image="🥇",
-        rarity=BadgeRarity.WHIMSIC,
+        rarity=BadgeRarity.EPIC,
     ),
     "deluxe_badge_dx":Badge(
         title="Deluxe Badge Hunter DX",
         description="Acquire a 10 deluxe badges!",
         image="🎖️",
-        rarity=BadgeRarity.DRACONIC,
+        rarity=BadgeRarity.UNREAL,
     ),
     "trigger" : Badge(
         title="Triggerer Badge",
@@ -165,25 +175,27 @@ badgedata = {
         title="Racially Motivated Badge",
         description="Acquired by being randomly racially motivated for no reason.",
         image="🙍🏿",
-        rarity=BadgeRarity.RARE
+        rarity=BadgeRarity.COMMON,
+        max_level=100,
         ),
     "maga" : Badge(
         title="MAGA Badge",
         description="You really shouldn't have this one, supporter of the orange man.",
         image="🍊",
-        rarity=BadgeRarity.RARE
+        rarity=BadgeRarity.UNCOMMON,
+        max_level=100,
         ),
     "six_seven" : Badge(
         title="67 Badge",
         description="Do I really need to explain this one.",
         image="♿",
-        rarity=BadgeRarity.WHIMSIC
+        rarity=BadgeRarity.EPIC
         ),
     "shiny_hunter" : Badge(
         title="Shiny Hunter Badge",
         description="Get a job bro, thats crazy.",
         image="✨",
-        rarity=BadgeRarity.DRACONIC
+        rarity=BadgeRarity.LEGENDARY
         ),
     "alpha_shiny_hunter" : Badge(
         title="Alpha Shiny Hunter",
@@ -193,37 +205,76 @@ badgedata = {
         )
 }
 
+def badge_search(name):
+    if name in BADGE_DATA.keys():
+        return name
+    else:
+        for key in BADGE_DATA.keys():
+            badge = BADGE_DATA[key]
+            if name in badge.title.lower():
+                return key
+    return
+
+def badge_details(ibadge, badge):
+    embed = discord.Embed(
+                title=f"[{ibadge.image}] {ibadge.title}",
+                description=ibadge.description,
+                color= discord.Colour.green()
+            )
+    embed.add_field(name="Rarity", value=ibadge.rarity.name)
+    embed.add_field(name="Value", value=BADGE_VALUES["badges"][badge])
+    embed.add_field(name="Max Level", value=ibadge.max_level)
+    embed.add_field(name="Badge ID", value=f"`{badge}`")
+    embed.set_author(name="Badge Info")
+    return embed
+
+async def badge_info(self, message):
+    command_params = message.content.split(" ")
+    if len(command_params) > 1:
+        badge = badge_search(command_params[1])
+        if badge:
+            ibadge:Badge = BADGE_DATA[badge]
+            embed = badge_details(ibadge, badge)
+            await message.reply(embed=embed)
+        else:
+            await message.reply(embed = gen_error("That badge doesn't exist!"))
+    else:
+        await message.reply(embed = gen_error("Please enter a badge name."))
+
 async def player_badges(self, message):
     command = str(message.content).split(" ")
     if len(command) > 1:
         target = command[1]
-        print(target)
         if "<" in target:
             user_id = int(target.strip("<>@"))
-            print(f"{user_id=}")
             target = self.get_user(user_id)
-            print(target)
     else:
         target = message.author
-    output = ""
+    
     userdata = get_userdata(target)
-    if "badges" in userdata.keys():
-        output += f"**{target}'s Badges:**"
-        user_badges = userdata["badges"]
-        for badge in user_badges.keys():
-            badgeinfo = badgedata[badge]
-            badge_level = user_badges[badge]["lvl"]
-            level_text = f" Level {badge_level}" if badge_level > 1 else ""
-            output += f"\n- {badgeinfo.image} *{badgeinfo.title}{level_text}* ({badgeinfo.rarity.name})"
+    if "badges" in userdata.keys() or "deluxe_badges" in userdata.keys():
+        embed = discord.Embed(title=f"{target}'s Badges", colour=discord.Colour.green())
+        userkeys = userdata.keys()
+        for badgetype in BADGE_TYPES:
+            if badgetype in userkeys:
+                value = ""
+
+                for badge in userdata[badgetype]:
+                    badgedata = BADGE_DATA[badge]
+                    leveltext = f" Level {userdata[badgetype][badge]["lvl"]}" if userdata[badgetype][badge]["lvl"] > 1 else ""
+                    value += f"\n- [{badgedata.image}] {badgedata.title}{leveltext} ({badgedata.rarity.name})"
+                embed.add_field(name=badgetype.replace("_"," ").capitalize(), value=value)
+
+        await message.reply(embed=embed)
     else:
-        output += f"\n{target} doesn't have any badges!"
-    await message.reply(output)
+        await message.reply(embed = gen_error(f"{target} doesn't have any badges!"))
 
 async def add_badge(self, message, badge):
-    if randint(1,300) == 1:
+    if randint(1,300) == 1 and BADGE_DATA[badge].max_level != 1:
         badge_type = "deluxe_badges"
     else:
         badge_type = "badges"
+
     userdata = {}
     user = message.author
     userdata = get_userdata(user)
@@ -232,7 +283,7 @@ async def add_badge(self, message, badge):
     badges = userdata[badge_type]
 
     if badge in badges.keys():
-        if badges[badge]["lvl"] < badgedata[badge].max_level:
+        if badges[badge]["lvl"] < BADGE_DATA[badge].max_level:
             badges[badge]["lvl"] += 1
             await announce_badge(self,user,badge,badge_type)
 
@@ -242,21 +293,18 @@ async def add_badge(self, message, badge):
 
     set_userdata(user, userdata)
 
-
 async def announce_badge(self, user, badge, badge_type):
     channel = self.get_channel(ANNOUNCEMENT_CHANNEL)
-    badge_info = badgedata[badge]
+    badge_info = BADGE_DATA[badge]
     if badge_type == "deluxe_badges":
         deluxe_badge = True
     else:
         deluxe_badge = False
-    await channel.send(f"""**{user.mention} got a {"Deluxe "if deluxe_badge else ""}{badge_info.title}!{" Ain't you a lucky boy!" if deluxe_badge else ""}**
+    output = f"""**{user.mention} got a {"Deluxe "if deluxe_badge else ""}{badge_info.title}!{" Ain't you a lucky boy!" if deluxe_badge else ""}**"""
+    ibadge:Badge = BADGE_DATA[badge]
+    embed = badge_details(ibadge, badge)
+    await channel.send(output,embed=embed)
 
-{badge_info.image} {"Deluxe "if deluxe_badge else ""}{badge_info.title}
-*{badge_info.description}*
-({badge_info.rarity.name})
-{"(DELUXE)"if deluxe_badge else ""}
-""")
 
 def calc_badges():
     global BADGE_VALUES
@@ -268,13 +316,12 @@ def calc_badges():
 
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
-        if filename.endswith(".json"):
+        if filename.endswith(".json") and not "sosoglad" in filename:
             with open(f"users/{filename}") as filejson:
                 fileobj = json.load(filejson)
                 filekeys = fileobj.keys()
                 for badge_type in ["badges", "deluxe_badges"]:
                     if badge_type in filekeys:  
-                            
                             for badge in fileobj[badge_type]:
                                 if badge_type == "badges":
                                     if badge in badge_totals.keys():
@@ -282,12 +329,15 @@ def calc_badges():
                                     else:
                                         badge_totals[badge] = fileobj[badge_type][badge]['lvl']
                                 else:
-                                    basevalue = rarity_values[badgedata[badge].rarity]
+                                    basevalue = rarity_values[BADGE_DATA[badge].rarity]
                                     BADGE_VALUES["deluxe_badges"][badge] = basevalue * 10
-
+    for badge in BADGE_DATA.keys():
+        for badge_type in ["badges", "deluxe_badges"]:
+            if badge not in BADGE_VALUES[badge_type].keys():
+                BADGE_VALUES[badge_type][badge] = rarity_values[BADGE_DATA[badge].rarity]
     for badge in badge_totals.keys():
         badgeqty = badge_totals[badge]
-        basevalue = rarity_values[badgedata[badge].rarity]
+        basevalue = rarity_values[BADGE_DATA[badge].rarity]
 
         if badgeqty > basevalue / 5:
             valuecurve = 0.99
@@ -297,26 +347,36 @@ def calc_badges():
             (valuecurve ** (badgeqty/1)) * basevalue
             ) + 1
 
-
 def sell_badge(user, badgename, deluxe = False, qty=1):
     if deluxe:
         badge_type = "deluxe_badges"
     else:
         badge_type = "badges"
-
     userdata = get_userdata(user)
     if badgename in userdata[badge_type]:
-        if userdata[badge_type][badgename]["lvl"] > qty:
-            current_value = BADGE_VALUES[badge_type][badgename]
-            sale_amount = qty * current_value
-            userdata["coins"] += sale_amount
-            userdata[badge_type][badgename]["lvl"] -= qty
+        if BADGE_DATA[badgename].max_level != 1:
+            if userdata[badge_type][badgename]["lvl"] >= qty:
+                if "gems" in userdata.keys():
+                    if userdata["gems"] >= SELL_PRICE:
+                        current_value = BADGE_VALUES[badge_type][badgename]
+                        sale_amount = int(qty * current_value/2)
+                        userdata["coins"] += sale_amount
+                        userdata["gems"] -= SELL_PRICE
+                        userdata[badge_type][badgename]["lvl"] -= qty
+                        if userdata[badge_type][badgename]["lvl"] == 0:
+                            del userdata[badge_type][badgename]
+                    else:
+                        return f"You need at least {SELL_PRICE} gems to sell a badge!", None
+                else:
+                    return f"You need at least {SELL_PRICE} gems to sell a badge!", None
+            else:
+                return f"Can't sell more than {userdata[badge_type][badgename]["lvl"]} {BADGE_DATA[badgename].title}(s)!", None
         else:
-            return
+            return f"Can't sell the {BADGE_DATA[badgename].title} as it is a one time badge!", None
     else:
-        return            
+        return "You don't own this badge!", None
     set_userdata(user, userdata)
-    return sale_amount
+    return sale_amount, SELL_PRICE
 
 def calc_inv(user):
     userdata = get_userdata(user)
@@ -324,11 +384,7 @@ def calc_inv(user):
     for badgetype in ["badges","deluxe_badges"]:
         if badgetype in userdata.keys():
             for badge in userdata[badgetype]:
-                inventory_value += BADGE_VALUES[badgetype][badge]
+                inventory_value += BADGE_VALUES[badgetype][badge] * userdata[badgetype][badge]["lvl"]
+    userdata["badgeinvvalue"] = inventory_value
+    set_userdata(user, userdata)
     return inventory_value
-
-calc_badges()
-print(BADGE_VALUES)
-sell_badge("ddragonyt","six_seven", False, 1)
-for user in ["ddragonyt", "bob_three", "kerselranch", "robroxian", "tc38"]:
-    print(f"Inventory Value of {user}: {calc_inv(user)}")

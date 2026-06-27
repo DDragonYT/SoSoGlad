@@ -1,45 +1,28 @@
 {
-  "deluxe_badges": {
-    "six_seven": {
-      "lvl": 1
-    }
-  },
   "badges": {
-    "six_seven": {
-      "lvl": 1
-    },
     "hacker": {
       "lvl": 1
     },
     "trigger": {
       "lvl": 1
     },
-    "thrill_seeker": {
-      "lvl": 152
-    },
-    "maga": {
-      "lvl": 44
-    },
-    "racially_motivated": {
-      "lvl": 66
-    },
-    "consistent_6": {
-      "lvl": 5
-    },
-    "scare_survivor": {
-      "lvl": 9
-    },
-    "shiny_hunter": {
+    "flip_25": {
       "lvl": 2
-    },
-    "consistent_10": {
+    }
+  },
+  "legacy_badges": {
+    "hacker": {
       "lvl": 1
     },
-    "consistent_20": {
+    "trigger": {
+      "lvl": 1
+    },
+    "flip_5": {
       "lvl": 1
     }
   },
-  "coins": 565,
-  "gems": 12,
-  "last_daily": "2026-01-28"
+  "coins": 47321,
+  "gems": 2,
+  "last_daily": "2026-06-27",
+  "badgeinvvalue": 97054
 }

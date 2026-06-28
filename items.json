@@ -112,5 +112,41 @@
         "type":"pet",
         "icon":"🐉",
         "rarity":"mythic"
+    },
+
+    
+
+
+
+    "57_leaf_clover":{
+        "name":"57 Leaf Clover",
+        "type":"booster",
+        "rarity":"rare"
+    },
+
+    "gamma_gummies":{
+        "name":"Gamma Gummies",
+        "type":"booster",
+        "rarity":"rare"
+    },
+
+    "listenite_gem":{
+        "name":"Listenite Gem",
+        "type":"booster",
+        "rarity":"epic"
+    },
+
+    "dollar_store_dollar":{
+        "name":"Dollar Store Dollar",
+        "type":"booster",
+        "rarity":"legendary"
+    },
+
+
+
+
+
+    "":{
+
     }
 }

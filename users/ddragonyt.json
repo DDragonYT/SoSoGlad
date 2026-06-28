@@ -7,7 +7,7 @@
       "lvl": 1
     },
     "flip_25": {
-      "lvl": 2
+      "lvl": 1
     }
   },
   "legacy_badges": {
@@ -21,8 +21,18 @@
       "lvl": 1
     }
   },
-  "coins": 47321,
-  "gems": 2,
-  "last_daily": "2026-06-27",
-  "badgeinvvalue": 97054
+  "coins": 71379,
+  "gems": 68990,
+  "last_daily": "2026-06-28",
+  "badgeinvvalue": 49028,
+  "inventory": [
+    "pet_crate",
+    "pet_crate",
+    "20_coins",
+    "20_coins",
+    "pet_crate",
+    "pet_crate",
+    "pet_crate",
+    "pet_crate"
+  ]
 }

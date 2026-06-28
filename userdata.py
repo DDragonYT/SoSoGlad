@@ -10,3 +10,6 @@ def get_userdata(user):
 def set_userdata(user, userdata):
     with open(f"users/{user}.json", "w+") as userjson:
         json.dump(userdata, userjson, indent=2)
+
+
+

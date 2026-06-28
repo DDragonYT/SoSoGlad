@@ -5,28 +5,33 @@ from event import *
 from wallet import *
 from badge import player_badges, add_badge, Badge, badge_info, calc_badges
 from random import randint
-from shop import show_shop
+from shop import *
 import time
 
-datajson = json.load(open("data.json","r"))
-REFERENCES = datajson["references"] 
+datajson = json.load(open("data.json", "r"))
+REFERENCES = datajson["references"]
 ODDS_REFERENCES = datajson["odds_references"]
 COMMANDS = {
-        "!odds":tell_odds,
-        "!stolengif":stolengif,
-        "so so coinflip":coinflip,
-        "so so roll":dieroll,
-        "!coinflip":coinflip,
-        "!roll":dieroll,
-        "!badges":player_badges,
-        "!wallet":wallet,
-        "!daily":wallet_daily,
-        "!help":help_command,
-        "!binfo":badge_info,
-        "!sell":bsell,
-        "!give":give_stuff,
-        "!shop":show_shop,
-    }
+    "!odds": tell_odds,
+    "!stolengif": stolengif,
+    "so so coinflip": coinflip,
+    "so so roll": dieroll,
+    "!coinflip": coinflip,
+    "!roll": dieroll,
+    "!badges": player_badges,
+    "!wallet": wallet,
+    "!daily": wallet_daily,
+    "!help": help_command,
+    "!binfo": badge_info,
+    "!sell": bsell,
+    "!give": give_stuff,
+    "!shop": show_shop,
+    "!inv": show_inventory,
+    "!inventory":show_inventory,
+    "!buy": attempt_purchase,
+    "!open":attempt_open_crate,
+
+}
 
 message_counts = {}
 last_price_update = -1
@@ -34,32 +39,27 @@ last_price_update = -1
 with open("secret.key", "r") as keysecret:
     api_key = keysecret.readline()
 
+
 class MyClient(discord.Client):
     user: discord.ClientUser
+
 
 intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
-bot = MyClient(intents=intents)       
+bot = MyClient(intents=intents)
+
 
 @bot.event
 async def on_ready():
-        print(f'Logged on as {bot.user}!')      
-        with open("stolengif.txt", "r") as stolen:
-            bot.stolen_gif = stolen.readline()
-        bot.roll_history = {
-        "6":[],
-        "10":[],
-        "20":[],
-        "100":[],
-        "1000":[]
-        }
+    print(f"Logged on as {bot.user}!")
+    with open("stolengif.txt", "r") as stolen:
+        bot.stolen_gif = stolen.readline()
+    bot.roll_history = {"6": [], "10": [], "20": [], "100": [], "1000": []}
 
-        bot.flip_streak = {
-            "num":0,
-            "len":0
-        }
-        calc_badges()
+    bot.flip_streak = {"num": 0, "len": 0}
+    calc_badges()
+
 
 async def add_msgcount(user):
     global message_counts
@@ -67,16 +67,17 @@ async def add_msgcount(user):
         message_counts[user] += 1
     else:
         message_counts[user] = 1
-    
+
     if message_counts[user] % 1000 == 0:
         await add_badge(user, "yapper")
 
-@bot.event    
+
+@bot.event
 async def on_message(message):
     global last_price_update
-    print(f'Message from {message.author}: {message.content}')
+    print(f"Message from {message.author}: {message.content}")
     await add_msgcount(message.author)
-    curtime = int(time.localtime().tm_min/10)
+    curtime = int(time.localtime().tm_min / 10)
     if curtime != last_price_update:
         last_price_update = curtime
         calc_badges()
@@ -84,13 +85,12 @@ async def on_message(message):
         # embed = discord.Embed(title="Badge prices have updated!", colour=discord.Colour.green())
         # await channel.send(embed = embed)
 
-
     if message.content.split(" ")[0].lower() in COMMANDS.keys():
         await COMMANDS[message.content.split(" ")[0].lower()](bot, message)
         await add_badge(bot, message, "hacker")
 
     elif message.content.lower() in COMMANDS.keys():
-        await COMMANDS[message.content.lower()](bot, message)       
+        await COMMANDS[message.content.lower()](bot, message)
         await add_badge(bot, message, "hacker")
 
     elif message.author != bot.user:
@@ -98,24 +98,31 @@ async def on_message(message):
             if key in message.content.lower():
                 reference = REFERENCES[key]
                 if type(REFERENCES[key]) == list:
-                    reference_text = reference[randint(0, len(reference)-1)]
+                    reference_text = reference[randint(0, len(reference) - 1)]
                 else:
                     reference_text = reference
                 await message.reply(reference_text)
                 await add_badge(bot, message, "trigger")
-                break  
-        if randint(1,7) == 1:
+                break
+        if randint(1, 7) == 1:
             for key in ODDS_REFERENCES.keys():
                 if key in message.content.lower():
                     await message.reply(ODDS_REFERENCES[key])
                     await add_badge(bot, message, "trigger")
                     break
-    
+
     else:
         await roll_event(bot, message)
 
-    if (".gif" in message.content or ".mp4" in message.content or "tenor.com" in message.content or "giphy.com" in message.content) and randint(1,25) == 1:
-        await message.reply(f"Nice gif you got there, mind if I steal it? Okay, cool. Thanks.")
+    if (
+        ".gif" in message.content
+        or ".mp4" in message.content
+        or "tenor.com" in message.content
+        or "giphy.com" in message.content
+    ) and randint(1, 25) == 1:
+        await message.reply(
+            f"Nice gif you got there, mind if I steal it? Okay, cool. Thanks."
+        )
         bot.stolen_gif = message.content
         await add_badge(bot, message, "victim")
         with open("stolengif.txt", "w+") as stolen:
@@ -123,11 +130,12 @@ async def on_message(message):
         for x in range(3):
             await message.channel.send(bot.stolen_gif)
 
-   
-
     if str(message.author) == ".sawyadalawya":
         await message.add_reaction("🫃")
-    if str(message.author) == "awenshock" and randint(1,20) == 1:
-        await message.reply("https://tenor.com/view/sheppy-shisha-shisha-sheppy-husky-maid-gif-21097707")
-        
+    if str(message.author) == "awenshock" and randint(1, 20) == 1:
+        await message.reply(
+            "https://tenor.com/view/sheppy-shisha-shisha-sheppy-husky-maid-gif-21097707"
+        )
+
+
 bot.run(api_key)

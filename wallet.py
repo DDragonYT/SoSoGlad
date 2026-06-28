@@ -5,6 +5,7 @@ from random import randint
 from embed import *
 from badge import calc_inv
 
+
 WALLET_STATS = {
     "coins":"Coins 🪙",
     "gems":"Gems 💎",
@@ -12,6 +13,17 @@ WALLET_STATS = {
     "badgeinvvalue":"Badges Value",
     "net-worth": "Net Worth",
     
+}
+
+ITEM_ICONS = {
+    "lolly":"🍭",
+    "minion":"😈",
+    "pet":"🐕",
+    "booster":"🔋",
+    "crate":"🎁",
+    "equipment":"🗡️",
+    "trinket":"📿",
+    "currency":"💰"
 }
 
 def wallet_add(userdata, amount, currency="coins"):
@@ -85,3 +97,48 @@ async def wallet(self, message):
             await wallet_stats(self, message, 1)
     else:
         await wallet_stats(self, message, 1)
+
+def add_to_inv(user,userdata,item):
+    if not "inventory" in userdata.keys():
+        userdata["inventory"] = []
+    userdata["inventory"].append(item)
+    set_userdata(user, userdata)
+
+def get_itemdata(itemname):
+    with open("items.json","rb") as itemjson:
+        if itemname:
+            return json.load(itemjson)[itemname]
+        else:
+            return json.load(itemjson)
+
+async def show_inventory(self, message, target=2):
+
+    command = str(message.content).split(" ")
+    if len(command) > target:
+        target = command[len(command)-1]
+        if "<" in target:
+            user_id = int(target.strip("<>@"))
+            target = self.get_user(user_id)
+    else:
+        target = message.author
+    userdata = get_userdata(target)
+
+
+    if "inventory" in userdata.keys():
+        userinv = userdata["inventory"]
+        embed = discord.Embed(title=f"{target}'s Inventory", colour=discord.Colour.orange())
+        output = ""
+        for item in userinv:
+            itemdata = get_itemdata(item)
+            # embed.add_field(name=item, value=userdata[key])
+            output += f"""- [{ITEM_ICONS[itemdata["type"]]}] {itemdata["name"]}\n"""
+        embed.description = output
+        await message.reply(embed = embed)
+            
+ 
+
+    else:
+        await message.reply(embed = gen_error("This player does not have an inventory!"))
+
+async def attempt_open_crate(self, message):
+    

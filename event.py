@@ -127,7 +127,8 @@ async def help_command(self, message):
 - !use [item ID] - Uses an item if usable
 - !pets [user] - Displays yours or target users pet collection
 - !pinfo [pet ID] - Displays information about target pet
-- !gather [resource type] Gathers target resource type""")
+- !gather [resource type] Gathers target resource type
+- !gamble [bet] Gambles chosen amount of coins. Default is 10""")
     await message.reply(embed=embed)
 
 async def tell_odds(self, message):

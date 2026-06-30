@@ -11,6 +11,12 @@
     },
     "flip_25": {
       "lvl": 2
+    },
+    "even": {
+      "lvl": 2
+    },
+    "jackpot": {
+      "lvl": 1
     }
   },
   "legacy_badges": {
@@ -24,10 +30,10 @@
       "lvl": 1
     }
   },
-  "coins": 49781,
+  "coins": 29,
   "gems": 12,
   "last_daily": "2026-06-30",
-  "badgeinvvalue": 97104,
+  "badgeinvvalue": 97152,
   "inventory": {
     "pet_crate": {
       "quantity": 9

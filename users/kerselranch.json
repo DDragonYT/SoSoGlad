@@ -38,12 +38,18 @@
     },
     "victim": {
       "lvl": 2
+    },
+    "even": {
+      "lvl": 2
+    },
+    "jackpot": {
+      "lvl": 1
     }
   },
-  "coins": 149052,
+  "coins": 39887,
   "gems": 12,
   "last_daily": "2026-06-30",
-  "badgeinvvalue": 54080,
+  "badgeinvvalue": 54128,
   "inventory": {
     "pet_crate": {
       "quantity": 0

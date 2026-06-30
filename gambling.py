@@ -87,25 +87,29 @@ async def gamble(self, message):
                 colour=discord.Colour.yellow(),
             )
             if multiplier > 2:
+                await add_badge(self, message, f"jackpot")
                 embed = discord.Embed(
                 title=f"You hit the Jackpot! 🎰 You get {result} coins back!",
                 colour=discord.Colour.yellow(),
             )
-                await add_badge(self, message, f"jackpot")
+
             if result > bet_amt:   
-                embed.description +=f" You profited {result - bet_amt} coins!"
-                await message.reply(embed = embed)
+                embed.description =f" You profited {result - bet_amt} coins!"
             elif bet_amt > result:
                 embed.colour = discord.Colour.red()
-                embed.description +=f" You lost {bet_amt - result} coins."
+                embed.description =f" You lost {bet_amt - result} coins."
             else:
-                embed.description +=f" You profit nothing and lose nothing. Impressive"
-                await add_badge(self, message, f"even")
+                embed.description =f" You profit nothing and lose nothing. Impressive"
+                if bet_amt > 9:
+                    await add_badge(self, message, f"even")
         else:
             embed_too_poor = discord.Embed(
                     title=f"You can't afford that bet.", colour=discord.Colour.red()
                 )
             await message.reply(embed = embed_too_poor)
+            return
+        await message.reply(embed = embed)
+
 
     else:
         embed_bet_more_than_zero = discord.Embed(

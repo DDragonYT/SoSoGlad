@@ -2,16 +2,15 @@ import discord
 from discord import app_commands
 import json
 from event import *
-from wallet import *
+from economy import *
 from badge import player_badges, add_badge, Badge, badge_info, calc_badges
 from random import randint
-from shop import *
 import time
 
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]
 ODDS_REFERENCES = datajson["odds_references"]
-COMMANDS = {
+COMMANDS = { # Defines what to enter to run a command
     "!odds": tell_odds,
     "!stolengif": stolengif,
     "so so coinflip": coinflip,
@@ -29,8 +28,7 @@ COMMANDS = {
     "!inv": show_inventory,
     "!inventory":show_inventory,
     "!buy": attempt_purchase,
-    "!open":attempt_open_crate,
-
+    "!use":attempt_use_item
 }
 
 message_counts = {}
@@ -62,6 +60,7 @@ async def on_ready():
 
 
 async def add_msgcount(user):
+    """Ups the message count dictionary of the user who sent a message"""
     global message_counts
     if user in message_counts:
         message_counts[user] += 1
@@ -74,6 +73,7 @@ async def add_msgcount(user):
 
 @bot.event
 async def on_message(message):
+    """Triggers every time a message is sent"""
     global last_price_update
     print(f"Message from {message.author}: {message.content}")
     await add_msgcount(message.author)

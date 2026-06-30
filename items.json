@@ -3,127 +3,159 @@
         "name":"Dog",
         "type":"pet",
         "icon":"🐶",
-        "rarity":"common"
+        "rarity":"common",
+        "image":"https://em-content.zobj.net/source/serenityos/459/dog_1f415.png"
     },
     "cat":{
         "name":"Cat",
         "type":"pet",
         "icon":"😺",
-        "rarity":"common"
+        "rarity":"common",
+        "image":"https://em-content.zobj.net/source/serenityos/459/cat_1f408.png"
+        
+    },
+    "pig":{
+        "name":"Pig",
+        "type":"pet",
+        "icon":"🐖",
+        "rarity":"common",
+        "image":"https://em-content.zobj.net/source/serenityos/459/pig_1f416.png"
     },
     "mouse":{
         "name":"Mouse",
         "type":"pet",
         "icon":"🐭",
-        "rarity":"common"
+        "rarity":"common",
+        "image":"https://em-content.zobj.net/source/serenityos/459/mouse_1f401.png"
     },
     "fish":{
         "name":"Fish",
         "type":"pet",
         "icon":"🐟",
-        "rarity":"common"
+        "rarity":"common",
+        "image":"https://em-content.zobj.net/source/serenityos/459/fish_1f41f.png"
     },
     "bird":{
         "name":"Bird",
         "type":"pet",
         "icon":"🕊️",
-        "rarity":"common"
+        "rarity":"common",
+        "image":"https://em-content.zobj.net/source/serenityos/459/bird_1f426.png"
     },
     "monkey":{
         "name":"Monkey",
         "type":"pet",
         "icon":"🐵",
-        "rarity":"common"
+        "rarity":"common",
+        "image":"https://em-content.zobj.net/source/serenityos/459/monkey_1f412.png"
     },
     "gorilla":{
         "name":"Gorilla",
         "type":"pet",
         "icon":"🦍",
-        "rarity":"rare"
+        "rarity":"rare",
+        "image":"https://em-content.zobj.net/source/serenityos/459/gorilla_1f98d.png"
     },
     "tiger":{
         "name":"Tiger",
         "type":"pet",
         "icon":"🐯",
-        "rarity":"rare"
+        "rarity":"rare",
+        "image":"https://em-content.zobj.net/source/serenityos/459/tiger_1f405.png"
     },
     "horse":{
         "name":"Horse",
         "type":"pet",
         "icon":"🐎",
-        "rarity":"rare"
+        "rarity":"rare",
+        "image":"https://em-content.zobj.net/source/serenityos/459/horse_1f40e.png"
     },
     "orangutan":{
         "name":"Orangutan",
         "type":"pet",
         "icon":"🦧",
-        "rarity":"epic"
+        "rarity":"epic",
+        "image":"https://em-content.zobj.net/source/serenityos/459/orangutan_1f9a7.png"
     },
     "lion":{
         "name":"Lion",
         "type":"pet",
         "icon":"🦁",
-        "rarity":"epic"
+        "rarity":"epic",
+        "image":"https://em-content.zobj.net/source/serenityos/459/lion_1f981.png"
     },
     "whale":{
         "name":"Whale",
         "type":"pet",
         "icon":"🐋",
-        "rarity":"epic"
+        "rarity":"epic",
+        "image":"https://em-content.zobj.net/source/serenityos/459/whale_1f40b.png"
     },
     "shark":{
         "name":"Shark",
         "type":"pet",
         "icon":"🦈",
-        "rarity":"legendary"
+        "rarity":"legendary",
+        "image":"https://em-content.zobj.net/source/serenityos/459/shark_1f988.png"
     },
     "zebra":{
         "name":"Zebra",
         "type":"pet",
         "icon":"🦓",
-        "rarity":"legendary"
+        "rarity":"legendary",
+        "image":"https://em-content.zobj.net/source/serenityos/459/zebra_1f993.png"
     },
     "moose":{
         "name":"Moose",
         "type":"pet",
         "icon":"🫎",
-        "rarity":"legendary"
+        "rarity":"legendary",
+        "image":"https://em-content.zobj.net/source/serenityos/459/moose_1face.png"
     },
     "phoenix":{
         "name":"Phoenix",
         "type":"pet",
         "icon":"🐦‍🔥",
-        "rarity":"mythic"
+        "rarity":"mythic",
+        "image":"https://em-content.zobj.net/source/serenityos/459/phoenix-bird_1f426-200d-1f525.png"
     },
     "unicorn":{
         "name":"Unicorn",
         "type":"pet",
         "icon":"🦄",
-        "rarity":"godly"
+        "rarity":"godly",
+        "image":"https://em-content.zobj.net/source/serenityos/459/unicorn_1f984.png"
     },
     "t-rex":{
         "name":"T-Rex",
         "type":"pet",
         "icon":"🦖",
-        "rarity":"mythic"
+        "rarity":"mythic",
+        "image":"https://em-content.zobj.net/source/serenityos/459/t-rex_1f996.png"
     },
     "dragon":{
         "name":"Dragon",
         "type":"pet",
         "icon":"🐉",
-        "rarity":"mythic"
+        "rarity":"mythic",
+        "image":"https://em-content.zobj.net/source/serenityos/459/dragon_1f409.png"
     },
-
-    
-
-
+    "rock":{
+        "name":"Rock",
+        "type":"pet",
+        "icon":"🪨",
+        "rarity":"common",
+        "image":"https://em-content.zobj.net/source/serenityos/459/rock_1faa8.png"
+    },
+    "crystal":{
+        "name":"Gem"
+    },
 
     "57_leaf_clover":{
         "name":"57 Leaf Clover",
         "type":"booster",
         "rarity":"rare"
     },
-
     "gamma_gummies":{
         "name":"Gamma Gummies",
         "type":"booster",
@@ -141,12 +173,28 @@
         "type":"booster",
         "rarity":"legendary"
     },
-
-
-
-
-
-    "":{
-
+    "luck_booster":{
+        "name":"Luck Booster",
+        "type":"booster",
+        "rarity":"common"
+    },
+    "pet_crate":{
+        "name":"Pet Crate",
+        "type":"crate",
+        "rarity":"common"
+    },
+    "20_coins":{
+        "name":"20 Coins",
+        "type":"currency",
+        "rarity":"common",
+        "coin_amt":20,
+        "gem_amt":0
+    },
+    "200_coins":{
+        "name":"200 Coins",
+        "type":"currency",
+        "rarity":"common",
+        "coin_amt":200,
+        "gem_amt":0
     }
 }

@@ -206,6 +206,7 @@ BADGE_DATA = {
 }
 
 def badge_search(name):
+    """I dunno"""
     if name in BADGE_DATA.keys():
         return name
     else:
@@ -216,6 +217,7 @@ def badge_search(name):
     return
 
 def badge_details(ibadge, badge):
+    """Generates an embed containing all data of the inputted badge ID"""
     embed = discord.Embed(
                 title=f"[{ibadge.image}] {ibadge.title}",
                 description=ibadge.description,
@@ -229,6 +231,7 @@ def badge_details(ibadge, badge):
     return embed
 
 async def badge_info(self, message):
+    """Checks if a badge exists, if it does generate an embed and send it"""
     command_params = message.content.split(" ")
     if len(command_params) > 1:
         badge = badge_search(command_params[1])
@@ -242,6 +245,7 @@ async def badge_info(self, message):
         await message.reply(embed = gen_error("Please enter a badge name."))
 
 async def player_badges(self, message):
+    """"""
     command = str(message.content).split(" ")
     if len(command) > 1:
         target = command[1]
@@ -294,19 +298,21 @@ async def add_badge(self, message, badge):
     set_userdata(user, userdata)
 
 async def announce_badge(self, user, badge, badge_type):
-    channel = self.get_channel(ANNOUNCEMENT_CHANNEL)
-    badge_info = BADGE_DATA[badge]
+    """Generate an embed and send it in the announcement channel"""
+    channel = self.get_channel(ANNOUNCEMENT_CHANNEL) # Locate the announcement channel from the ID
+    badge_info = BADGE_DATA[badge] # Load the badge data of the announced badge
     if badge_type == "deluxe_badges":
-        deluxe_badge = True
+        deluxe_badge = True # If the badge is deluxe, know that
     else:
         deluxe_badge = False
-    output = f"""**{user.mention} got a {"Deluxe "if deluxe_badge else ""}{badge_info.title}!{" Ain't you a lucky boy!" if deluxe_badge else ""}**"""
-    ibadge:Badge = BADGE_DATA[badge]
-    embed = badge_details(ibadge, badge)
-    await channel.send(output,embed=embed)
+    output = f"""**{user.mention} got a {"Deluxe "if deluxe_badge else ""}{badge_info.title}!{" Ain't you a lucky boy!" if deluxe_badge else ""}**""" # Generate the announcement
+    ibadge:Badge = BADGE_DATA[badge] # Get badge data
+    embed = badge_details(ibadge, badge) # Generate the badge details
+    await channel.send(output,embed=embed) # Send the emebd
 
 
 def calc_badges():
+    """Calculates the value of a badge based on the amount and the base price"""
     global BADGE_VALUES
     directory = os.fsencode("users")
     badge_totals = {}
@@ -348,6 +354,7 @@ def calc_badges():
             ) + 1
 
 def sell_badge(user, badgename, deluxe = False, qty=1):
+    """If user has the item, sell it based on half of it's current value"""
     if deluxe:
         badge_type = "deluxe_badges"
     else:

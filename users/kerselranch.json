@@ -40,8 +40,13 @@
       "lvl": 2
     }
   },
-  "coins": 83888,
-  "gems": 5,
-  "last_daily": "2026-02-02",
-  "badgeinvvalue": 54235
+  "coins": 83988,
+  "gems": 16,
+  "last_daily": "2026-06-30",
+  "badgeinvvalue": 54699,
+  "inventory": {
+    "pet_crate": {
+      "quantity": 1
+    }
+  }
 }

@@ -2,12 +2,12 @@ from random import randint
 
 CRATES = {
     "pet_crate": {
-        "uncommon": {
-            "chance": 80,
+        "common": {
+            "chance": 72,
             "options": ["dog", "cat", "fish", "bird", "monkey", "mouse", "pig"],
         },
         "rare": {
-            "chance": 16,
+            "chance": 21,
             "options": [
                 "gorilla",
                 "tiger",
@@ -15,7 +15,7 @@ CRATES = {
             ],
         },
         "epic": {
-            "chance": 3,
+            "chance": 5,
             "options": [
                 "orangutan",
                 "lion",
@@ -28,38 +28,34 @@ CRATES = {
     }
 }
 
-luck_multiplier = 2
+
+def apply_luck_mult(crate, luck_mult):
+    if luck_mult != 0:
+        total_chance = 0
+        for rarity in crate.keys():
+            if rarity != "common":
+                crate[rarity]["chance"] = crate[rarity]["chance"] * luck_mult
+                total_chance += crate[rarity]["chance"]
+        crate["common"]["chance"] = 100 - total_chance
+        return crate
+    else:
+        return crate
 
 
-def apply_luck_mult(crate):
-    total_chance = 0
-    for rarity in crate.keys():
-        if rarity != "uncommon":
-            crate[rarity]["chance"] = crate[rarity]["chance"] * 2
-            total_chance += crate[rarity]["chance"]
-    crate["uncommon"]["chance"] = 100 - total_chance
-    return crate
-
-
-def open_crate(crate):
-    crate = CRATES[crate]
-    if luck_multiplier != 0:
-        mod_crate = apply_luck_mult(crate)
-
-    roll = randint(1, 10000) / 100
+def open_crate(crate, luck_multiplier = 1):
+    crate = CRATES[crate].copy()
+    mod_crate = apply_luck_mult(crate, luck_multiplier)
+    roll = randint(1, 1000000) / 10000
     totalraritychance = 0
 
     print(f"{roll=}")
     for rarity in mod_crate.keys():
         craterarity = mod_crate[rarity]
         totalraritychance += craterarity["chance"]
-
-
         if roll < totalraritychance:
             options = crate[rarity]["options"]
             rolled_item = options[randint(0,len(options)-1)]
-            print(rolled_item)
-            break
+            return (rolled_item, rarity)
 
-
-open_crate("pet_crate")
+result, rarity = open_crate("pet_crate")
+print(result)

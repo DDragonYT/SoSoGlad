@@ -31,7 +31,7 @@ rarity_values = {
 
 }
 
-BADGE_TYPES = ["badges", "deluxe_badges", "legacy_badges"]
+BADGE_TYPES = ["badges", "deluxe_badges"]
 
 class Badge():
     def __init__(self, title, description, image, rarity, max_level = 30, sellable = True):

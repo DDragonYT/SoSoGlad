@@ -1,5 +1,8 @@
 {
   "badges": {
+    "jasper": {
+      "lvl": 1
+    },
     "hacker": {
       "lvl": 1
     },
@@ -7,7 +10,7 @@
       "lvl": 1
     },
     "flip_25": {
-      "lvl": 1
+      "lvl": 2
     }
   },
   "legacy_badges": {
@@ -21,7 +24,7 @@
       "lvl": 1
     }
   },
-  "coins": 42566,
+  "coins": 38639,
   "gems": 68993,
   "last_daily": "2026-06-30",
   "badgeinvvalue": 49027,
@@ -33,10 +36,10 @@
       "quantity": 1
     },
     "stone": {
-      "quantity": 2
+      "quantity": 4
     },
     "wood": {
-      "quantity": 2
+      "quantity": 4
     }
   },
   "pets": [
@@ -148,6 +151,11 @@
     {
       "id": "moose",
       "name": "Moose",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
       "level": 1
     }
   ]

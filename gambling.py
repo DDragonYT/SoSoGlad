@@ -65,7 +65,7 @@ async def gamble(self, message):
         bet_amt = int(command_params[1])
     if bet_amt > 0:
         if userdata["coins"] > bet_amt:   
-            multiplier = (randint(0, 200)) / 100
+            multiplier = (randint(0, 20000000000000000000000000000000000)) / 10000000000000000000000000000000000
             result = round(bet_amt * multiplier)
             embed = discord.Embed(
                 title=f"You gamble {bet_amt} coins...",

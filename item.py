@@ -1,6 +1,7 @@
 from json import load
 from embed import gen_error
 from userdata import get_userdata
+import discord
 
 ITEM_ICONS = {  # Used to define what icon an item type should have
     "lolly": "🍭",
@@ -14,6 +15,15 @@ ITEM_ICONS = {  # Used to define what icon an item type should have
     "resource":"🪵"
 }
 
+def item_details(itemid):
+    embed = discord.Embed(colour=discord.Colour.orange())
+    itemdata = get_itemdata(itemid)
+    embed.add_field(name="Item Name", value=itemdata["name"])
+    embed.add_field(name="Rarity", value=itemdata["rarity"].capitalize())
+    embed.add_field(name="Type", value=itemdata["type"].capitalize())
+    if "image" in itemdata.keys():
+        embed.set_thumbnail(url=itemdata["image"])
+    return embed
 
 def get_itemdata(itemname=None):
     with open("items.json", "rb") as itemjson:

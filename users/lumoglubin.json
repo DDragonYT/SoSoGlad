@@ -13,6 +13,9 @@
     },
     "rock": {
       "quantity": 1
+    },
+    "wood": {
+      "quantity": 1
     }
   },
   "pets": [

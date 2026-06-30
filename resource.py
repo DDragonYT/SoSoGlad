@@ -11,29 +11,26 @@ action_using = {
 
 async def gather(self, message):
     command_params = message.content.split(" ")
-    if action_using[message.author.name]:
-        message.reply(embed = gen_error("😡 You're Already Mining! 😡"))
-        return
+    if message.author.name in action_using.keys():
+        if action_using[message.author.name]:
+            await message.reply(embed = gen_error("😡 You're Already Busy! 😡"))
+            return
     if command_params[1] == "rock":
         embed = discord.Embed(title="🪨 Mining Rock... 🪨")
         await message.reply(embed = embed)
         action_using[message.author.name] = True
         await asyncio.sleep(10)
         action_using[message.author.name] = False
-        embed = discord.Embed(title="🪨 You Mined a Rock! 🪨")
+        embed.title="🪨 You Mined a Rock! 🪨"
         await message.reply(embed = embed)
         add_to_resource(message.author, "stone")
-
-    if action_using[message.author.name]:
-        message.reply(embed = gen_error("😡 You're Already Chopping! 😡"))
-        return  
-    if command_params[1] == "wood":
-        embed = discord.Embed(color = discord.Color.brown(), title="🪵 Chopping Wood... 🪵")
+    elif command_params[1] == "wood":
+        embed = discord.Embed(color = discord.Colour.dark_orange(), title="🪵 Chopping Wood... 🪵")
         await message.reply(embed = embed)
         action_using[message.author.name] = True
         await asyncio.sleep(10)
         action_using[message.author.name] = False
-        embed = discord.Embed(title="🪵 You Chopped some Wood! 🪵")
+        embed.title="🪵 You Chopped some Wood! 🪵"
         await message.reply(embed = embed)
         add_to_resource(message.author, "wood")
 

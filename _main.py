@@ -4,6 +4,7 @@ import json
 from event import *
 from economy import *
 from shop import *
+from pet import show_pets
 from badge import player_badges, add_badge, Badge, badge_info, calc_badges
 from random import randint
 import time
@@ -30,6 +31,7 @@ COMMANDS = {  # Defines what to enter to run a command
     "!inventory": show_inventory,
     "!buy": attempt_purchase,
     "!use": attempt_use_item,
+    "!pets": show_pets,
 }
 
 message_counts = {}

@@ -1,6 +1,7 @@
 from random import randint
 from item import get_itemdata
 import discord
+from pet import add_pet
 
 CRATES = {
     "pet_crate": {
@@ -27,7 +28,8 @@ CRATES = {
         "legendary": {"chance": 0.9, "options": ["shark", "moose", "zebra"]},
         "mythic": {"chance": 0.09, "options": ["pheonix", "dragon", "t-rex"]},
         "godly": {"chance": 0.01, "options": ["unicorn"]},
-    }
+    },
+
 }
 
 
@@ -44,7 +46,7 @@ def apply_luck_mult(crate, luck_mult):
         return crate
 
 
-def open_crate(crate, luck_multiplier=1):
+def get_crate_result(crate, luck_multiplier=1):
     crate = CRATES[crate].copy()
     mod_crate = apply_luck_mult(crate, luck_multiplier)
     roll = randint(1, 1000000) / 10000
@@ -60,9 +62,8 @@ def open_crate(crate, luck_multiplier=1):
             return (rolled_item, rarity)
 
 
-result, rarity = open_crate("pet_crate")
+result, rarity = get_crate_result("pet_crate")
 print(result)
-
 
 async def open_crate(self, message, item):
     embed = discord.Embed(
@@ -70,20 +71,21 @@ async def open_crate(self, message, item):
         colour=discord.Colour.orange(),
     )
     await message.reply(embed=embed)
-    acquired_item, item_rarity = open_crate(item)
-    if item_rarity != "common":
-        embed = discord.Embed(
-            title=f"Woah! It's a {item_rarity}!", colour=discord.Colour.orange()
-        )
-        await message.channel.send(embed=embed)
+    acquired_item, item_rarity = get_crate_result(item)
     embed = discord.Embed(title=f"Crate Result", colour=discord.Colour.orange())
     itemdata = get_itemdata(acquired_item)
     itemname = itemdata["name"]
-    embed.description = (
-        f"{message.author.mention} got {itemname} from a {get_itemdata(item)["name"]}!"
-    )
+    if itemdata["type"] == "pet":
+        add_pet(id = acquired_item, qty = 1, level = 1, user = message.author)
+
+    if item_rarity != "common":
+        embed.description = f"Woah! It's a {item_rarity}! "
+    else:
+        embed.description = ""
+    embed.description += f"{message.author.mention} got {itemname} from a {get_itemdata(item)["name"]}!"
     embed.add_field(name="Item Name", value=itemname)
     embed.add_field(name="Rarity", value=item_rarity.capitalize())
     embed.add_field(name="Type", value=itemdata["type"].capitalize())
-    embed.set_thumbnail(url=itemdata["image"])
+    if "image" in itemdata.keys():
+        embed.set_thumbnail(url=itemdata["image"])
     await message.channel.send(embed=embed)

@@ -46,7 +46,14 @@
   "badgeinvvalue": 54699,
   "inventory": {
     "pet_crate": {
-      "quantity": 1
+      "quantity": 0
     }
-  }
+  },
+  "pets": [
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    }
+  ]
 }

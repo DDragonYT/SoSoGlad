@@ -21,13 +21,23 @@
       "lvl": 1
     }
   },
-  "coins": 69799,
+  "coins": 67599,
   "gems": 68992,
   "last_daily": "2026-06-29",
   "badgeinvvalue": 49027,
   "inventory": {
     "pet_crate": {
-      "quantity": 2
+      "quantity": 3
+    },
+    "luck_booster": {
+      "quantity": 1
     }
-  }
+  },
+  "pets": [
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    }
+  ]
 }

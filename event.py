@@ -51,7 +51,8 @@ ROLL_EVENTS = [
                  "https://tenor.com/view/fnaf-chica-jumpscare-fnaf-4-gif-5372369601290908556",
                  "https://tenor.com/view/susto-fnaf-gif-21057159",
                  "https://tenor.com/view/toy-bonnie-jumpscare-gif-20614720",
-                 "https://tenor.com/view/plushtrap-bunny-nightmare-jumpscare-fnaf-gif-13184354444220064040"
+                 "https://tenor.com/view/plushtrap-bunny-nightmare-jumpscare-fnaf-gif-13184354444220064040",
+                 "Jasper Jumpscare! https://media.discordapp.net/attachments/857987097743196202/1521359779614687403/Snapchat-1587957522.jpg?ex=6a448c34&is=6a433ab4&hm=0e8defbca4535eae968ac78e6f2403d73fbc24575098a595138fa7771ca1f23c&=&format=webp&width=481&height=856"
                  ],
         badge="scare_survivor"),
 

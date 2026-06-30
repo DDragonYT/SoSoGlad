@@ -56,3 +56,5 @@ async def attempt_use_item(self, message):
         return
     if get_itemdata(item)["type"] == "crate":
         await open_crate(self, message, item)
+    else:
+        message.reply(embed = gen_error(""))

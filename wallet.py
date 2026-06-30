@@ -3,6 +3,7 @@ from userdata import *
 from badge import calc_inv
 from random import randint
 from embed import gen_error
+from datetime import date
 
 WALLET_STATS = {  # What should we call these stats?
     "coins": "Coins 🪙",
@@ -87,7 +88,6 @@ def wallet_add(userdata, amount, currency="coins"):
 
 
 WALLET_CMDS = {"daily": wallet_daily, "view": wallet_stats}
-
 
 async def wallet(self, message):
     command_params = message.content.split(" ")

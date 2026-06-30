@@ -4,9 +4,9 @@
       "lvl": 1
     }
   },
-  "coins": 0,
-  "gems": 10,
-  "last_daily": "2026-06-29",
+  "coins": 71,
+  "gems": 15,
+  "last_daily": "2026-06-30",
   "inventory": {
     "pet_crate": {
       "quantity": 0
@@ -24,5 +24,6 @@
       "name": "Bird",
       "level": 1
     }
-  ]
+  ],
+  "badgeinvvalue": 10
 }

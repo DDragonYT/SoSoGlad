@@ -117,13 +117,16 @@ async def gift(self, message, target=2):
             target = self.get_user(user_id)
     gift_amt = int(command[2])
     userdata = get_userdata(message.author)
-    if userdata["coins"] >= gift_amt:
-        userdata["coins"] -= gift_amt
-        set_userdata(message.author, userdata)
-        userdata = get_userdata(target)
-        userdata["coins"] += gift_amt
-        set_userdata(target, userdata)
-        embed = discord.Embed(title="Successful Gift",description=f"{message.author.mention} has gifted {target.mention} {gift_amt} coins!", colour=discord.Colour.green())
-        await message.reply(embed = embed)
-    else:
-        await message.reply(embed=gen_error("You cannot afford this gift."))
+    if gift_amt > 0:
+        if userdata["coins"] >= gift_amt:
+            userdata["coins"] -= gift_amt
+            set_userdata(message.author, userdata)
+            userdata = get_userdata(target)
+            userdata["coins"] += gift_amt
+            set_userdata(target, userdata)
+            embed = discord.Embed(title="Successful Gift",description=f"{message.author.mention} has gifted {target.mention} {gift_amt} coins!", colour=discord.Colour.green())
+            await message.reply(embed = embed)
+        else:
+            await message.reply(embed=gen_error("You cannot afford this gift."))
+    else: 
+        await message.reply(embed=gen_error("You cant gift nothing."))

@@ -208,7 +208,19 @@ BADGE_DATA = {
         description="You've been Jaspered",
         image="👨",
         rarity=BadgeRarity.RARE   
-        )
+        ),
+    "jackpot" : Badge(
+        title ="Jackpot Hitter",
+        description ="You're very lucky",
+        image ="🎰",
+        rarity=BadgeRarity.UNCOMMON
+        ),
+    "even" : Badge(
+        title = "Even Stevens",
+        description= "You gambled and made net zero, impressive",
+        image = "⚖️",
+        rarity =BadgeRarity.COMMON
+    )
 }
 
 def badge_search(name):

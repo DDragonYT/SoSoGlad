@@ -104,14 +104,18 @@ async def give_stuff(self, message):
 
 async def help_command(self, message):
     embed = discord.Embed(title="SoSoGlad Commands", description="""
-- !daily - claims your daily login reward
-- !wallet [user] - shows yours or target users wallet stats
-- !roll [6/10/20/100/1000] - rolls a random number from 1 to the target
-- !coinflip - returns heads or tails
-- !badges [user] - shows yours or target users badge collection
-- !stolengif - sends the last stolen gif
-- !binfo [badgename/id] - Shows info about the entered badge name
-- !sell [badge ID] [quantity] - Sells the a quantity of the entered badge for half of its value. Uses 4 gems per sale.""")
+-  !daily - Claims your daily login reward
+- !wallet [user] - Shows yours or target users wallet stats
+- !roll [6/10/20/100/1000] - Rolls a random number from 1 to the target
+- !coinflip - Does a coinflip
+- !badges [user] - Shows yours or target users badge collection
+- !stolengif - Shows current stolen GIF
+- !binfo [badgename/ID] - Shows infomation about target badge
+- !sell [badge ID] [quantity] - Sells the a quantity of the entered badge for half of its value. Uses 4 gems per sale.
+- !shop - Shows the shop
+- !inventory (!inv) [user] - Shows yours or target users inventory  
+- !buy [item ID] [quantity] - Purchases items from the shop
+- !use [item ID] - Uses an item if usable""")
     await message.reply(embed=embed)
 
 async def tell_odds(self, message):

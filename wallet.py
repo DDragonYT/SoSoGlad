@@ -109,7 +109,6 @@ def add_to_inv(user, userdata, item):
     set_userdata(user, userdata)
 
 async def gift(self, message, target=2):
-   
     command = str(message.content).split(" ")
     if len(command) > 1:
         target = command[1]
@@ -122,9 +121,9 @@ async def gift(self, message, target=2):
         userdata["coins"] -= gift_amt
         set_userdata(message.author, userdata)
         userdata = get_userdata(target)
-        userdata["coins"] += gift-gift_amt
+        userdata["coins"] += gift_amt
         set_userdata(target, userdata)
-        embed = discord.Embed(title=f"You have gifted {target} {gift_amt} coins!", colour=discord.Colour.green)
+        embed = discord.Embed(title="Successful Gift",description=f"{message.author.mention} has gifted {target.mention} {gift_amt} coins!", colour=discord.Colour.green())
+        await message.reply(embed = embed)
     else:
-        embed = discord.Embed(title=f"You cannot afford this gift.", colour=discord.Colour.red)
-        await message.reply(embed=embed)
+        await message.reply(embed=gen_error("You cannot afford this gift."))

@@ -38,6 +38,7 @@ COMMANDS = {  # Defines what to enter to run a command
     "!gather": gather,
     "!gamble" : gamble,
     "!pinfo":pet_info,
+    "!gift":gift
 }
 
 message_counts = {}

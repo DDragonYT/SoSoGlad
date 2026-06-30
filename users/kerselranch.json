@@ -40,13 +40,19 @@
       "lvl": 2
     }
   },
-  "coins": 91066,
+  "coins": 70644,
   "gems": 16,
   "last_daily": "2026-06-30",
   "badgeinvvalue": 54699,
   "inventory": {
     "pet_crate": {
       "quantity": 0
+    },
+    "stone": {
+      "quantity": 1
+    },
+    "wood": {
+      "quantity": 1
     }
   },
   "pets": [

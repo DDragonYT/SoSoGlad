@@ -1,5 +1,5 @@
 from random import randint
-from item import get_itemdata
+from item import get_itemdata, item_details
 import discord
 from pet import add_pet
 
@@ -72,7 +72,7 @@ async def open_crate(self, message, item):
     )
     await message.reply(embed=embed)
     acquired_item, item_rarity = get_crate_result(item)
-    embed = discord.Embed(title=f"Crate Result", colour=discord.Colour.orange())
+    embed = item_details(item)
     itemdata = get_itemdata(acquired_item)
     itemname = itemdata["name"]
     if itemdata["type"] == "pet":
@@ -83,9 +83,5 @@ async def open_crate(self, message, item):
     else:
         embed.description = ""
     embed.description += f"{message.author.mention} got {itemname} from a {get_itemdata(item)["name"]}!"
-    embed.add_field(name="Item Name", value=itemname)
-    embed.add_field(name="Rarity", value=item_rarity.capitalize())
-    embed.add_field(name="Type", value=itemdata["type"].capitalize())
-    if "image" in itemdata.keys():
-        embed.set_thumbnail(url=itemdata["image"])
+    
     await message.channel.send(embed=embed)

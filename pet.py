@@ -16,19 +16,19 @@ def pet_search(name):
                     return name
     return
 
-# async def badge_info(self, message):
-#     """Checks if a badge exists, if it does generate an embed and send it"""
-#     command_params = message.content.split(" ")
-#     if len(command_params) > 1:
-#         pet = pet_search(command_params[1])
-#         if pet:
-#             ibadge:Badge = BADGE_DATA[badge]
-#             embed = badge_details(ibadge, badge)
-#             await message.reply(embed=embed)
-#         else:
-#             await message.reply(embed = gen_error("That badge doesn't exist!"))
-#     else:
-#         await message.reply(embed = gen_error("Please enter a badge name."))
+async def pet_info(self, message):
+    """Checks if a badge exists, if it does generate an embed and send it"""
+    command_params = message.content.split(" ")
+    if len(command_params) > 1:
+        pet = pet_search(command_params[1])
+        if pet:
+            ipet = 
+            embed = item_details(ibadge, badge)
+            await message.reply(embed=embed)
+        else:
+            await message.reply(embed = gen_error("That badge doesn't exist!"))
+    else:
+        await message.reply(embed = gen_error("Please enter a badge name."))
 
 def add_pet(id, qty, user, level = 0):
     userdata = get_userdata(user)

@@ -1,5 +1,6 @@
 from badge import Badge, BADGE_DATA, add_badge, badge_search, sell_badge
 from random import randint
+from userdata import *
 import json
 import discord
 from embed import gen_error
@@ -45,4 +46,14 @@ async def dieroll(self, message):
     await message.reply(embed=embed)
     if roll == 1000:
         await add_badge(self, message, "high_roller")
-  
+
+async def gamble(self, message):
+    bet_amt = 10
+    userdata = get_userdata(message.author)
+    command_params = message.content.split(" ")
+    if len(command_params) > 1:
+        if userdata["coins"] > bet_amt:
+            bet_amt = int(command_params[1])
+    multiplier = (randint(-200,200))/100
+    result = bet_amt*multiplier
+    print (result)

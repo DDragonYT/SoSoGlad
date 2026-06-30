@@ -35,7 +35,8 @@ COMMANDS = {  # Defines what to enter to run a command
     "!buy": attempt_purchase,
     "!use": attempt_use_item,
     "!pets": show_pets,
-    "!gather": gather
+    "!gather": gather,
+    "!gamble" : gamble
 }
 
 message_counts = {}

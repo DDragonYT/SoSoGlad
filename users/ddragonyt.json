@@ -33,7 +33,10 @@
       "quantity": 1
     },
     "stone": {
-      "quantity": 1
+      "quantity": 2
+    },
+    "wood": {
+      "quantity": 2
     }
   },
   "pets": [

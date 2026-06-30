@@ -66,6 +66,9 @@ async def gamble(self, message):
     if bet_amt > 0:
         if userdata["coins"] > bet_amt:   
             multiplier = (randint(0, 2000000000000000000000000000000000000000000)) / 1000000000000000000000000000000000000000000
+            jackpot_roll = randint(0,10)
+            if jackpot_roll == 1000:
+                    multiplier += 3
             result = round(bet_amt * multiplier)
             embed = discord.Embed(
                 title=f"You gamble {bet_amt} coins...",
@@ -81,6 +84,11 @@ async def gamble(self, message):
             set_userdata(message.author, userdata)
             embed = discord.Embed(
                 title=f"You got {result} coins back!",
+                colour=discord.Colour.yellow(),
+            )
+            if jackpot_roll == 1000:
+                embed = discord.Embed(
+                title=f"You hit the Jackpot! 🎰 You get {result} coins back!",
                 colour=discord.Colour.yellow(),
             )
             await message.reply(embed = embed)

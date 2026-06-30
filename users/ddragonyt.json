@@ -24,13 +24,13 @@
       "lvl": 1
     }
   },
-  "coins": 100000,
+  "coins": 49781,
   "gems": 12,
   "last_daily": "2026-06-30",
   "badgeinvvalue": 97104,
   "inventory": {
     "pet_crate": {
-      "quantity": 10
+      "quantity": 9
     },
     "luck_booster": {
       "quantity": 1
@@ -39,7 +39,7 @@
       "quantity": 4
     },
     "wood": {
-      "quantity": 4
+      "quantity": 5
     }
   },
   "pets": [
@@ -176,6 +176,11 @@
     {
       "id": "moose",
       "name": "Moose",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
       "level": 1
     }
   ]

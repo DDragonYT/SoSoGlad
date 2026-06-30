@@ -53,18 +53,28 @@ async def gamble(self, message):
     userdata = get_userdata(message.author)
     command_params = message.content.split(" ")
     if len(command_params) > 1:
-        if userdata["coins"] > bet_amt:
-            bet_amt = int(command_params[1])
-    multiplier = (randint(0,200))/100
-    result = round(bet_amt*multiplier)
+        if bet_amt > 0:
+            if userdata["coins"] > bet_amt:
+                bet_amt = int(command_params[1])
+                multiplier = (randint(0,200))/100
+                result = round(bet_amt*multiplier)
 
-    await message.reply(f"You gamble {bet_amt} coins...")
-    userdata["coins"] -= bet_amt
-    set_userdata(message.author, userdata)
+                embed_bet_amt = discord.Embed(title=f"You gamble {bet_amt} coins...", colour=discord.Colour.yellow())
+                await message.reply(embed=embed_bet_amt)
+                userdata["coins"] -= bet_amt
+                set_userdata(message.author, userdata)
 
-    await sleep(3)
+                await sleep(3)
 
-    userdata["coins"] += result
-    set_userdata(message.author, userdata)
-    await message.reply(f"You got {result} coins back!")
+                userdata["coins"] += result
+                set_userdata(message.author, userdata)
+                embed_bet_result = discord.Embed(title=f"You got {result} coins back!", colour=discord.Colour.yellow())
+                await message.reply(embed_bet_result)
+            else:
+                embed_too_poor = discord.Embed(title=f"You can't afford that bet", colour=discord.Colour.red())
+                await message.reply(f"You can't afford that bet")
 
+        else:
+            embed_bet_more_than_zero = discord.Embed(title=f"You must bet more than 0 coins", colour=discord.Colour.red())
+            await message.reply(embed_bet_more_than_zero)
+            

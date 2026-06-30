@@ -28,7 +28,7 @@ async def gather(self, message):
         message.reply(embed = gen_error("😡 You're Already Chopping! 😡"))
         return  
     if command_params[1] == "wood":
-        embed = discord.Embed(title="🪵 Chopping Wood... 🪵")
+        embed = discord.Embed(color = discord.Color.brown(), title="🪵 Chopping Wood... 🪵")
         await message.reply(embed = embed)
         action_using[message.author] = True
         await asyncio.sleep(10)

@@ -40,7 +40,7 @@
       "lvl": 2
     }
   },
-  "coins": 83988,
+  "coins": 78688,
   "gems": 16,
   "last_daily": "2026-06-30",
   "badgeinvvalue": 54699,
@@ -53,6 +53,271 @@
     {
       "id": "mouse",
       "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "horse",
+      "name": "Horse",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "horse",
+      "name": "Horse",
+      "level": 1
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1
+    },
+    {
+      "id": "orangutan",
+      "name": "Orangutan",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "horse",
+      "name": "Horse",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1
+    },
+    {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "horse",
+      "name": "Horse",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "dog",
+      "name": "Dog",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1
+    },
+    {
+      "id": "dog",
+      "name": "Dog",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
       "level": 1
     }
   ]

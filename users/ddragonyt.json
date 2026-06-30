@@ -21,13 +21,13 @@
       "lvl": 1
     }
   },
-  "coins": 67599,
+  "coins": 65899,
   "gems": 68992,
   "last_daily": "2026-06-29",
   "badgeinvvalue": 49027,
   "inventory": {
     "pet_crate": {
-      "quantity": 3
+      "quantity": 0
     },
     "luck_booster": {
       "quantity": 1
@@ -37,6 +37,106 @@
     {
       "id": "pig",
       "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "dog",
+      "name": "Dog",
+      "level": 1
+    },
+    {
+      "id": "dog",
+      "name": "Dog",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "lion",
+      "name": "Lion",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "horse",
+      "name": "Horse",
       "level": 1
     }
   ]

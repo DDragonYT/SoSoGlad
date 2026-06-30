@@ -4,7 +4,19 @@
       "lvl": 1
     }
   },
-  "coins": 100,
+  "coins": 0,
   "gems": 10,
-  "last_daily": "2026-06-29"
+  "last_daily": "2026-06-29",
+  "inventory": {
+    "pet_crate": {
+      "quantity": 0
+    }
+  },
+  "pets": [
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    }
+  ]
 }

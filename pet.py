@@ -35,7 +35,7 @@ async def show_pets(self, message, target = 2):
         for petobj in userinv:
             pet = petobj["id"]
             itemdata = get_itemdata(pet)
-            output += f"""- [{itemdata["icon"]}] {itemdata["name"]} (Level {petobj["level"]})"""
+            output += f"""- [{itemdata["icon"]}] {itemdata["name"]} (Level {petobj["level"]})\n"""
         if len(output) == 0:
             await message.reply(embed=gen_error("This player does not have any pets!"))
             return

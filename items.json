@@ -200,12 +200,14 @@
     "stone":{
         "name":"Stone",
         "type":"resource",
-        "rarity":"common"
+        "rarity":"common",
+        "icon":"🪨"
     },
      "wood":{
         "name":"Wood",
         "type":"resource",
-        "rarity":"common"
+        "rarity":"common",
+        "icon":"🪵"
     },
      "string":{
         "name":"String",

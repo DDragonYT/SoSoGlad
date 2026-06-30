@@ -107,3 +107,24 @@ def add_to_inv(user, userdata, item):
         userdata["inventory"][item] = {"quantity": 0}
     userdata["inventory"][item]["quantity"] += 1
     set_userdata(user, userdata)
+
+async def gift(self, message, target=2):
+   
+    command = str(message.content).split(" ")
+    if len(command) > 1:
+        target = command[1]
+        if "<" in target:
+            user_id = int(target.strip("<>@"))
+            target = self.get_user(user_id)
+    gift_amt = int(command[2])
+    userdata = get_userdata(message.author)
+    if userdata["coins"] >= gift_amt:
+        userdata["coins"] -= gift_amt
+        set_userdata(message.author, userdata)
+        userdata = get_userdata(target)
+        userdata["coins"] += gift-gift_amt
+        set_userdata(target, userdata)
+        embed = discord.Embed(title=f"You have gifted {target} {gift_amt} coins!", colour=discord.Colour.green)
+    else:
+        embed = discord.Embed(title=f"You cannot afford this gift.", colour=discord.Colour.red)
+        await message.reply(embed=embed)

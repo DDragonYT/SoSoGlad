@@ -23,7 +23,10 @@ async def gather(self, message):
         embed = discord.Embed(title="🪨 You Mined a Rock! 🪨")
         await message.reply(embed = embed)
         add_to_resource(message.author, "stone")
-        
+
+    if action_using[message.author]:
+        message.reply(embed = gen_error("😡 You're Already Chopping! 😡"))
+        return  
     if command_params[1] == "wood":
         embed = discord.Embed(title="🪵 Chopping Wood... 🪵")
         await message.reply(embed = embed)

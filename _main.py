@@ -3,6 +3,7 @@ from discord import app_commands
 import json
 from event import *
 from economy import *
+from shop import *
 from badge import player_badges, add_badge, Badge, badge_info, calc_badges
 from random import randint
 import time
@@ -10,7 +11,7 @@ import time
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]
 ODDS_REFERENCES = datajson["odds_references"]
-COMMANDS = { # Defines what to enter to run a command
+COMMANDS = {  # Defines what to enter to run a command
     "!odds": tell_odds,
     "!stolengif": stolengif,
     "so so coinflip": coinflip,
@@ -26,9 +27,9 @@ COMMANDS = { # Defines what to enter to run a command
     "!give": give_stuff,
     "!shop": show_shop,
     "!inv": show_inventory,
-    "!inventory":show_inventory,
+    "!inventory": show_inventory,
     "!buy": attempt_purchase,
-    "!use":attempt_use_item
+    "!use": attempt_use_item,
 }
 
 message_counts = {}

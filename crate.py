@@ -1,4 +1,6 @@
 from random import randint
+from item import get_itemdata
+import discord
 
 CRATES = {
     "pet_crate": {
@@ -42,7 +44,7 @@ def apply_luck_mult(crate, luck_mult):
         return crate
 
 
-def open_crate(crate, luck_multiplier = 1):
+def open_crate(crate, luck_multiplier=1):
     crate = CRATES[crate].copy()
     mod_crate = apply_luck_mult(crate, luck_multiplier)
     roll = randint(1, 1000000) / 10000
@@ -54,8 +56,34 @@ def open_crate(crate, luck_multiplier = 1):
         totalraritychance += craterarity["chance"]
         if roll < totalraritychance:
             options = crate[rarity]["options"]
-            rolled_item = options[randint(0,len(options)-1)]
+            rolled_item = options[randint(0, len(options) - 1)]
             return (rolled_item, rarity)
+
 
 result, rarity = open_crate("pet_crate")
 print(result)
+
+
+async def open_crate(self, message, item):
+    embed = discord.Embed(
+        title=f"Opening a {get_itemdata(item)["name"]}...",
+        colour=discord.Colour.orange(),
+    )
+    await message.reply(embed=embed)
+    acquired_item, item_rarity = open_crate(item)
+    if item_rarity != "common":
+        embed = discord.Embed(
+            title=f"Woah! It's a {item_rarity}!", colour=discord.Colour.orange()
+        )
+        await message.channel.send(embed=embed)
+    embed = discord.Embed(title=f"Crate Result", colour=discord.Colour.orange())
+    itemdata = get_itemdata(acquired_item)
+    itemname = itemdata["name"]
+    embed.description = (
+        f"{message.author.mention} got {itemname} from a {get_itemdata(item)["name"]}!"
+    )
+    embed.add_field(name="Item Name", value=itemname)
+    embed.add_field(name="Rarity", value=item_rarity.capitalize())
+    embed.add_field(name="Type", value=itemdata["type"].capitalize())
+    embed.set_thumbnail(url=itemdata["image"])
+    await message.channel.send(embed=embed)

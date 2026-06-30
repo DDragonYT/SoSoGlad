@@ -7,7 +7,7 @@
       "lvl": 1
     },
     "thrill_seeker": {
-      "lvl": 50
+      "lvl": 1
     },
     "racially_motivated": {
       "lvl": 32
@@ -40,19 +40,19 @@
       "lvl": 2
     }
   },
-  "coins": 70644,
-  "gems": 16,
+  "coins": 52,
+  "gems": 12,
   "last_daily": "2026-06-30",
-  "badgeinvvalue": 54699,
+  "badgeinvvalue": 54177,
   "inventory": {
     "pet_crate": {
       "quantity": 0
     },
     "stone": {
-      "quantity": 1
+      "quantity": 2
     },
     "wood": {
-      "quantity": 1
+      "quantity": 2
     }
   },
   "pets": [

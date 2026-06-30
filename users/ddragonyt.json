@@ -24,13 +24,13 @@
       "lvl": 1
     }
   },
-  "coins": 38639,
+  "coins": 7414,
   "gems": 68993,
   "last_daily": "2026-06-30",
-  "badgeinvvalue": 49027,
+  "badgeinvvalue": 97104,
   "inventory": {
     "pet_crate": {
-      "quantity": 0
+      "quantity": 10
     },
     "luck_booster": {
       "quantity": 1
@@ -156,6 +156,26 @@
     {
       "id": "fish",
       "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
+    },
+    {
+      "id": "moose",
+      "name": "Moose",
       "level": 1
     }
   ]

@@ -22,13 +22,13 @@ async def pet_info(self, message):
     if len(command_params) > 1:
         pet = pet_search(command_params[1])
         if pet:
-            ipet = 
-            embed = item_details(ibadge, badge)
+            ipet = pet
+            embed = item_details(ipet)
             await message.reply(embed=embed)
         else:
-            await message.reply(embed = gen_error("That badge doesn't exist!"))
+            await message.reply(embed = gen_error("That pet doesn't exist!"))
     else:
-        await message.reply(embed = gen_error("Please enter a badge name."))
+        await message.reply(embed = gen_error("Please enter a pet name."))
 
 def add_pet(id, qty, user, level = 0):
     userdata = get_userdata(user)

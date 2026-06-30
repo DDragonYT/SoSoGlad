@@ -1,7 +1,6 @@
 import discord
 from discord import app_commands
 import json
-from pet import show_pets
 from random import randint
 import time
 
@@ -11,6 +10,7 @@ from shop import *
 from gambling import *
 from badge import *
 from resource import *
+from pet import *
 
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]
@@ -36,7 +36,8 @@ COMMANDS = {  # Defines what to enter to run a command
     "!use": attempt_use_item,
     "!pets": show_pets,
     "!gather": gather,
-    "!gamble" : gamble
+    "!gamble" : gamble,
+    "!pinfo":pet_info,
 }
 
 message_counts = {}

@@ -72,7 +72,9 @@ async def open_crate(self, message, item):
     )
     await message.reply(embed=embed)
     acquired_item, item_rarity = get_crate_result(item)
-    embed = item_details(item)
+
+    embed = item_details(itemid = item, title = "Crate Result")
+
     itemdata = get_itemdata(acquired_item)
     itemname = itemdata["name"]
     if itemdata["type"] == "pet":

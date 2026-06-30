@@ -8,7 +8,6 @@ from enum import Enum
 
 datajson = json.load(open("data.json","r"))
 ANNOUNCEMENT_CHANNEL = int(datajson["announcement_channel"])
-DIE_SIDES = ["6","10","20","100","1000"]
 
 
 class EventType(Enum):
@@ -132,45 +131,6 @@ async def tell_odds(self, message):
     embed = discord.Embed(title="Odds List", description="You don't want me to spoil this, do you?")
     await message.reply(embed=embed)  
     
-async def coinflip(self, message):
-    flip = randint(1,2)
-    if flip == self.flip_streak["num"]:
-        self.flip_streak["len"] += 1
-    else:
-        self.flip_streak["num"] = flip
-        self.flip_streak["len"] = 1
-    if self.flip_streak["len"] in [5,7,10,15,25]:
-        streak_text = f"\nThats a streak of {self.flip_streak["len"]}!"
-        await add_badge(self, message, f"flip_{self.flip_streak["len"]}")
-    else:
-        streak_text = ""
-    result = "heads" if flip == 1 else "tails"
-    embed = discord.Embed(title=f"🪙  It's {result}!  🪙{streak_text}", colour=discord.Colour.blue())
-    await message.reply(embed=embed)
-
-async def dieroll(self, message):
-    max_roll = 6
-    command_params = message.content.split(" ")
-    if len(command_params) > 1:
-        if command_params[1] in DIE_SIDES:
-            max_roll = int(command_params[1])
-    roll = randint(1,max_roll)  
-    self.roll_history[str(max_roll)].append(roll)
-    output = f"🎲  You rolled a {roll} on a D{max_roll}!  🎲"
-    print(self.roll_history[str(max_roll)])
-    if len(self.roll_history[str(max_roll)]) > 2:
-        if self.roll_history[str(max_roll)][0] == self.roll_history[str(max_roll)][1] == self.roll_history[str(max_roll)][2]:
-            await add_badge(self, message, f"consistent_{max_roll}")
-            output += ("\nThat's three in a row!")
-            add_badge(self, message, f"roll_{max_roll}")
-            self.roll_history[str(max_roll)] = []
-        else:
-            self.roll_history[str(max_roll)].pop(0)
-    embed = discord.Embed(title=output, colour=discord.Colour.blue())
-    await message.reply(embed=embed)
-    if roll == 1000:
-        await add_badge(self, message, "high_roller")
-
 async def roll_event(self, message):
     for ev in ROLL_EVENTS:
         if randint(1, ev.chance) == 1:

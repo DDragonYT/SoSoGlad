@@ -10,6 +10,9 @@
   "inventory": {
     "pet_crate": {
       "quantity": 0
+    },
+    "rock": {
+      "quantity": 1
     }
   },
   "pets": [

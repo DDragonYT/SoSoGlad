@@ -1,14 +1,16 @@
 import discord
 from discord import app_commands
 import json
-from event import *
-from economy import *
-from resource import *
-from shop import *
 from pet import show_pets
-from badge import player_badges, add_badge, Badge, badge_info, calc_badges
 from random import randint
 import time
+
+from event import *
+from economy import *
+from shop import *
+from gambling import *
+from badge import *
+from resource import *
 
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]

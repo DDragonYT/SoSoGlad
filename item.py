@@ -11,6 +11,7 @@ ITEM_ICONS = {  # Used to define what icon an item type should have
     "equipment": "🗡️",
     "trinket": "📿",
     "currency": "💰",
+    "resource":"🪵"
 }
 
 

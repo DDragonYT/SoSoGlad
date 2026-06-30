@@ -196,5 +196,20 @@
         "rarity":"common",
         "coin_amt":200,
         "gem_amt":0
+    },
+    "stone":{
+        "name":"Stone",
+        "type":"resource",
+        "rarity":"common"
+    },
+     "wood":{
+        "name":"Wood",
+        "type":"resource",
+        "rarity":"common"
+    },
+     "string":{
+        "name":"String",
+        "type":"resource",
+        "rarity":"common"
     }
 }

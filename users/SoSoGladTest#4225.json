@@ -1,22 +1,25 @@
 {
   "badges": {
     "racially_motivated": {
-      "lvl": 19
+      "lvl": 23
     },
     "scare_survivor": {
-      "lvl": 15
+      "lvl": 16
     },
     "maga": {
-      "lvl": 10
+      "lvl": 13
     },
     "thrill_seeker": {
-      "lvl": 28
+      "lvl": 35
     },
     "six_seven": {
-      "lvl": 1
+      "lvl": 3
     },
     "victim": {
-      "lvl": 1
+      "lvl": 2
+    },
+    "jasper": {
+      "lvl": 3
     }
   }
 }

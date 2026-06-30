@@ -22,8 +22,8 @@ def get_itemdata(itemname=None):
         else:
             return load(itemjson)
 
-def item_details(itemid, show_type = True, title = ""):
-    embed = discord.Embed(title=title, colour=discord.Colour.orange())
+def item_details(itemid, show_type = True, title = "", description = ""):
+    embed = discord.Embed(title=title, colour=discord.Colour.orange(), description = description)
     itemdata = get_itemdata(itemid)
     embed.add_field(name="Item Name", value=itemdata["name"])
     embed.add_field(name="Rarity", value=itemdata["rarity"].capitalize())

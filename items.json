@@ -147,9 +147,6 @@
         "rarity":"common",
         "image":"https://em-content.zobj.net/source/serenityos/459/rock_1faa8.png"
     },
-    "crystal":{
-        "name":"Gem"
-    },
 
     "57_leaf_clover":{
         "name":"57 Leaf Clover",
@@ -197,6 +194,7 @@
         "coin_amt":200,
         "gem_amt":0
     },
+    
     "stone":{
         "name":"Stone",
         "type":"resource",
@@ -212,6 +210,19 @@
      "string":{
         "name":"String",
         "type":"resource",
-        "rarity":"common"
+        "rarity":"common",
+        "icon":"🧵"
+    },
+    "flower":{
+        "name":"Flower",
+        "type":"resource",
+        "rarity":"common",
+        "icon":"🌻"
+    },
+    "fern":{
+        "name":"Fern",
+        "type":"resource",
+        "rarity":"common",
+        "icon":"🪴"
     }
 }

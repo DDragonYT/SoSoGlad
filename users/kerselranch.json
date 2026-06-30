@@ -43,13 +43,13 @@
       "lvl": 2
     },
     "jackpot": {
-      "lvl": 1
+      "lvl": 3
     }
   },
-  "coins": 39887,
+  "coins": 34842,
   "gems": 12,
   "last_daily": "2026-06-30",
-  "badgeinvvalue": 54128,
+  "badgeinvvalue": 54172,
   "inventory": {
     "pet_crate": {
       "quantity": 0
@@ -331,6 +331,62 @@
       "id": "bird",
       "name": "Bird",
       "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "whale",
+      "name": "Whale",
+      "level": 1
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1
     }
-  ]
+  ],
+  "resources": {
+    "flower": {
+      "quantity": 1
+    },
+    "wood": {
+      "quantity": 6
+    },
+    "stone": {
+      "quantity": 3
+    }
+  }
 }

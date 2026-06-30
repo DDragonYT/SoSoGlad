@@ -17,6 +17,7 @@ async def show_inventory(self, message, target=2):
             target = self.get_user(user_id)
     else:
         target = message.author
+        
     userdata = get_userdata(target)
     if "inventory" in userdata.keys():
         userinv = userdata["inventory"]

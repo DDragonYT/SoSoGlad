@@ -73,17 +73,18 @@ async def open_crate(self, message, item):
     await message.reply(embed=embed)
     acquired_item, item_rarity = get_crate_result(item)
 
-    embed = item_details(itemid = item, title = "Crate Result")
-
     itemdata = get_itemdata(acquired_item)
     itemname = itemdata["name"]
     if itemdata["type"] == "pet":
         add_pet(id = acquired_item, qty = 1, level = 1, user = message.author)
-
+    description = ""
     if item_rarity != "common":
-        embed.description = f"Woah! It's a {item_rarity}! "
+        description = f"Woah! It's a {item_rarity}! "
     else:
-        embed.description = ""
-    embed.description += f"{message.author.mention} got {itemname} from a {get_itemdata(item)["name"]}!"
+        description = ""
+    description += f"{message.author.mention} got {itemname} from a {get_itemdata(item)["name"]}!"
+    embed = item_details(itemid = acquired_item, title = "Crate Result", description = description)
+    message.reply(embed = embed)
+
     
     await message.channel.send(embed=embed)

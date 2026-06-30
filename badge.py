@@ -202,6 +202,12 @@ BADGE_DATA = {
         description="Okay, there's no way you got this badge.",
         image="🔥",
         rarity=BadgeRarity.UNREAL
+        ),
+    "jasper" : Badge(
+        title="Jasper Badge",
+        description="You've been Jaspered",
+        image="👨",
+        rarity=BadgeRarity.RARE   
         )
 }
 

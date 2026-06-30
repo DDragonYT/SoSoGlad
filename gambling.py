@@ -5,6 +5,7 @@ import json
 import discord
 from embed import gen_error
 from enum import Enum
+from asyncio import sleep
 
 DIE_SIDES = ["6","10","20","100","1000"]
 
@@ -54,6 +55,16 @@ async def gamble(self, message):
     if len(command_params) > 1:
         if userdata["coins"] > bet_amt:
             bet_amt = int(command_params[1])
-    multiplier = (randint(-200,200))/100
-    result = bet_amt*multiplier
-    print (result)
+    multiplier = (randint(0,200))/100
+    result = round(bet_amt*multiplier)
+
+    await message.reply(f"You gamble {bet_amt} coins...")
+    userdata["coins"] -= bet_amt
+    set_userdata(message.author, userdata)
+
+    await sleep(3)
+
+    userdata["coins"] += result
+    set_userdata(message.author, userdata)
+    await message.reply(f"You got {result} coins back!")
+

@@ -47,8 +47,10 @@ async def craft(self, message):
                             )
                         )
                         return
-                    
-            user_inv[target_item]["quantity"] += target_amount
+            if target_item in user_inv.keys():
+                user_inv[target_item]["quantity"] += target_amount
+            else:
+                user_inv[target_item] = {"quantity":target_amount}
             set_userdata(message.author, userdata)
             embed = discord.Embed(
                             title=f"You succesfully crafted {target_amount} {target_item}",

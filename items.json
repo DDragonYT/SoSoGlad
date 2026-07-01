@@ -180,49 +180,49 @@
         "name":"Pet Crate",
         "type":"crate",
         "rarity":"common",
-        "image":"PetCrate.png"
+        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839865128554656/PetCrate.png?ex=6a464b52&is=6a44f9d2&hm=4767c089545405d6cb91c66ad29d66702199ce47908cb40c1d3f1079285082af&"
     },
     "basic_crate":{
         "name":"Basic Crate",
         "type":"crate",
         "rarity":"common",
-        "image":"BasicCrate.png"
+        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839862276165632/BasicCrate.png?ex=6a464b51&is=6a44f9d1&hm=ce405bd66e0b76d3c523e6e635639015870ad5d4c0c8b38035df075cc09d0b68&"
     },
     "juicy_crate":{
         "name":"Juicy Crate",
         "type":"crate",
         "rarity":"uncommon",
-        "image":"JuicyCrate.png"
+        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839863408627792/JuicyCrate.png?ex=6a464b51&is=6a44f9d1&hm=16718398f77ed4592e37d9936f716b450d7405e5b51f561d56cb7232bd9e68cf&"
     },
     "succulent_crate":{
         "name":"Succulent Crate",
         "type":"crate",
         "rarity":"rare",
-        "image":"SucculentCrate.png"
+        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839865761628321/SucculentCrate.png?ex=6a464b52&is=6a44f9d2&hm=a56da89725fb50bec13f10da0f91e47d6ca2bcae0da367391837b2a9fd412e92&"
     },
     "luscious_crate":{
         "name":"Luscious Crate",
         "type":"crate",
         "rarity":"epic",
-        "image":"LusciousCrate.png"
+        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839863811408022/LusciousCrate.png?ex=6a464b51&is=6a44f9d1&hm=2a9e4b4e3553631e983876b4a02463a338b7b9f81f7fef09976ee88b94be4e79&"
     },
     "overstimulating_crate":{
         "name":"Overstimulating Crate",
         "type":"crate",
         "rarity":"legendary",
-        "image":"OverstimulatingCrate.png"
+        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839864700600441/OverstimulatingCrate.png?ex=6a464b52&is=6a44f9d2&hm=54bce93bb6ec08835b6bb4e75505e12084352d5179c2fe9b80b40e4d9fb4c5c5&"
     },
     "hyperactive_crate":{
         "name":"Hyperactive Crate",
         "type":"crate",
         "rarity":"unreal",
-        "image":"HyperactiveCrate.png"
+        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839862918021130/HyperactiveCrate.png?ex=6a464b51&is=6a44f9d1&hm=09c5f55a146f4341bbb7ffced327e0cf4b458b3ed60a9c3ec9c114bf2d96296c&"
     },
     "orgasm_crate":{
         "name":"Orgasm Crate",
         "type":"crate",
         "rarity":"godly",
-        "image":"OrgasmCrate.png"
+        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839864268460052/OrgasmCrate.png?ex=6a464b52&is=6a44f9d2&hm=9c655a7cf7a88d708e8b33beee45004376b6a1f99f08f8aee2be2721c52b2edb&"
     },
 
     "20_coins":{

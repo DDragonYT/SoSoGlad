@@ -49,7 +49,7 @@
       "lvl": 1
     }
   },
-  "coins": 21647,
+  "coins": 21647000000,
   "gems": 17,
   "last_daily": "2026-07-01",
   "badgeinvvalue": 54111,
@@ -62,6 +62,9 @@
     },
     "wood": {
       "quantity": 2
+    },
+    "basic_crate": {
+      "quantity": 0
     }
   },
   "pets": [
@@ -391,13 +394,13 @@
       "quantity": 0
     },
     "wood": {
-      "quantity": 10
+      "quantity": 12
     },
     "stone": {
       "quantity": 3
     },
     "fern": {
-      "quantity": 5
+      "quantity": 2
     }
   }
 }

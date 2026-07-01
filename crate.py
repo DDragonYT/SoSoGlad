@@ -3,6 +3,7 @@ from item import get_itemdata, item_details
 import discord
 from pet import add_pet
 
+# All crates besides basic and pet are currently unobtainable
 CRATES = {
     "pet_crate": {
         "common": {
@@ -30,6 +31,12 @@ CRATES = {
         "godly": {"chance": 0.01, "options": ["unicorn"]},
     },
 
+    "basic_crate": {
+        "common": {
+            "chance": 100,
+            "options": ["pet_crate"],
+        },
+    }
 }
 
 

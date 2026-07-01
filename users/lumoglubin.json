@@ -16,6 +16,9 @@
     },
     "wood": {
       "quantity": 1
+    },
+    "basic_crate": {
+      "quantity": 1
     }
   },
   "pets": [
@@ -25,5 +28,19 @@
       "level": 1
     }
   ],
-  "badgeinvvalue": 10
+  "badgeinvvalue": 10,
+  "resources": {
+    "flower": {
+      "quantity": 2
+    },
+    "wood": {
+      "quantity": 9
+    },
+    "stone": {
+      "quantity": 3
+    },
+    "fern": {
+      "quantity": 1
+    }
+  }
 }

@@ -62,6 +62,9 @@
     },
     "wood": {
       "quantity": 2
+    },
+    "basic_crate": {
+      "quantity": 0
     }
   },
   "pets": [
@@ -391,13 +394,13 @@
       "quantity": 0
     },
     "wood": {
-      "quantity": 10
+      "quantity": 12
     },
     "stone": {
       "quantity": 3
     },
     "fern": {
-      "quantity": 5
+      "quantity": 2
     }
   }
 }

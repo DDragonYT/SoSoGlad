@@ -21,12 +21,8 @@ async def pet_info(self, message):
     command_params = message.content.split(" ")
 
     buttons = [
-            discord.Button(
-                emoji = "⬅️"
-            ),
-            discord.Button(
-                emoji = "➡️"
-            )
+            discord.Button(),
+            discord.Button()
           ]
 
     action_row = discord.ActionRow()

@@ -46,10 +46,10 @@
       "lvl": 3
     }
   },
-  "coins": 34842,
+  "coins": 33553,
   "gems": 12,
   "last_daily": "2026-06-30",
-  "badgeinvvalue": 54172,
+  "badgeinvvalue": 54111,
   "inventory": {
     "pet_crate": {
       "quantity": 0
@@ -387,6 +387,9 @@
     },
     "stone": {
       "quantity": 3
+    },
+    "fern": {
+      "quantity": 2
     }
   }
 }

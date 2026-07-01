@@ -30,13 +30,13 @@
       "lvl": 1
     }
   },
-  "coins": 43106,
-  "gems": 2,
-  "last_daily": "2026-06-30",
+  "coins": 47257,
+  "gems": 9,
+  "last_daily": "2026-07-01",
   "badgeinvvalue": 97174,
   "inventory": {
     "pet_crate": {
-      "quantity": 2
+      "quantity": 0
     },
     "luck_booster": {
       "quantity": 1
@@ -223,20 +223,70 @@
       "id": "tiger",
       "name": "Tiger",
       "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1
+    },
+    {
+      "id": "moose",
+      "name": "Moose",
+      "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
+    },
+    {
+      "id": "dog",
+      "name": "Dog",
+      "level": 1
     }
   ],
   "resources": {
     "flower": {
-      "quantity": 2
+      "quantity": 3
     },
     "wood": {
-      "quantity": 9
+      "quantity": 22
     },
     "stone": {
-      "quantity": 9
+      "quantity": 13
     },
     "fern": {
-      "quantity": 3
+      "quantity": 8
     }
   }
 }

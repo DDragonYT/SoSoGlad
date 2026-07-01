@@ -83,15 +83,16 @@ def add_to_resource(user, resource, quantity=1):
     userdata["resources"][resource]["quantity"] += quantity
     set_userdata(user, userdata)
 
-async def show_resources(self, message, target=2):
+async def show_resources(self, message, target=1):
     command = str(message.content).split(" ")
     if len(command) > target:
-        target = command[len(command) - 1]
+        target = command[1]
         if "<" in target:
             user_id = int(target.strip("<>@"))
             target = self.get_user(user_id)
     else:
-        target = message.author
+            target = message.author
+
     userdata = get_userdata(target)
     if "resources" in userdata.keys():
         userinv = userdata["resources"]

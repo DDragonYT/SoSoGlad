@@ -1,0 +1,9 @@
+{
+"pet_crate_recipe" : {
+    "items_needed" : {
+        "wood" : 10,
+        "flower" : 5
+    },
+    "result" : "pet_crate"
+}
+}

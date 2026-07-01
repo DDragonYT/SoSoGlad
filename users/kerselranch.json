@@ -379,20 +379,25 @@
       "id": "cat",
       "name": "Cat",
       "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
     }
   ],
   "resources": {
     "flower": {
-      "quantity": 1
+      "quantity": 0
     },
     "wood": {
-      "quantity": 6
+      "quantity": 10
     },
     "stone": {
       "quantity": 3
     },
     "fern": {
-      "quantity": 2
+      "quantity": 5
     }
   }
 }

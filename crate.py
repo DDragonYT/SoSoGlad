@@ -91,7 +91,7 @@ async def open_crate(self, message, item):
         description = ""
     description += f"{message.author.mention} got {itemname} from a {get_itemdata(item)["name"]}!"
     embed = item_details(itemid = acquired_item, title = "Crate Result", description = description)
-    message.reply(embed = embed)
+    await message.reply(embed = embed)
 
     
     await message.channel.send(embed=embed)

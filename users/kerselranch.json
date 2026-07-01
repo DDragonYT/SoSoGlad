@@ -34,7 +34,7 @@
       "lvl": 1
     },
     "flip_5": {
-      "lvl": 2
+      "lvl": 3
     },
     "victim": {
       "lvl": 2
@@ -44,11 +44,14 @@
     },
     "jackpot": {
       "lvl": 3
+    },
+    "flip_7": {
+      "lvl": 1
     }
   },
-  "coins": 33553,
-  "gems": 12,
-  "last_daily": "2026-06-30",
+  "coins": 21647,
+  "gems": 17,
+  "last_daily": "2026-07-01",
   "badgeinvvalue": 54111,
   "inventory": {
     "pet_crate": {

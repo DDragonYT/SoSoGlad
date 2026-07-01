@@ -1,19 +1,19 @@
 {
   "badges": {
     "racially_motivated": {
-      "lvl": 23
+      "lvl": 27
     },
     "scare_survivor": {
       "lvl": 17
     },
     "maga": {
-      "lvl": 14
+      "lvl": 17
     },
     "thrill_seeker": {
-      "lvl": 37
+      "lvl": 44
     },
     "six_seven": {
-      "lvl": 3
+      "lvl": 5
     },
     "victim": {
       "lvl": 2
@@ -21,5 +21,6 @@
     "jasper": {
       "lvl": 3
     }
-  }
+  },
+  "badgeinvvalue": 2533
 }

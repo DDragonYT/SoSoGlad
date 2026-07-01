@@ -12,19 +12,31 @@ def pet_search(name):
         for key in pet_data.keys():
             pet = pet_data[key]
             if name in pet["name"].lower():
-                if pet_data[name]["type"] == "pet":
+                if pet_data[pet["name"].lower()]["type"] == "pet":
                     return name
     return
 
 async def pet_info(self, message):
     """Checks if a badge exists, if it does generate an embed and send it"""
     command_params = message.content.split(" ")
+
+    buttons = [
+            discord.Button(
+                emoji = "⬅️"
+            ),
+            discord.Button(
+                emoji = "➡️"
+            )
+          ]
+
+    action_row = discord.ActionRow()
+
     if len(command_params) > 1:
         pet = pet_search(command_params[1])
         if pet:
             ipet = pet
             embed = item_details(ipet)
-            await message.reply(embed=embed)
+            await message.reply(embed=embed, action_row = action_row)
         else:
             await message.reply(embed = gen_error("That pet doesn't exist!"))
     else:

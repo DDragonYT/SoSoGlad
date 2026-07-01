@@ -100,12 +100,12 @@ async def wallet(self, message):
         await wallet_stats(self, message, 1)
 
 
-def add_to_inv(user, userdata, item):
+def add_to_inv(user, userdata, item, quantity):
     if not "inventory" in userdata.keys():
         userdata["inventory"] = {}
     if not item in userdata["inventory"]:
         userdata["inventory"][item] = {"quantity": 0}
-    userdata["inventory"][item]["quantity"] += 1
+    userdata["inventory"][item]["quantity"] += quantity
     set_userdata(user, userdata)
 
 async def gift(self, message, target=2):

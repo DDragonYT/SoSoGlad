@@ -47,26 +47,38 @@ async def show_shop(self, message):
     await message.reply(embed=embed)
 
 
-async def make_purchase(user, shopitemdata, message):
-    userdata = get_userdata(user)
-    userdata = wallet_add(userdata, -1 * shopitemdata["coin_price"], "coins")
-    userdata = wallet_add(userdata, -1 * shopitemdata["gem_price"], "gems")
+async def make_purchase(user, shopitemdata, message, quantity):
+
+    userdata = get_userdata(user) # Load the userdata 
     itemdata = get_itemdata(shopitemdata["id"])
-    coins_spent = shopitemdata["coin_price"]
-    gems_spent = shopitemdata["gem_price"]
+
+    coins_spent = shopitemdata["coin_price"] * quantity # How much have I spent in coins?
+    gems_spent = shopitemdata["gem_price"] * quantity # How much have I spent in gems?
+
+    
+
+    userdata = wallet_add(userdata, -1 * coins_spent, "coins") # Remove the amount spent by multiplying by -1 and adding that negative value
+    userdata = wallet_add(userdata, -1 * gems_spent, "gems")
+
+
     if itemdata["type"] == "currency":
-        userdata = wallet_add(userdata, itemdata["coin_amt"], "coins")
-        userdata = wallet_add(userdata, itemdata["gem_amt"], "gems")
+        coins_got = itemdata['coin_amt'] * quantity # Use the item data to figure out how much I wanna add
+        gems_got = itemdata['gem_amt'] * quantity
+
+
+        userdata = wallet_add(userdata, coins_got, "coins")
+        userdata = wallet_add(userdata, gems_got, "gems")
         set_userdata(user, userdata)
         embed = discord.Embed(
-            title=f"""Exchanged {f"{itemdata['coin_amt']} coins" if itemdata['coin_amt'] else ""}{f"{itemdata['gem_amt']} gems" if itemdata['gem_amt'] else ""} for {f"{coins_spent} coins" if coins_spent else ""}{f"{gems_spent} gems" if gems_spent else ""}.""",
+            title=f"""Exchanged {f"{coins_got} coins" if coins_got else ""}{f"{gems_got} gems" if gems_got else ""} for {f"{coins_spent} coins" if coins_spent else ""}{f"{gems_spent} gems" if gems_spent else ""}.""",
             colour=discord.Colour.orange(),
         )
         await message.reply(embed=embed)
     else:
-        add_to_inv(user, userdata, shopitemdata["id"])
+        
+        add_to_inv(user, userdata, shopitemdata["id"], quantity)
         embed = discord.Embed(
-            title=f"""Purchased {itemdata["name"]} for {f"{coins_spent} coins" if coins_spent else ""}{f"{gems_spent} coins" if gems_spent else ""}.""",
+            title=f"""Purchased {str(quantity)+" " if quantity else ""}{itemdata["name"]}(s) for {f"{coins_spent} coins" if coins_spent else ""}{f"{gems_spent} coins" if gems_spent else ""}.""",
             colour=discord.Colour.orange(),
         )
         await message.reply(embed=embed)
@@ -84,11 +96,18 @@ async def attempt_purchase(self, message):
     else:
         userdata = get_userdata(message.author)
         item = SHOP_ITEMS[command_params[1].lower()]
+        if len(command_params) > 2:
+            try:
+                purchase_qty = int(command_params[2])
+            except:
+                await message.reply(embed = gen_error("That is not a valid quantity."))
+        else:
+            purchase_qty = 1
         if (
-            userdata["coins"] >= item["coin_price"]
-            and userdata["gems"] >= item["gem_price"]
+            userdata["coins"] >= item["coin_price"] * purchase_qty
+            and userdata["gems"] >= item["gem_price"] * purchase_qty
         ):
-            await make_purchase(message.author, item, message)
+            await make_purchase(message.author, item, message, purchase_qty)
         else:
             await message.reply(
                 embed=gen_error(

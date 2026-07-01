@@ -8,29 +8,52 @@ from item import *
 from wallet import *
 from enum import Enum
 import discord
-RECIPES = json.load(open("recipes.json","wb")) 
 
-async def craft(self,message):
-    userdata = get_userdata(message.author)
-    user_rescources = userdata["resources"]
-    user_items = userdata["inventory"]
-    command_params = message.content.split(" ")
+RECIPES:dict = json.load(open("recipes.json", "r"))
+
+
+async def craft(self, message):
+    userdata:dict = get_userdata(message.author)
+    user_resources:dict = userdata["resources"]
+    user_inv:dict = userdata["inventory"]
+    command_params:list = message.content.split(" ")
     target_amount = 1
+
     if len(command_params) > 1:
-        target_item = command_params[1]
-        target_recipe = target_item + "_recipe"
-        target_amount = command_params[2]
+        target_item:str = command_params[1]
+        target_recipe:str = target_item + "_recipe"
+        if len(command_params) > 2:
+            try:
+                target_amount:int = int(command_params[2])
+            except:
+                message.reply(embed = gen_error("That is not a valid quantity."))
+                return
+        else:
+            target_amount = 1
+
         if target_recipe in RECIPES.keys():
-            current_recipe = RECIPES[target_recipe]
-            items_needed = current_recipe["items_needed"]
+            current_recipe:dict = RECIPES[target_recipe]
+            items_needed:dict = current_recipe["items_needed"]
+
             for item in items_needed.keys():
-                if item in user_rescources:
-                    if user_rescources[item] >= items_needed[item]*target_amount:
-                        user_rescources[item] -= items_needed[item]*target_amount
-                        user_items[target_item] += target_amount
-                        embed = discord.Embed(title=f"You succesfully crafted {target_amount} {target_item}", colour=discord.Colour.green())
-                        await message.reply(embed=embed)
+                if item in user_resources:
+                    if user_resources[item]["quantity"] >= items_needed[item] * target_amount:
+                        user_resources[item]["quantity"] -= items_needed[item] * target_amount
+                    
                     else:
-                        await message.reply(embed=gen_error(f"You do not have enough resources to craft {target_amount} {target_item}"))
+                        await message.reply(
+                            embed=gen_error(
+                                f"You do not have enough resources to craft {target_amount} {target_item}"
+                            )
+                        )
+                        return
+                    
+            user_inv[target_item]["quantity"] += target_amount
+            set_userdata(message.author, userdata)
+            embed = discord.Embed(
+                            title=f"You succesfully crafted {target_amount} {target_item}",
+                            colour=discord.Colour.green(),
+                        )
+            await message.reply(embed=embed)
         else:
             await message.reply(embed=gen_error("This item cannot be crafted"))

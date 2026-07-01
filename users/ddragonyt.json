@@ -36,7 +36,7 @@
   "badgeinvvalue": 97174,
   "inventory": {
     "pet_crate": {
-      "quantity": 319
+      "quantity": 320
     },
     "luck_booster": {
       "quantity": 3
@@ -768,20 +768,30 @@
       "id": "cat",
       "name": "Cat",
       "level": 1
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1
     }
   ],
   "resources": {
     "flower": {
-      "quantity": 3
+      "quantity": 0
     },
     "wood": {
-      "quantity": 22
+      "quantity": 9
     },
     "stone": {
       "quantity": 17
     },
     "fern": {
-      "quantity": 8
+      "quantity": 19
     }
   }
 }

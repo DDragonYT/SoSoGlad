@@ -11,6 +11,7 @@ from gambling import *
 from badge import *
 from resource import *
 from pet import *
+from craft import *
 
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]

@@ -175,11 +175,56 @@
         "type":"booster",
         "rarity":"common"
     },
+
     "pet_crate":{
         "name":"Pet Crate",
         "type":"crate",
-        "rarity":"common"
+        "rarity":"common",
+        "image":"PetCrate.png"
     },
+    "basic_crate":{
+        "name":"Basic Crate",
+        "type":"crate",
+        "rarity":"common",
+        "image":"BasicCrate.png"
+    },
+    "juicy_crate":{
+        "name":"Juicy Crate",
+        "type":"crate",
+        "rarity":"uncommon",
+        "image":"JuicyCrate.png"
+    },
+    "succulent_crate":{
+        "name":"Succulent Crate",
+        "type":"crate",
+        "rarity":"rare",
+        "image":"SucculentCrate.png"
+    },
+    "luscious_crate":{
+        "name":"Luscious Crate",
+        "type":"crate",
+        "rarity":"epic",
+        "image":"LusciousCrate.png"
+    },
+    "overstimulating_crate":{
+        "name":"Overstimulating Crate",
+        "type":"crate",
+        "rarity":"legendary",
+        "image":"OverstimulatingCrate.png"
+    },
+    "hyperactive_crate":{
+        "name":"Hyperactive Crate",
+        "type":"crate",
+        "rarity":"unreal",
+        "image":"HyperactiveCrate.png"
+    },
+    "orgasm_crate":{
+        "name":"Orgasm Crate",
+        "type":"crate",
+        "rarity":"godly",
+        "image":"OrgasmCrate.png"
+    },
+
     "20_coins":{
         "name":"20 Coins",
         "type":"currency",

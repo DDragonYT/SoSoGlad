@@ -10,15 +10,43 @@ action_using = {}
 GATHERABLE_TYPES = {
     "stone": {
         "icon":"🪨",
-        "drops": [
-            {
-                "item": "stone",
-                "max_qty": 4,
-                "min_qty": 3,
-            }
-        ],
+        
+        "common": {
+            "chance": 80,
+            "options": [
+                {
+                    "item": "stone",
+                    "max_qty": 4,
+                    "min_qty": 3
+                }
+            ],
+        },
+
+        "uncommon": {
+            "chance": 19,
+            "options": [
+                {
+                    "item": "basic_crate",
+                    "max_qty": 1,
+                    "min_qty": 1,
+                }
+            ],
+        },
+
+        "rare": {
+            "chance": 1,
+            "options": [
+                {
+                    "item": "pet_crate",
+                    "max_qty": 1,
+                    "min_qty": 1,
+                }
+            ],
+        },
+
         "toughness": 5,
     },
+
     "wood": {
         "icon":"🪵",
         "drops": [
@@ -30,6 +58,7 @@ GATHERABLE_TYPES = {
         ],
         "toughness": 3,
     },
+
     "greenery": {
         "icon":"🪻",
         "drops": [

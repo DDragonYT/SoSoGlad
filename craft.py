@@ -21,7 +21,7 @@ async def show_recipe(self,message):
         if requested_recipe in RECIPES.keys():
                 current_recipe_requested:dict = RECIPES[requested_recipe]
                 required_items:dict = current_recipe_requested["items_needed"]
-                embed = discord.Embed(title=f"{required_items}", colour = discord.Colour.blue)
+                embed = discord.Embed(title=f"{required_items}", colour = discord.Colour.blue())
                 await message.reply(embed = embed)
         else:
                 await message.reply(embed = gen_error(f"{requested_item} cannot be crafted"))

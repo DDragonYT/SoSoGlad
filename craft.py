@@ -10,19 +10,24 @@ from enum import Enum
 import discord
 
 RECIPES:dict = json.load(open("recipes.json", "r"))
+ITEMS:dict = json.load(open("items.json", "r"))
 
 async def show_recipe(self,message):
     command_params:list = message.content.split(" ")
     if len(command_params) > 1:
         requested_item:str = command_params[1]
         requested_recipe:str = requested_item + "_recipe"
-        if requested_recipe in RECIPES.keys():
-            current_recipe_requested:dict = RECIPES[requested_recipe]
-            required_items:dict = current_recipe_requested["items_needed"]
-            embed = embed.Discord(title=f"{required_items}", colour = discord.Colour.blue)
-            await message.reply(embed = embed)
+        if requested_item in ITEMS.keys():
+            if requested_recipe in RECIPES.keys():
+                current_recipe_requested:dict = RECIPES[requested_recipe]
+                required_items:dict = current_recipe_requested["items_needed"]
+                embed = discord.Embed(title=f"{required_items}", colour = discord.Colour.blue)
+                await message.reply(embed = embed)
+            else:
+                await message.reply(embed = gen_error(f"{requested_item} cannot be crafted"))
         else:
-            await message.reply(embed = gen_error(f"{requested_item} cannot be crafted"))
+            await message.reply(embed = gen_error(f"{requested_item} does not exist")) 
+           
     else:
         await message.reply(embed = gen_error("Target something dumbass"))
         

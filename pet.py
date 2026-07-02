@@ -20,19 +20,12 @@ async def pet_info(self, message):
     """Checks if a badge exists, if it does generate an embed and send it"""
     command_params = message.content.split(" ")
 
-    buttons = [
-            discord.Button(),
-            discord.Button()
-          ]
-
-    action_row = discord.ActionRow()
-
     if len(command_params) > 1:
         pet = pet_search(command_params[1])
         if pet:
             ipet = pet
             embed = item_details(ipet)
-            await message.reply(embed=embed, action_row = action_row)
+            await message.reply(embed=embed)
         else:
             await message.reply(embed = gen_error("That pet doesn't exist!"))
     else:

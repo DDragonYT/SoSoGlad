@@ -4,13 +4,14 @@ import discord
 from pet import add_pet
 from wallet import add_to_inv
 from userdata import get_userdata
+from crate_calcs import *
 
 # All crates besides basic and pet are currently unobtainable
 CRATES = {
     "pet_crate": {
         "common": {
             "chance": 72,
-            "options": ["dog", "cat", "fish", "bird", "monkey", "mouse", "pig"],
+            "options": [{"dog"}, "cat", "fish", "bird", "monkey", "mouse", "pig"],
         },
         "rare": {
             "chance": 21,
@@ -41,46 +42,8 @@ CRATES = {
     }
 }
 
-
-def apply_luck_mult(crate, luck_mult):
-    if luck_mult != 0:
-        total_chance = 0
-        for rarity in crate.keys():
-            if rarity != "common":
-                crate[rarity]["chance"] = crate[rarity]["chance"] * luck_mult
-                total_chance += crate[rarity]["chance"]
-        crate["common"]["chance"] = 100 - total_chance
-        return crate
-    else:
-        return crate
-
-
-def get_crate_result(crate, luck_multiplier=1):
-    crate = CRATES[crate].copy()
-    mod_crate = apply_luck_mult(crate, luck_multiplier)
-    roll = randint(1, 1000000) / 10000
-    totalraritychance = 0
-
-    print(f"{roll=}")
-    for rarity in mod_crate.keys():
-        craterarity = mod_crate[rarity]
-        totalraritychance += craterarity["chance"]
-        if roll < totalraritychance:
-            options = crate[rarity]["options"]
-            rolled_item = options[randint(0, len(options) - 1)]
-            return (rolled_item, rarity)
-
-
-result, rarity = get_crate_result("pet_crate")
-print(result)
-
 async def open_crate(self, message, item):
-    # embed = discord.Embed(
-    #     title=f"Opening a {get_itemdata(item)["name"]}...",
-    #     colour=discord.Colour.orange(),
-    # )
-    # await message.reply(embed=embed)
-    acquired_item, item_rarity = get_crate_result(item)
+    acquired_item, item_rarity, quantity = get_crate_result(CRATES, item, 1)
 
     itemdata = get_itemdata(acquired_item)
     itemname = itemdata["name"]

@@ -8,7 +8,21 @@ from enum import Enum
 from asyncio import sleep
 
 DIE_SIDES = ["6", "10", "20", "100", "1000"]
+DEFAULT_DECK = ["AS", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "10S", "JS", "QS", "KS",
+                "AC", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC",
+                "AD", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "10D", "JD", "QD", "KD",
+                "AH", "2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "10H", "JH", "QH", "KH"]
+BLACKJACK_ACTIONS = ["hit","stand"]
+blackjack_games = {
 
+}
+
+class BlackjackGame():
+    def __init__(self):
+        self.deck = DEFAULT_DECK
+        self.player_hand = []
+        self.dealer_hand = []
+    
 
 async def coinflip(self, message):
     flip = randint(1, 2)
@@ -27,7 +41,6 @@ async def coinflip(self, message):
         title=f"🪙  It's {result}!  🪙{streak_text}", colour=discord.Colour.blue()
     )
     await message.reply(embed=embed)
-
 
 async def dieroll(self, message):
     max_roll = 6
@@ -55,7 +68,6 @@ async def dieroll(self, message):
     await message.reply(embed=embed)
     if roll == 1000:
         await add_badge(self, message, "high_roller")
-
 
 async def gamble(self, message):
     bet_amt = 10
@@ -116,3 +128,31 @@ async def gamble(self, message):
             title=f"You must bet more than 0 coins", colour=discord.Colour.red()
         )
         await message.reply(embed = embed_bet_more_than_zero)
+
+# async def blackjack(self, message):
+#     if not message.author in blackjack_games.keys():
+#         bet_amt = 10
+#         userdata = get_userdata(message.author)
+#         command_params = message.content.split(" ")
+
+#         if len(command_params) > 1:
+#             try:
+#                 bet_amt = int(command_params[1])
+#             except:
+#                 message.reply(embed = gen_error("This is not a valid gamble amount."))
+
+#         if not userdata["coins"] >= bet_amt:
+#             message.reply(embed = gen_error("You cannot afford this black man named Jack."))
+#             return
+#         blackjack_games[]
+        
+#     else:
+#         command_params = message.content.split(" ")
+#         if not len(command_params) > 2:
+#             message.reply(embed = gen_error("Please enter an action."))
+#             return
+#         if not command_params[1] in BLACKJACK_ACTIONS:
+#             message.reply(embed = gen_error(f"{command_params[1]} is not a valid Blackjack action."))
+
+
+    

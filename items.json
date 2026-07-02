@@ -261,7 +261,7 @@
     "flower":{
         "name":"Flower",
         "type":"resource",
-        "rarity":"common",
+        "rarity":"uncommon",
         "icon":"🌻"
     },
     "fern":{
@@ -269,5 +269,23 @@
         "type":"resource",
         "rarity":"common",
         "icon":"🪴"
+    },
+    "crystal":{
+        "name":"Crystal",
+        "type":"resource",
+        "rarity":"uncommon",
+        "icon":"💠"
+    },
+    "cotton":{
+        "name":"Cotton",
+        "type":"resource",
+        "rarity":"uncommon",
+        "icon":"☁️"
+    },
+    "artifact":{
+        "name":"Artifact",
+        "type":"resource",
+        "rarity":"rare",
+        "icon":"🗿"
     }
 }

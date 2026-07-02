@@ -36,7 +36,7 @@
   "badgeinvvalue": 97174,
   "inventory": {
     "pet_crate": {
-      "quantity": 367
+      "quantity": 1364
     },
     "luck_booster": {
       "quantity": 3
@@ -48,7 +48,7 @@
       "quantity": 5
     },
     "basic_crate": {
-      "quantity": 98
+      "quantity": 97
     }
   },
   "pets": [
@@ -806,20 +806,28 @@
       "id": "pig",
       "name": "Pig",
       "level": 1
+    },
+    {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1
     }
   ],
   "resources": {
     "flower": {
-      "quantity": 999999745
+      "quantity": 999994745
     },
     "wood": {
-      "quantity": 999999999490
+      "quantity": 999999989490
     },
     "stone": {
-      "quantity": 210000000000
+      "quantity": 210000000026
     },
     "fern": {
-      "quantity": 2100000000000
+      "quantity": 2100000000023
+    },
+    "cotton": {
+      "quantity": 3
     }
   }
 }

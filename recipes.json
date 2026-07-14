@@ -1,17 +1,16 @@
 {
-"pet_crate_recipe" : {
-    "items_needed" : {
-        "wood" : 10,
-        "flower" : 5
+    "pet_crate_recipe": {
+        "items_needed": {
+            "wood": 10,
+            "flower": 5
+        },
+        "result": "pet_crate"
     },
-    "result" : "pet_crate"
-},
-
-"basic_crate_recipe" : {
-    "items_needed" : {
-        "wood" : 5,
-        "fern" : 3
-    },
-    "result" : "basic_crate"
-}
+    "basic_crate_recipe": {
+        "items_needed": {
+            "wood": 5,
+            "fern": 3
+        },
+        "result": "basic_crate"
+    }
 }

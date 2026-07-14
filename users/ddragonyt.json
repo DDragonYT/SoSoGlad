@@ -30,13 +30,13 @@
       "lvl": 1
     }
   },
-  "coins": 8628,
+  "coins": 7664,
   "gems": 0,
   "last_daily": "2026-07-01",
   "badgeinvvalue": 97174,
   "inventory": {
     "pet_crate": {
-      "quantity": 1364
+      "quantity": 8330
     },
     "luck_booster": {
       "quantity": 3
@@ -811,20 +811,30 @@
       "id": "monkey",
       "name": "Monkey",
       "level": 1
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1
     }
   ],
   "resources": {
     "flower": {
-      "quantity": 999994745
+      "quantity": 999959900
     },
     "wood": {
-      "quantity": 999999989490
+      "quantity": 999999919795
     },
     "stone": {
       "quantity": 210000000026
     },
     "fern": {
-      "quantity": 2100000000023
+      "quantity": 2100000000020
     },
     "cotton": {
       "quantity": 3

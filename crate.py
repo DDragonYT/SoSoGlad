@@ -11,7 +11,7 @@ CRATES = {
     "pet_crate": {
         "common": {
             "chance": 72,
-            "options": [{"dog"}, "cat", "fish", "bird", "monkey", "mouse", "pig"],
+            "options": ["dog", "cat", "fish", "bird", "monkey", "mouse", "pig"],
         },
         "rare": {
             "chance": 21,

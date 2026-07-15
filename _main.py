@@ -42,7 +42,7 @@ COMMANDS = {  # Defines what to enter to run a command
     "!gift":gift,
     "!resources":show_resources,
     "!craft": craft,
-    "!recipe": show_recipe
+    "!iinfo": item_info
 }
 
 message_counts = {}

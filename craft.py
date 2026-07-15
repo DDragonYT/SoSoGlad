@@ -1,16 +1,10 @@
-from datetime import date
-from userdata import *
-from random import randint
-from embed import *
-from badge import *
-from crate import *
-from item import *
-from wallet import *
-from enum import Enum
+from embed import gen_error
+from item import get_itemdata
 import discord
+import json
+from userdata import get_userdata, set_userdata
 
 RECIPES:dict = json.load(open("recipes.json", "r"))
-#ITEMS:dict = json.load(open("items.json", "r"))
 
 async def show_recipe(self,message):
     command_params:list = message.content.split(" ")
@@ -21,7 +15,12 @@ async def show_recipe(self,message):
         if requested_recipe in RECIPES.keys():
                 current_recipe_requested:dict = RECIPES[requested_recipe]
                 required_items:dict = current_recipe_requested["items_needed"]
-                embed = discord.Embed(title=f"{required_items}", colour = discord.Colour.blue())
+                item_displ = ""
+                for item in required_items.keys():
+                    item_qty = required_items[item]
+                    iteminfo = get_itemdata(item)
+                    item_displ += f"- [{iteminfo["icon"]}] {iteminfo["name"]} x {item_qty}\n"
+                embed = discord.Embed(title=f"{get_itemdata(requested_item)["name"]} Crafting Recipe", description=item_displ,colour = discord.Colour.blue())
                 await message.reply(embed = embed)
         else:
                 await message.reply(embed = gen_error(f"{requested_item} cannot be crafted"))
@@ -30,7 +29,7 @@ async def show_recipe(self,message):
            
     else:
         await message.reply(embed = gen_error("Target something dumbass"))
-        
+       
     
 
 async def craft(self, message):

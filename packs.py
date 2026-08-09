@@ -1,6 +1,7 @@
 from PIL import Image
 import os
 import json
+import scrython
 
 CARD_IMAGE = "resources/images/cards"
 
@@ -45,10 +46,19 @@ def get_card_list():
     for set in sets:
         if not set in card_json.keys():
             card_json[set] = {}
-            for card in set:
-                card_name = card.split(".")[0]
-                rarity = input("what is the cards rarity? (1 = common, 2 = uncommon, 3 = rare, 4 = mythic)")
-                card_json[set][card_name]
+            for card in os.listdir(f"{CARD_IMAGE}/{set}/"):
+                try:
+                    print(card)
+                    card_name = card.split(".")[0]
+                    print(card_name)
+                    cardinfo = scrython.cards.Named(fuzzy=card_name)
+                    card_json[set][card_name] = {"rarity":cardinfo.rarity}
+                    print(f"Retrieved [{card}] data.")
+
+                except:
+                    print(f"Could not retrieve [{card}] data.")
+    with open("cards.json", "w") as f:
+        json.dump(card_json, f)
             
 
 
@@ -58,4 +68,6 @@ def get_card_list():
 # new_im = display_binder("2ED")
 # new_im.show()
 
+
+get_card_list()
 get_card_image("Zombie Master","2ED").show()

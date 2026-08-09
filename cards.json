@@ -1,0 +1,862 @@
+{
+    "2ED": {
+        "Air Elemental": {
+            "rarity": "uncommon"
+        },
+        "Ancestral Recall": {
+            "rarity": "bonus"
+        },
+        "Animate Artifact": {
+            "rarity": "uncommon"
+        },
+        "Animate Dead": {
+            "rarity": "uncommon"
+        },
+        "Animate Wall": {
+            "rarity": "uncommon"
+        },
+        "Ankh of Mishra": {
+            "rarity": "rare"
+        },
+        "Armageddon": {
+            "rarity": "mythic"
+        },
+        "Aspect of Wolf": {
+            "rarity": "rare"
+        },
+        "Bad Moon": {
+            "rarity": "rare"
+        },
+        "Badlands": {
+            "rarity": "rare"
+        },
+        "Balance": {
+            "rarity": "mythic"
+        },
+        "Basalt Monolith": {
+            "rarity": "uncommon"
+        },
+        "Bayou": {
+            "rarity": "rare"
+        },
+        "Benalish Hero": {
+            "rarity": "common"
+        },
+        "Berserk": {
+            "rarity": "mythic"
+        },
+        "Birds of Paradise": {
+            "rarity": "rare"
+        },
+        "Black Knight": {
+            "rarity": "uncommon"
+        },
+        "Black Lotus": {
+            "rarity": "bonus"
+        },
+        "Black Vise": {
+            "rarity": "rare"
+        },
+        "Black Ward": {
+            "rarity": "uncommon"
+        },
+        "Blaze of Glory": {
+            "rarity": "uncommon"
+        },
+        "Blessing": {
+            "rarity": "uncommon"
+        },
+        "Blue Elemental Blast": {
+            "rarity": "uncommon"
+        },
+        "Blue Ward": {
+            "rarity": "uncommon"
+        },
+        "Bog Wraith": {
+            "rarity": "uncommon"
+        },
+        "Braingeyser": {
+            "rarity": "rare"
+        },
+        "Burrowing": {
+            "rarity": "uncommon"
+        },
+        "Camouflage": {
+            "rarity": "uncommon"
+        },
+        "Castle": {
+            "rarity": "uncommon"
+        },
+        "Celestial Prism": {
+            "rarity": "uncommon"
+        },
+        "Channel": {
+            "rarity": "mythic"
+        },
+        "Chaos Orb": {
+            "rarity": "rare"
+        },
+        "Chaoslace": {
+            "rarity": "rare"
+        },
+        "Circle of Protection Black": {
+            "rarity": "uncommon"
+        },
+        "Circle of Protection Blue": {
+            "rarity": "uncommon"
+        },
+        "Circle of Protection Green": {
+            "rarity": "uncommon"
+        },
+        "Circle of Protection Red": {
+            "rarity": "uncommon"
+        },
+        "Circle of Protection White": {
+            "rarity": "uncommon"
+        },
+        "Clockwork Beast": {
+            "rarity": "uncommon"
+        },
+        "Clone": {
+            "rarity": "rare"
+        },
+        "Cockatrice": {
+            "rarity": "special"
+        },
+        "Consecrate Land": {
+            "rarity": "special"
+        },
+        "Conservator": {
+            "rarity": "uncommon"
+        },
+        "Control Magic": {
+            "rarity": "uncommon"
+        },
+        "Conversion": {
+            "rarity": "rare"
+        },
+        "Copper Tablet": {
+            "rarity": "uncommon"
+        },
+        "Copy Artifact": {
+            "rarity": "rare"
+        },
+        "Counterspell": {
+            "rarity": "uncommon"
+        },
+        "Craw Wurm": {
+            "rarity": "common"
+        },
+        "Creature Bond": {
+            "rarity": "common"
+        },
+        "Crusade": {
+            "rarity": "rare"
+        },
+        "Crystal Rod": {
+            "rarity": "uncommon"
+        },
+        "Cursed Land": {
+            "rarity": "uncommon"
+        },
+        "Cyclopean Tomb": {
+            "rarity": "rare"
+        },
+        "Dark Ritual": {
+            "rarity": "uncommon"
+        },
+        "Death Ward": {
+            "rarity": "common"
+        },
+        "Deathgrip": {
+            "rarity": "rare"
+        },
+        "Deathlace": {
+            "rarity": "rare"
+        },
+        "Demonic Hordes": {
+            "rarity": "rare"
+        },
+        "Demonic Tutor": {
+            "rarity": "mythic"
+        },
+        "Dingus Egg": {
+            "rarity": "rare"
+        },
+        "Disenchant": {
+            "rarity": "common"
+        },
+        "Disintegrate": {
+            "rarity": "special"
+        },
+        "Disrupting Scepter": {
+            "rarity": "rare"
+        },
+        "Dragon Whelp": {
+            "rarity": "uncommon"
+        },
+        "Drain Life": {
+            "rarity": "common"
+        },
+        "Drain Power": {
+            "rarity": "rare"
+        },
+        "Drudge Skeletons": {
+            "rarity": "common"
+        },
+        "Dwarven Demolition Team": {
+            "rarity": "uncommon"
+        },
+        "Dwarven Warriors": {
+            "rarity": "common"
+        },
+        "Earth Elemental": {
+            "rarity": "common"
+        },
+        "Earthbind": {
+            "rarity": "common"
+        },
+        "Earthquake": {
+            "rarity": "rare"
+        },
+        "Elvish Archers": {
+            "rarity": "rare"
+        },
+        "Evil Presence": {
+            "rarity": "common"
+        },
+        "False Orders": {
+            "rarity": "common"
+        },
+        "Farmstead": {
+            "rarity": "rare"
+        },
+        "Fastbond": {
+            "rarity": "mythic"
+        },
+        "Fear": {
+            "rarity": "common"
+        },
+        "Feedback": {
+            "rarity": "uncommon"
+        },
+        "Fire Elemental": {
+            "rarity": "common"
+        },
+        "Fireball": {
+            "rarity": "uncommon"
+        },
+        "Firebreathing": {
+            "rarity": "common"
+        },
+        "Flashfires": {
+            "rarity": "uncommon"
+        },
+        "Flight": {
+            "rarity": "common"
+        },
+        "Fog": {
+            "rarity": "common"
+        },
+        "Force of Nature": {
+            "rarity": "rare"
+        },
+        "Forcefield": {
+            "rarity": "rare"
+        },
+        "Forest": {
+            "rarity": "common"
+        },
+        "Fork": {
+            "rarity": "rare"
+        },
+        "Frozen Shade": {
+            "rarity": "common"
+        },
+        "Fungusaur": {
+            "rarity": "rare"
+        },
+        "Gaea's Liege": {
+            "rarity": "special"
+        },
+        "Gauntlet of Might": {
+            "rarity": "rare"
+        },
+        "Giant Growth": {
+            "rarity": "common"
+        },
+        "Giant Spider": {
+            "rarity": "common"
+        },
+        "Glasses of Urza": {
+            "rarity": "common"
+        },
+        "Gloom": {
+            "rarity": "rare"
+        },
+        "Goblin Balloon Brigade": {
+            "rarity": "common"
+        },
+        "Goblin King": {
+            "rarity": "rare"
+        },
+        "Granite Gargoyle": {
+            "rarity": "uncommon"
+        },
+        "Gray Ogre": {
+            "rarity": "common"
+        },
+        "Green Ward": {
+            "rarity": "uncommon"
+        },
+        "Grizzly Bears": {
+            "rarity": "common"
+        },
+        "Guardian Angel": {
+            "rarity": "common"
+        },
+        "Healing Salve": {
+            "rarity": "common"
+        },
+        "Helm of Chatzuk": {
+            "rarity": "rare"
+        },
+        "Hill Giant": {
+            "rarity": "common"
+        },
+        "Holy Armor": {
+            "rarity": "common"
+        },
+        "Holy Strength": {
+            "rarity": "common"
+        },
+        "Howl from Beyond": {
+            "rarity": "common"
+        },
+        "Howling Mine": {
+            "rarity": "rare"
+        },
+        "Hurloon Minotaur": {
+            "rarity": "common"
+        },
+        "Hurricane": {
+            "rarity": "rare"
+        },
+        "Hypnotic Specter": {
+            "rarity": "rare"
+        },
+        "Ice Storm": {
+            "rarity": "uncommon"
+        },
+        "Icy Manipulator": {
+            "rarity": "uncommon"
+        },
+        "Instill Energy": {
+            "rarity": "uncommon"
+        },
+        "Invisibility": {
+            "rarity": "common"
+        },
+        "Iron Star": {
+            "rarity": "uncommon"
+        },
+        "Ironclaw Orcs": {
+            "rarity": "common"
+        },
+        "Ironroot Treefolk": {
+            "rarity": "common"
+        },
+        "Island Sanctuary": {
+            "rarity": "rare"
+        },
+        "Island": {
+            "rarity": "common"
+        },
+        "Ivory Cup": {
+            "rarity": "uncommon"
+        },
+        "Jade Monolith": {
+            "rarity": "rare"
+        },
+        "Jade Statue": {
+            "rarity": "rare"
+        },
+        "Jayemdae Tome": {
+            "rarity": "uncommon"
+        },
+        "Juggernaut": {
+            "rarity": "uncommon"
+        },
+        "Jump": {
+            "rarity": "common"
+        },
+        "Karma": {
+            "rarity": "uncommon"
+        },
+        "Keldon Warlord": {
+            "rarity": "uncommon"
+        },
+        "Kormus Bell": {
+            "rarity": "rare"
+        },
+        "Kudzu": {
+            "rarity": "uncommon"
+        },
+        "Lance": {
+            "rarity": "uncommon"
+        },
+        "Ley Druid": {
+            "rarity": "uncommon"
+        },
+        "Library of Leng": {
+            "rarity": "common"
+        },
+        "Lich": {
+            "rarity": "rare"
+        },
+        "Lifeforce": {
+            "rarity": "rare"
+        },
+        "Lifelace": {
+            "rarity": "rare"
+        },
+        "Lifetap": {
+            "rarity": "uncommon"
+        },
+        "Lightning Bolt": {
+            "rarity": "uncommon"
+        },
+        "Living Artifact": {
+            "rarity": "rare"
+        },
+        "Living Lands": {
+            "rarity": "rare"
+        },
+        "Living Wall": {
+            "rarity": "uncommon"
+        },
+        "Llanowar Elves": {
+            "rarity": "common"
+        },
+        "Lord of Atlantis": {
+            "rarity": "special"
+        },
+        "Lord of the Pit": {
+            "rarity": "rare"
+        },
+        "Lure": {
+            "rarity": "uncommon"
+        },
+        "Mahamoti Djinn": {
+            "rarity": "uncommon"
+        },
+        "Mana Flare": {
+            "rarity": "rare"
+        },
+        "Mana Short": {
+            "rarity": "rare"
+        },
+        "Mana Vault": {
+            "rarity": "mythic"
+        },
+        "Manabarbs": {
+            "rarity": "rare"
+        },
+        "Meekstone": {
+            "rarity": "rare"
+        },
+        "Merfolk of the Pearl Trident": {
+            "rarity": "common"
+        },
+        "Mesa Pegasus": {
+            "rarity": "common"
+        },
+        "Mind Twist": {
+            "rarity": "rare"
+        },
+        "Mons's Goblin Raiders": {
+            "rarity": "common"
+        },
+        "Mountain": {
+            "rarity": "common"
+        },
+        "Mox Emerald": {
+            "rarity": "bonus"
+        },
+        "Mox Jet": {
+            "rarity": "bonus"
+        },
+        "Mox Pearl": {
+            "rarity": "bonus"
+        },
+        "Mox Ruby": {
+            "rarity": "bonus"
+        },
+        "Mox Sapphire": {
+            "rarity": "bonus"
+        },
+        "Natural Selection": {
+            "rarity": "rare"
+        },
+        "Nether Shadow": {
+            "rarity": "uncommon"
+        },
+        "Nettling Imp": {
+            "rarity": "uncommon"
+        },
+        "Nevinyrral's Disk": {
+            "rarity": "rare"
+        },
+        "Nightmare": {
+            "rarity": "rare"
+        },
+        "Northern Paladin": {
+            "rarity": "rare"
+        },
+        "Obsianus Golem": {
+            "rarity": "common"
+        },
+        "Orcish Artillery": {
+            "rarity": "uncommon"
+        },
+        "Orcish Oriflamme": {
+            "rarity": "common"
+        },
+        "Paralyze": {
+            "rarity": "common"
+        },
+        "Pearled Unicorn": {
+            "rarity": "common"
+        },
+        "Personal Incarnation": {
+            "rarity": "rare"
+        },
+        "Pestilence": {
+            "rarity": "uncommon"
+        },
+        "Phantasmal Forces": {
+            "rarity": "common"
+        },
+        "Phantasmal Terrain": {
+            "rarity": "common"
+        },
+        "Phantom Monster": {
+            "rarity": "common"
+        },
+        "Pirate Ship": {
+            "rarity": "special"
+        },
+        "Plague Rats": {
+            "rarity": "common"
+        },
+        "Plains": {
+            "rarity": "common"
+        },
+        "Plateau": {
+            "rarity": "rare"
+        },
+        "Power Leak": {
+            "rarity": "common"
+        },
+        "Power Sink": {
+            "rarity": "uncommon"
+        },
+        "Power Surge": {
+            "rarity": "rare"
+        },
+        "Prodigal Sorcerer": {
+            "rarity": "uncommon"
+        },
+        "Psionic Blast": {
+            "rarity": "special"
+        },
+        "Psychic Venom": {
+            "rarity": "common"
+        },
+        "Purelace": {
+            "rarity": "rare"
+        },
+        "Raging River": {
+            "rarity": "rare"
+        },
+        "Raise Dead": {
+            "rarity": "common"
+        },
+        "Red Elemental Blast": {
+            "rarity": "uncommon"
+        },
+        "Red Ward": {
+            "rarity": "uncommon"
+        },
+        "Regeneration": {
+            "rarity": "uncommon"
+        },
+        "Regrowth": {
+            "rarity": "uncommon"
+        },
+        "Resurrection": {
+            "rarity": "common"
+        },
+        "Reverse Damage": {
+            "rarity": "rare"
+        },
+        "Righteousness": {
+            "rarity": "uncommon"
+        },
+        "Roc of Kher Ridges": {
+            "rarity": "uncommon"
+        },
+        "Rock Hydra": {
+            "rarity": "rare"
+        },
+        "Rod of Ruin": {
+            "rarity": "uncommon"
+        },
+        "Royal Assassin": {
+            "rarity": "rare"
+        },
+        "Sacrifice": {
+            "rarity": "uncommon"
+        },
+        "Samite Healer": {
+            "rarity": "common"
+        },
+        "Savannah Lions": {
+            "rarity": "uncommon"
+        },
+        "Savannah": {
+            "rarity": "rare"
+        },
+        "Scathe Zombies": {
+            "rarity": "common"
+        },
+        "Scavenging Ghoul": {
+            "rarity": "uncommon"
+        },
+        "Scrubland": {
+            "rarity": "rare"
+        },
+        "Scryb Sprites": {
+            "rarity": "common"
+        },
+        "Sea Serpent": {
+            "rarity": "common"
+        },
+        "Sedge Troll": {
+            "rarity": "rare"
+        },
+        "Sengir Vampire": {
+            "rarity": "uncommon"
+        },
+        "Serra Angel": {
+            "rarity": "uncommon"
+        },
+        "Shanodin Dryads": {
+            "rarity": "common"
+        },
+        "Shatter": {
+            "rarity": "common"
+        },
+        "Shivan Dragon": {
+            "rarity": "uncommon"
+        },
+        "Simulacrum": {
+            "rarity": "uncommon"
+        },
+        "Sinkhole": {
+            "rarity": "rare"
+        },
+        "Siren's Call": {
+            "rarity": "uncommon"
+        },
+        "Smoke": {
+            "rarity": "rare"
+        },
+        "Sol Ring": {
+            "rarity": "uncommon"
+        },
+        "Soul Net": {
+            "rarity": "uncommon"
+        },
+        "Spell Blast": {
+            "rarity": "common"
+        },
+        "Stasis": {
+            "rarity": "rare"
+        },
+        "Steal Artifact": {
+            "rarity": "uncommon"
+        },
+        "Stone Giant": {
+            "rarity": "uncommon"
+        },
+        "Stone Rain": {
+            "rarity": "common"
+        },
+        "Stream of Life": {
+            "rarity": "uncommon"
+        },
+        "Sunglasses of Urza": {
+            "rarity": "rare"
+        },
+        "Swamp": {
+            "rarity": "common"
+        },
+        "Swords to Plowshares": {
+            "rarity": "uncommon"
+        },
+        "Taiga": {
+            "rarity": "rare"
+        },
+        "Terror": {
+            "rarity": "common"
+        },
+        "The Hive": {
+            "rarity": "rare"
+        },
+        "Thicket Basilisk": {
+            "rarity": "uncommon"
+        },
+        "Thoughtlace": {
+            "rarity": "rare"
+        },
+        "Throne of Bone": {
+            "rarity": "uncommon"
+        },
+        "Timber Wolves": {
+            "rarity": "rare"
+        },
+        "Time Vault": {
+            "rarity": "mythic"
+        },
+        "Time Walk": {
+            "rarity": "bonus"
+        },
+        "Timetwister": {
+            "rarity": "bonus"
+        },
+        "Tranquility": {
+            "rarity": "uncommon"
+        },
+        "Tropical Island": {
+            "rarity": "rare"
+        },
+        "Tsunami": {
+            "rarity": "rare"
+        },
+        "Tundra": {
+            "rarity": "rare"
+        },
+        "Tunnel": {
+            "rarity": "uncommon"
+        },
+        "Twiddle": {
+            "rarity": "common"
+        },
+        "Two-Headed Giant of Foriys": {
+            "rarity": "uncommon"
+        },
+        "Underground Sea": {
+            "rarity": "rare"
+        },
+        "Unholy Strength": {
+            "rarity": "common"
+        },
+        "Unsummon": {
+            "rarity": "common"
+        },
+        "Uthden Troll": {
+            "rarity": "special"
+        },
+        "Verduran Enchantress": {
+            "rarity": "rare"
+        },
+        "Vesuvan Doppelganger": {
+            "rarity": "rare"
+        },
+        "Veteran Bodyguard": {
+            "rarity": "rare"
+        },
+        "Volcanic Eruption": {
+            "rarity": "rare"
+        },
+        "Volcanic Island": {
+            "rarity": "rare"
+        },
+        "Wall of Air": {
+            "rarity": "uncommon"
+        },
+        "Wall of Bone": {
+            "rarity": "uncommon"
+        },
+        "Wall of Brambles": {
+            "rarity": "uncommon"
+        },
+        "Wall of Fire": {
+            "rarity": "common"
+        },
+        "Wall of Ice": {
+            "rarity": "uncommon"
+        },
+        "Wall of Stone": {
+            "rarity": "uncommon"
+        },
+        "Wall of Swords": {
+            "rarity": "uncommon"
+        },
+        "Wall of Water": {
+            "rarity": "uncommon"
+        },
+        "Wall of Wood": {
+            "rarity": "common"
+        },
+        "Wanderlust": {
+            "rarity": "common"
+        },
+        "War Mammoth": {
+            "rarity": "common"
+        },
+        "Warp Artifact": {
+            "rarity": "common"
+        },
+        "Water Elemental": {
+            "rarity": "uncommon"
+        },
+        "Weakness": {
+            "rarity": "common"
+        },
+        "Web": {
+            "rarity": "uncommon"
+        },
+        "Wheel of Fortune": {
+            "rarity": "mythic"
+        },
+        "White Knight": {
+            "rarity": "uncommon"
+        },
+        "White Ward": {
+            "rarity": "uncommon"
+        },
+        "Wild Growth": {
+            "rarity": "common"
+        },
+        "Will-o'-the-Wisp": {
+            "rarity": "uncommon"
+        },
+        "Winter Orb": {
+            "rarity": "rare"
+        },
+        "Wooden Sphere": {
+            "rarity": "uncommon"
+        },
+        "Word of Command": {
+            "rarity": "rare"
+        },
+        "Wrath of God": {
+            "rarity": "rare"
+        },
+        "Zombie Master": {
+            "rarity": "uncommon"
+        }
+    }
+}

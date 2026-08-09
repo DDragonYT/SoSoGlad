@@ -111,28 +111,6 @@ async def give_stuff(self, message):
     if len(command_params) > 3:
         pass
 
-
-#async def help_command(self, message):
-#    embed = discord.Embed(title="SoSoGlad Commands", description="""
-- !daily - Claims your daily login reward
-- !wallet [user] - Displays yours or target users wallet stats
-- !roll [6/10/20/100/1000] - Rolls a random number from 1 to the target
-- !coinflip - Does a coinflip
-- !badges [user] - Displays yours or target users badge collection
-- !stolengif - Displays current stolen GIF
-- !binfo [badgename/ID] - Displays infomation about target badge
-- !sell [badge ID] [quantity] - Sells the a quantity of the entered badge for half of its value. Uses 4 gems per sale.
-- !shop - Displays the shop
-- !inventory (!inv) [user] - Displays yours or target users inventory  
-- !buy [item ID] [quantity] - Purchases items from the shop
-- !use [item ID] - Uses an item if usable
-- !pets [user] - Displays yours or target users pet collection
-- !pinfo [pet ID] - Displays information about target pet
-- !gather [resource type] - Gathers target resource type
-- !gamble [bet] - Gambles chosen amount of coins. Default is 10
--# !gift [user] [coins] - Gifts target user chosen amount of your coins""")
-# await message.reply(embed=embed)
-
 async def help_command(self, message):
     embed = discord.Embed(title="SoSoGlad Commands", description="""
 - !daily - Claims your daily login reward
@@ -143,7 +121,6 @@ async def help_command(self, message):
 - !stolengif - Displays current stolen GIF
 - !binfo [badgename/ID] - Displays infomation about target badge
 - !sell [badge ID] [quantity] - Sells the a quantity of the entered badge for half of its value. Uses 4 gems per sale.
-- !inventory (!inv) [user] - Displays yours or target users inventory  
 - !gamble [bet] - Gambles chosen amount of coins. Default is 10
 - !gift [user] [coins] - Gifts target user chosen amount of your coins
 - !odds - Displays the odds of rolling a special event""")

@@ -1,7 +1,7 @@
 {
   "badges": {
     "racially_motivated": {
-      "lvl": 29
+      "lvl": 32
     },
     "scare_survivor": {
       "lvl": 17
@@ -26,7 +26,11 @@
     },
     "shiny_hunter": {
       "lvl": 1
+    },
+    "hacker": {
+      "lvl": 1
     }
   },
-  "badgeinvvalue": 26164
+  "badgeinvvalue": 26168,
+  "coins": 500
 }

@@ -203,6 +203,12 @@ BADGE_DATA = {
         image="🔥",
         rarity=BadgeRarity.UNREAL
         ),
+    "perfect_alpha_shiny_hunter" : Badge(
+            title="Alpha Shiny Hunter",
+            description="What. The. Fuck.",
+            image="🪽",
+            rarity=BadgeRarity.GODLY
+            ),
     "jasper" : Badge(
         title="Jasper Badge",
         description="You've been Jaspered",

@@ -3,16 +3,21 @@ import struct
 import threading
 import socket
 
+# Test server for hosting the MMORPG aspects on a standalone app
+
 class Server():
     def __init__(self, host="127.0.0.1", port=25564):
         self.host = host
         self.port = port
-
         self.kill = False
         self.thread_count = 0
-
-
         self.players = []
+
+    def run_listener(self, conn):
+        self.thread_count += 1
+        conn.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, True)
+        conn.settimeout(1)
+        self.thread_count -= 1
 
     def connection_listen_loop(self):
         self.thread_count += 1
@@ -30,7 +35,7 @@ class Server():
                         self.players.append(conn)
 
                 except socket.timeout:
-                    continue 
+                    continue
                 time.sleep(0.01)
 
         self.thread_count -= 1

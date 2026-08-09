@@ -29,20 +29,21 @@ COMMANDS = {  # Defines what to enter to run a command
     "!help": help_command,
     "!binfo": badge_info,
     "!sell": bsell,
-    "!give": give_stuff,
-    "!shop": show_shop,
-    "!inv": show_inventory,
-    "!inventory": show_inventory,
-    "!buy": attempt_purchase,
-    "!use": attempt_use_item,
-    "!pets": show_pets,
-    "!gather": gather,
-    "!gamble" : gamble,
-    "!pinfo":pet_info,
     "!gift":gift,
-    "!resources":show_resources,
-    "!craft": craft,
-    "!iinfo": item_info
+    "!gamble" : gamble,
+
+    # "!gather": gather,
+    # "!resources":show_resources,
+    # "!craft": craft,
+    # "!iinfo": item_info
+    # "!pinfo":pet_info,
+    # "!inventory": show_inventory,
+    # "!buy": attempt_purchase,
+    # "!use": attempt_use_item,
+    # "!pets": show_pets,
+    # "!give": give_stuff,
+    # "!shop": show_shop,
+    # "!inv": show_inventory,
 }
 
 message_counts = {}

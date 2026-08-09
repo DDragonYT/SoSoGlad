@@ -2,6 +2,8 @@ import struct
 import threading
 import socket
 
+# Test client for hosting the MMORPG aspects on a standalone app
+
 class Client():
     def __init__(self, host="127.0.0.1", port = 25564):
         self.host = host

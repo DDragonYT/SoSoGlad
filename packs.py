@@ -112,16 +112,20 @@ def get_random_card(rarity, mtg_pack):
 
 def get_rarity(weight, pack: MTGPack):
     roll: float = (randint(1, 1000000) / 10000) + weight
-    for value, rarityroll in enumerate(pack.rarity_chances):
+    value = 0
+    print(pack.rarity_chances)
+    for rarityroll in pack.rarity_chances[0]:
         if roll > rarityroll:
             print(RARITIES[value])
             return RARITIES[value]
+        value+=1
 
 
-def open_pack(pack, packobj, user: str, weight: float = 0):
+def open_pack(pack, user: str, weight: float = 0):
+    packobj = PACKS[pack]
     rarity = get_rarity(weight, packobj)
     card = get_random_card(rarity, pack)
-    return card
+    return card,rarity
 
 
 async def attempt_open_pack(self, message):
@@ -129,22 +133,29 @@ async def attempt_open_pack(self, message):
     command_params = message.content.split(" ")
 
     if len(command_params) < 2:
-        await message.reply(gen_error("Please supply a pack ID."))
+        await message.reply(embed = gen_error("Please supply a pack ID."))
         return
     else:
-        pack = command_params[1]
+        pack = command_params[1].upper()
     if not pack in PACKS.keys():
-        await message.reply(gen_error("That is not a valid pack ID."))
+        await message.reply(embed = gen_error("That is not a valid pack ID."))
         return
     else:
         packobj = PACKS[pack]
         userdata = get_userdata(user)
     if userdata["coins"] < packobj.price:
-        await message.reply(gen_error("You do not have enough money to make this purchase."))
+        await message.reply(embed = gen_error(f"You do not have the {packobj.price} coins required to make this purchase. (You have: {userdata["coins"]})"))
         return
     else:
-        card = open_pack(pack, packobj, message.author, 0)
-        message.reply(card)
+        cardname, cardrarity = open_pack(pack, message.author, 0)
+        embed = discord.Embed(
+                title = f"{message.author} opened a {packobj.name} Pack!",
+                color=discord.Colour.orange(),
+                description=f"They got a {cardname}, it's a {cardrarity}!"
+            )
+        file = discord.File(get_card_image(cardname,pack), filename="thumbnail.png")
+        embed.set_thumbnail(url="attachment://thumbnail.png")
+        await message.reply(embed = embed)
 
 async def show_packs(self, message):
     embed = discord.Embed(title=f"Pack Shop", colour=discord.Colour.orange())
@@ -163,6 +174,4 @@ DESCRIPTION: `{packdata.description}`
 
 
 if __name__ == "__main__":
-    get_card_list()
-    get_random_card("rare", "2ED")
-    open_pack("2ED", "ddragonyt")
+    print(open_pack("2ED", "ddragonyt"))

@@ -32,7 +32,7 @@ PROFILE_STATS = {
 }
 
 LEVEL_DIVIDER = 2
-LEVEL_CURVE = 2
+LEVEL_CURVE = 3
 LEVEL_BASE = 100
 
 def level_up_badge(self, message, level):
@@ -80,7 +80,17 @@ async def profile(self, message, target=2):
       userkeys = userdata.keys()
       for key in PROFILE_STATS.keys():
             if key in userkeys:
-                  embed.add_field(name=PROFILE_STATS[key], value=userdata[key])
+                  if key != "equipped_badge":
+                        embed.add_field(name=PROFILE_STATS[key], value=userdata[key])
+                  elif key == "xp_needed":
+                        embed.add_field(name=PROFILE_STATS[key], value=int(userdata["xp_needed"]) - int(userdata["exp"]))
+                  else:
+                        badge = userdata["equipped_badge"]
+                        badgetype = "badges"
+                        badgedata = BADGE_DATA[badge]
+                        leveltext = f" Level {userdata[badgetype][badge]["lvl"]}" if userdata[badgetype][badge]["lvl"] > 1 else ""
+                        value = f"[{badgedata.image}] {badgedata.title}{leveltext} ({badgedata.rarity.name})"
+                        embed.add_field(name=PROFILE_STATS[key], value=value)
             else:
                   embed.add_field(name=PROFILE_STATS[key], value=f"No {PROFILE_STATS[key]}.")               
       await message.reply(embed=embed)
@@ -92,16 +102,19 @@ async def equip_badge(self, message, target=2):
       if not "eqipped_badge" in userkeys:
             userdata["equipped_badge"] = "none"
             userkeys = userdata.keys()
-      else:
-            target = command[1]
-            if target in BADGE_DATA:
-                  if target in userdata['badges']:
-                        userdata["equipped_badge"] = target
-                        embed = discord.Embed(title=f"Badge Equipped", colour=discord.Colour.green())
-                  else:
-                        embed = discord.Embed(title=f"You do not own this badge", colour=discord.Colour.red())
+      
+      
+      target = command[1]
+      if target in BADGE_DATA:
+            if target in userdata['badges']:
+                  userdata["equipped_badge"] = target
+                  embed = discord.Embed(title=f"Badge Equipped", colour=discord.Colour.green())
             else:
-                  embed = discord.Embed(title=f"Bagde does not exist", colour=discord.Colour.red())
+                  embed = discord.Embed(title=f"You do not own this badge", colour=discord.Colour.red())
+      else:
+            embed = discord.Embed(title=f"Bagde does not exist", colour=discord.Colour.red())
+      await message.reply(embed = embed)
+      set_userdata(message.author, userdata)
             
 
 

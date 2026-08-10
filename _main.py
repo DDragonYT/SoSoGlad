@@ -12,6 +12,7 @@ from badge import *
 from resource import *
 from pet import *
 from craft import *
+from experience import experience_check
 
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]
@@ -103,31 +104,29 @@ async def on_message(message):
     if message.content.split(" ")[0].lower() in COMMANDS.keys():
         await COMMANDS[message.content.split(" ")[0].lower()](bot, message)
         await add_badge(bot, message, "hacker")
-
     elif message.content.lower() in COMMANDS.keys():
         await COMMANDS[message.content.lower()](bot, message)
         await add_badge(bot, message, "hacker")
-
-    elif message.author != bot.user:
-        for key in REFERENCES.keys():
-            if key in message.content.lower():
-                reference = REFERENCES[key]
-                if type(REFERENCES[key]) == list:
-                    reference_text = reference[randint(0, len(reference) - 1)]
-                else:
-                    reference_text = reference
-                await message.reply(reference_text)
-                await add_badge(bot, message, "trigger")
-                break
-        if randint(1, 7) == 1:
-            for key in ODDS_REFERENCES.keys():
-                if key in message.content.lower():
-                    await message.reply(ODDS_REFERENCES[key])
-                    await add_badge(bot, message, "trigger")
-                    break
-
     else:
         await roll_event(bot, message)
+        experience_check(bot, message)
+        if message.author != bot.user:
+            for key in REFERENCES.keys():
+                if key in message.content.lower():
+                    reference = REFERENCES[key]
+                    if type(REFERENCES[key]) == list:
+                        reference_text = reference[randint(0, len(reference) - 1)]
+                    else:
+                        reference_text = reference
+                    await message.reply(reference_text)
+                    await add_badge(bot, message, "trigger")
+                    break
+            if randint(1, 7) == 1:
+                for key in ODDS_REFERENCES.keys():
+                    if key in message.content.lower():
+                        await message.reply(ODDS_REFERENCES[key])
+                        await add_badge(bot, message, "trigger")
+                        break        
 
     if (
         ".gif" in message.content

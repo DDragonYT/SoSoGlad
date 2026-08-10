@@ -5,11 +5,15 @@
   "badges": {
     "hacker": {
       "lvl": 1
+    },
+    "maga": {
+      "lvl": 1
     }
   },
   "gems": 10,
   "last_daily": "2026-08-10",
-  "exp": 2,
-  "level": 2,
-  "xp_needed": 100
+  "exp": 7,
+  "level": 40,
+  "xp_needed": 8100,
+  "equipped_badge": "maga"
 }

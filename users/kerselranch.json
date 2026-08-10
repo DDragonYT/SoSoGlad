@@ -10,7 +10,7 @@
       "lvl": 3
     },
     "racially_motivated": {
-      "lvl": 32
+      "lvl": 33
     },
     "maga": {
       "lvl": 25
@@ -55,7 +55,7 @@
   "coins": 29189492146,
   "gems": 21,
   "last_daily": "2026-08-10",
-  "badgeinvvalue": 54118,
+  "badgeinvvalue": 55148,
   "inventory": {
     "pet_crate": {
       "quantity": 0
@@ -406,9 +406,9 @@
       "quantity": 2
     }
   },
-  "exp": 62,
-  "level": 5,
-  "xp_needed": 106,
-  "net_worth": 29189546264,
+  "exp": 134,
+  "level": 6,
+  "xp_needed": 127,
+  "net_worth": 29189547294,
   "equipped_badge": "jasper"
 }

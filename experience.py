@@ -61,15 +61,18 @@ async def experience_check(self, message, amount:int = 1):
               message.reply(embed=discord.Embed(title = f"Congratulations {message.author.mention} you are now level {userdata["level"]}!"))
               set_userdata(message.author, userdata)
               level_up_badge(self, message, userdata["level"])
+
+              
 async def profile(self, message, target=2):
       command = str(message.content).split(" ")
-      if len(command) > target:
-            target = command[len(command) - 1]
+      if len(command) > 1:
+            target = command[1]
             if "<" in target:
                   user_id = int(target.strip("<>@"))
                   target = self.get_user(user_id)
-            else:
-              target = message.author
+            else: target = message.author
+      else:
+            target = message.author
       embed = discord.Embed(title=f"{target.mention}'s Profile", colour=discord.Colour.yellow())
       embed.setImage(target.avatarURL())
       for key in PROFILE_STATS.keys():

@@ -14,6 +14,7 @@ from pet import *
 from craft import *
 from experience import *
 from packs import *
+from leaderboard import *
 
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]
@@ -35,6 +36,7 @@ COMMANDS = {  # Defines what to enter to run a command
     "!gamble" : gamble,
     "!profile" : profile,
     "!packs":show_packs,
+    "!buypack":attempt_open_pack,
     "!leaderboard" : leaderboard,
 
     # "!gather": gather,

@@ -121,7 +121,7 @@ def get_rarity(weight, pack: MTGPack):
 def open_pack(pack, packobj, user: str, weight: float = 0):
     rarity = get_rarity(weight, packobj)
     card = get_random_card(rarity, pack)
-    print(card)
+    return card
 
 
 async def attempt_open_pack(self, message):
@@ -143,7 +143,8 @@ async def attempt_open_pack(self, message):
         await message.reply(gen_error("You do not have enough money to make this purchase."))
         return
     else:
-        open_pack(pack, packobj, message.author, 0)
+        card = open_pack(pack, packobj, message.author, 0)
+        message.reply(card)
 
 async def show_packs(self, message):
     embed = discord.Embed(title=f"Pack Shop", colour=discord.Colour.orange())

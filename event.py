@@ -126,7 +126,9 @@ async def help_command(self, message):
 - !sell [badge ID] [quantity] - Sells the a quantity of the entered badge for half of its value. Uses 4 gems per sale.
 - !gamble [bet] - Gambles chosen amount of coins. Default is 10
 - !gift [user] [coins] - Gifts target user chosen amount of your coins
-- !odds - Displays the odds of rolling a special event""")
+- !odds - Displays the odds of rolling a special event
+- !profile [user] - Displays yours or target users profile
+- !equip [badge ID] Equips a badge to your profile""")
     await message.reply(embed=embed)
 
 async def tell_odds(self, message):

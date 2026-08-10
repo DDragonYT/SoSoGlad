@@ -1,6 +1,6 @@
 {
   "badgeinvvalue": 10,
-  "coins": 100,
+  "coins": 98,
   "net_worth": 110,
   "badges": {
     "hacker": {
@@ -12,8 +12,9 @@
   },
   "gems": 10,
   "last_daily": "2026-08-10",
-  "exp": 7,
+  "exp": 12,
   "level": 40,
   "xp_needed": 8100,
-  "equipped_badge": "maga"
+  "equipped_badge": "maga",
+  "biggest_win": 8
 }

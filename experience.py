@@ -29,6 +29,7 @@ PROFILE_STATS = {
     # "eqipped_pet" : "Equipped Pet",
     # "favourite_card" : "Favourite Card",
     "equipped_badge": "Equipped Badge",
+    "biggest_win":"Biggest Gambling Win"
 }
 
 LEVEL_DIVIDER = 2

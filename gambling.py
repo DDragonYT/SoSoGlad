@@ -93,7 +93,6 @@ async def gamble(self, message):
             await sleep(3)
 
             userdata["coins"] += result
-            set_userdata(message.author, userdata)
             embed = discord.Embed(
                 title=f"You got {result} coins back!",
                 colour=discord.Colour.yellow(),
@@ -105,8 +104,17 @@ async def gamble(self, message):
                 colour=discord.Colour.yellow(),
             )
 
+
             if result > bet_amt:   
-                embed.description = f" You profited {result - bet_amt} coins! That's a {round(((result)/bet_amt)*100,2)}% return rate."
+                profit = result - bet_amt
+                embed.description = f" You profited {profit} coins! That's a {round(((result)/bet_amt)*100,2)}% return rate."
+                if not "biggest_win" in userdata.keys():
+                    userdata["biggest_win"] = profit
+                else:
+                    if profit > userdata["biggest_win"]:
+                        userdata["biggest_win"] = profit
+                embed.description += "\n\nThat is your new biggest win!!"
+
             elif bet_amt > result:
                 embed.colour = discord.Colour.red()
                 embed.description  =f" You lost {bet_amt - result} coins. That's a {round(((result)/bet_amt)*100,2)}% return rate." 
@@ -114,6 +122,9 @@ async def gamble(self, message):
                 embed.description = f" You profit nothing and lose nothing. Impressive"
                 if bet_amt > 9:
                     await add_badge(self, message, f"even")
+
+            set_userdata(message.author, userdata)
+
         else:
             embed_too_poor = discord.Embed(
                     title=f"You can't afford that bet.", colour=discord.Colour.red()

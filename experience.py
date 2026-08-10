@@ -60,11 +60,12 @@ async def experience_check(self, message, amount: int = 1):
         userdata["xp_needed"] = amount_for_level(userdata["level"])
         set_userdata(message.author, userdata)
         if userdata["exp"] > userdata["xp_needed"]:
-            userdata["level"] += amount
+            userdata["level"] += 1
             userdata["exp"] -= userdata["xp_needed"]
             level_up_badge(self, message, userdata["level"])
+            set_userdata(message.author, userdata)
             embed = discord.Embed(
-                description=f"Congratulations {message.author.mention} you are now level {userdata["level"]}!"
+                description=f"Congratulations {message.author.mention} you are now level {userdata["level"]}!", colour=discord.Colour.green()
             )
             await message.reply(embed=embed)
 

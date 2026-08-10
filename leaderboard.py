@@ -7,3 +7,16 @@ from embed import *
 from badge import add_badge
 from wallet import *
 from experience import *
+
+users_on_leaderboard = 10
+
+async def leaderboard(self, message):
+    base_list = []
+    for file in os.listdir("users"):
+        user = file.split(" ")[0]
+        base_list.append(get_userdata(user))
+    coin_list = base_list.copy()
+    sorted_coin_list = dict(sorted(coin_list.items(), key=lambda x: x[1]['coins'], reverse=True))
+    embed = discord.Embed(title=f"Coin Leaderboard", colour=discord.Colour.yellow(),description=f"{sorted_coin_list}")
+    
+        

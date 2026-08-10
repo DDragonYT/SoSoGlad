@@ -34,7 +34,8 @@ COMMANDS = {  # Defines what to enter to run a command
     "!gift":gift,
     "!gamble" : gamble,
     "!profile" : profile,
-    "!packs":show_packs
+    "!packs":show_packs,
+    "!leaderboard" : leaderboard,
 
     # "!gather": gather,
     # "!resources":show_resources,

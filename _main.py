@@ -38,6 +38,7 @@ COMMANDS = {  # Defines what to enter to run a command
     "!packs":show_packs,
     "!buypack":attempt_open_pack,
     "!leaderboard" : leaderboard,
+    "!equip" : equip_badge,
 
     # "!gather": gather,
     # "!resources":show_resources,

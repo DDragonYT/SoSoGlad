@@ -4,7 +4,7 @@ from userdata import *
 import discord
 import os
 from embed import *
-from badge import add_badge
+from badge import *
 from wallet import wallet_stats
 
 LEVEL_UP_BADGES = {
@@ -28,7 +28,7 @@ PROFILE_STATS = {
       "net_worth" : "Net Worth",
       #"eqipped_pet" : "Equipped Pet",
       #"favourite_card" : "Favourite Card",
-      #"favourite_badge" : "Favourite Badge",
+      "equipped_badge" : "Equipped Badge",
 }
 
 LEVEL_DIVIDER = 2
@@ -84,6 +84,25 @@ async def profile(self, message, target=2):
             else:
                   embed.add_field(name=PROFILE_STATS[key], value=f"No {PROFILE_STATS[key]}.")               
       await message.reply(embed=embed)
+
+async def equip_badge(self, message, target=2):
+      userdata = get_userdata(message.author)
+      userkeys = userdata.keys()
+      command = str(message.content).split(" ")
+      if not "eqipped_badge" in userkeys:
+            userdata["equipped_badge"] = "none"
+            userkeys = userdata.keys()
+      else:
+            target = command[1]
+            if target in BADGE_DATA:
+                  if target in userdata['badges']:
+                        userdata["equipped_badge"] = target
+                        embed = discord.Embed(title=f"Badge Equipped", colour=discord.Colour.green())
+                  else:
+                        embed = discord.Embed(title=f"You do not own this badge", colour=discord.Colour.red())
+            else:
+                  embed = discord.Embed(title=f"Bagde does not exist", colour=discord.Colour.red())
+            
 
 
 if __name__ == "__main__":

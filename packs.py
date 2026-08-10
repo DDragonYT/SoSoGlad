@@ -4,7 +4,7 @@ import json
 import scrython
 
 CARD_IMAGE = "resources/images/cards"
-
+RARITIES = ["common","uncommon","rare","mythic"]
 
 def display_binder(set_name):
     cards = os.listdir(f"{CARD_IMAGE}/{set_name}/")
@@ -44,16 +44,28 @@ def get_card_list():
     else:
         card_json = {}
     for set in sets:
+        
         if not set in card_json.keys():
             card_json[set] = {}
+            for rarity in RARITIES:
+                card_json[set][rarity] = []
             for card in os.listdir(f"{CARD_IMAGE}/{set}/"):
                 try:
-                    print(card)
                     card_name = card.split(".")[0]
-                    print(card_name)
                     cardinfo = scrython.cards.Named(fuzzy=card_name)
-                    card_json[set][card_name] = {"rarity":cardinfo.rarity}
+                    card_json[set][card_name] = {
+                        "rarity":cardinfo.rarity,
+                        "color_identity":cardinfo.color_identity,
+                        "mana_cost":cardinfo.mana_cost,
+                        "artist":cardinfo.artist,
+                        "type_line":cardinfo.type_line,
+                        "oracle_text":cardinfo.oracle_text,
+                        }
                     print(f"Retrieved [{card}] data.")
+                    card_rarity = input(f"What rarity should {card} be? Press enter to just use {cardinfo.rarity}: ")
+                    if not card_rarity:
+                        card_rarity = cardinfo.rarity
+                    card_json[set][card_rarity].append(card)
 
                 except:
                     print(f"Could not retrieve [{card}] data.")
@@ -69,5 +81,5 @@ def get_card_list():
 # new_im.show()
 
 
-get_card_list()
-get_card_image("Zombie Master","2ED").show()
+# get_card_list()
+# get_card_image("Black Lotus","2ED").show()

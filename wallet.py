@@ -110,7 +110,7 @@ def add_to_inv(user, userdata, item, quantity):
 
 async def gift(self, message, target=2):
     command = str(message.content).split(" ")
-    if not "sosoglad" in str(message.author).lower():
+    if message.author != self.user:
         if len(command) > 1:
             target = command[1]
             if "<" in target:
@@ -118,14 +118,14 @@ async def gift(self, message, target=2):
                 target = self.get_user(user_id)
         try:
             gift_amt = int(command[2])
-            userdata = get_userdata(message.author)
+            sender_userdata = get_userdata(message.author)
             if gift_amt > 0:
-                if userdata["coins"] >= gift_amt:
-                    userdata["coins"] -= gift_amt
-                    set_userdata(message.author, userdata)
+                if sender_userdata["coins"] >= gift_amt:
                     userdata = get_userdata(target)
                     userdata["coins"] += gift_amt
                     set_userdata(target, userdata)
+                    sender_userdata["coins"] -= gift_amt
+                    set_userdata(message.author, sender_userdata)
                     embed = discord.Embed(title="Successful Gift",description=f"{message.author.mention} has gifted {target.mention} {gift_amt} coins!", colour=discord.Colour.green())
                     await message.reply(embed = embed)
                 else:
@@ -133,4 +133,4 @@ async def gift(self, message, target=2):
             else: 
                 await message.reply(embed=gen_error("You cant gift nothing."))
         except:
-            await message.reply(embed=gen_error("You can only gift whole numbers."))
+            await message.reply(embed=gen_error(f"Failed to gift to {target}"))

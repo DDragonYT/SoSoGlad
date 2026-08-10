@@ -4,6 +4,7 @@ import json
 import scrython
 from random import randint
 from userdata import *
+import discord
 
 
 class MTGPack:
@@ -16,9 +17,9 @@ class MTGPack:
 
 
 CARD_IMAGE = "resources/images/cards"
-RARITIES = ["common", "uncommon", "rare", "mythic"]
-SETS = [
-    MTGPack(
+RARITIES = ["mythic","rare","uncommon","common"]
+PACKS = {
+    "2ED":MTGPack(
         60,
         "2ED",
         "https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/6/6d/Unlimited_booster.jpg/revision/latest?cb=20131109150010",
@@ -30,7 +31,7 @@ SETS = [
             0
         ]
     )
-]
+}
 
 
 def display_binder(set_name):
@@ -60,7 +61,7 @@ def display_binder(set_name):
     return new_im
 
 
-def get_set_data(set):
+def get_set_data(set:MTGPack):
     with open("cards.json", "r") as cardj:
         return json.load(cardj)[set]
 
@@ -104,32 +105,51 @@ def get_card_list():
         json.dump(card_json, f)
 
 
-def get_random_card(rarity, set):
-    raritydata = get_set_data(set)[rarity]
+def get_random_card(rarity, mtg_pack):
+    raritydata = get_set_data(mtg_pack)[rarity]
     card_amt = len(raritydata)
     card = raritydata[randint(0, card_amt)]
-    print(card)
-
+    return card
 
 def get_rarity(weight, pack:MTGPack):
-    roll: float = randint(1, 1000000) / 10000
-    for raritynum in pack.rarity_chances:
-        if roll > raritynum:
-            pass
+    roll: float = (randint(1, 1000000) / 10000) + weight
+    for value, rarityroll in enumerate(pack.rarity_chances):
+        if roll > rarityroll:
+            print(RARITIES[value])
+            return RARITIES[value]
 
+def open_pack(pack,packobj, user: str, weight: float = 0):
+        rarity = get_rarity(weight, packobj)
+        card = get_random_card(rarity, pack)
+        print(card)
 
-def open_pack(pack: MTGPack, user: str, weight: float = 0):
+async def attempt_open_pack(self, message):
+
+    packobj = PACKS[pack]
     userdata = get_userdata(user)
-    if userdata["coins"] >= pack.price:
-        get_rarity(weight)
-        get_random_card()
+    if userdata["coins"] >= packobj.price:
+        open_pack(pack,packobj,message.author,0)
+
+async def show_packs(self, message):
+    embed = discord.Embed(title=f"Shop", colour=discord.Colour.orange())
+    for pack in PACKS.keys():
+        packdata = PACKS[pack]
+        value = ""
+        for key in packdata:
+            if packdata[key] and key != "name":
+                if packdata[key] == "gem_price" or packdata[key] == "coin_price":
+                    if packdata[key] < 0:
+                        break
+                value += f"""**{"ID" if key == "id" else key.replace("_"," ").capitalize()}**: {"`" if key == "id" else ""} {itemdata[key]} {"`" if key == "id" else ""} \n"""
+        embed.add_field(
+            name=f"[{packdata.id}] {packdata.name} Pack",
+            value=value,
+        )
+
+    await message.reply(embed=embed)
 
 
-# new_im = display_binder("2ED")
-# new_im.show()
-
-
-get_card_list()
-get_random_card("rare", "2ED")
-open_pack("2ED", "ddragonyt")
-# get_card_image("Black Lotus","2ED").show()
+if __name__ == "__main__":
+    get_card_list()
+    get_random_card("rare", "2ED")
+    open_pack("2ED", "ddragonyt")

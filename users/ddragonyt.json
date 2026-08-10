@@ -20,6 +20,15 @@
     },
     "victim": {
       "lvl": 1
+    },
+    "thrill_seeker": {
+      "lvl": 3
+    },
+    "racially_motivated": {
+      "lvl": 3
+    },
+    "six_seven": {
+      "lvl": 1
     }
   },
   "legacy_badges": {

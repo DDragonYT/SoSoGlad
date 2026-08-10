@@ -33,7 +33,7 @@ def amount_for_level(level):
                 LEVEL_BASE
                 )      
 
-async def experience_check(self, message):
+async def experience_check(self, message, amount:int = 1):
     if message.author != self.user:
         userdata = get_userdata(message.author)
         userkeys = userdata.keys()
@@ -46,8 +46,8 @@ async def experience_check(self, message):
         userdata["exp"] += randint(2,5) 
         userdata["xp_needed"] = amount_for_level(userdata["level"])
         if userdata["exp"] > userdata["xp_needed"]:
-              userdata["level"] += 1
-              userdata["exp"] -= 100
+              userdata["level"] += amount
+              userdata["exp"] -= userdata["xp_needed"]
               message.reply(embed=discord.Embed(title = f"Congratulations {message.author.mention} you are now level {userdata["level"]}!"))
               set_userdata(message.author, userdata)
               level_up_badge(self, message, userdata["level"])

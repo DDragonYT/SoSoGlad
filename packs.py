@@ -25,9 +25,8 @@ SETS = [
         "Unlimited Edition",
         [
             101,
-            97,
-            85,
-            55,
+            90,
+            60,
             0
         ]
     )
@@ -112,8 +111,11 @@ def get_random_card(rarity, set):
     print(card)
 
 
-def get_rarity(weight):
+def get_rarity(weight, pack:MTGPack):
     roll: float = randint(1, 1000000) / 10000
+    for raritynum in pack.rarity_chances:
+        if roll > raritynum:
+            pass
 
 
 def open_pack(pack: MTGPack, user: str, weight: float = 0):

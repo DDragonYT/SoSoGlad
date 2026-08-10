@@ -109,7 +109,7 @@ async def on_message(message):
         await add_badge(bot, message, "hacker")
     else:
         await roll_event(bot, message)
-        experience_check(bot, message)
+        await experience_check(bot, message)
         if message.author != bot.user:
             for key in REFERENCES.keys():
                 if key in message.content.lower():

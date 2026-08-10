@@ -12,7 +12,7 @@ from badge import *
 from resource import *
 from pet import *
 from craft import *
-from experience import experience_check
+from experience import *
 
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]
@@ -32,6 +32,7 @@ COMMANDS = {  # Defines what to enter to run a command
     "!sell": bsell,
     "!gift":gift,
     "!gamble" : gamble,
+    "!profile" : profile,
 
     # "!gather": gather,
     # "!resources":show_resources,

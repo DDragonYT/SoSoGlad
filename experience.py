@@ -5,6 +5,7 @@ import discord
 import os
 from embed import *
 from badge import add_badge
+from wallet import wallet_stats
 
 LEVEL_UP_BADGES = {
     10:"level_10",
@@ -18,6 +19,15 @@ LEVEL_UP_BADGES = {
     300:"level_300",
     500:"level_500",
     500:"level_1000"
+}
+
+PROFILE_STATS = {
+      "level" : "Level",
+      "exp" : "XP",
+      "net_worth" : "Net Worth",
+      #"eqipped_pet" : "Equipped Pet",
+      #"favourite_card" : "Favourite Card",
+      #"favourite_badge" : "Favourite Badge",
 }
 
 LEVEL_DIVIDER = 2
@@ -51,6 +61,21 @@ async def experience_check(self, message, amount:int = 1):
               message.reply(embed=discord.Embed(title = f"Congratulations {message.author.mention} you are now level {userdata["level"]}!"))
               set_userdata(message.author, userdata)
               level_up_badge(self, message, userdata["level"])
+async def profile(self, message, target=2):
+      command = str(message.content).split(" ")
+      if len(command) > target:
+            target = command[len(command) - 1]
+            if "<" in target:
+                  user_id = int(target.strip("<>@"))
+                  target = self.get_user(user_id)
+            else:
+              target = message.author
+      embed = discord.Embed(title=f"{target.mention}'s Profile", colour=discord.Colour.yellow())
+      embed.setImage(target.avatarURL())
+      for key in PROFILE_STATS.keys():
+            if key in userkeys:
+                  embed.add_field(name=PROFILE_STATS[key], value=userdata[key])
+            await message.reply(embed=embed)
 
 
 if __name__ == "__main__":

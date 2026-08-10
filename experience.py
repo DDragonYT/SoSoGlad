@@ -70,11 +70,14 @@ async def profile(self, message, target=2):
             if "<" in target:
                   user_id = int(target.strip("<>@"))
                   target = self.get_user(user_id)
-            else: target = message.author
+            else:
+                  target = message.author
       else:
             target = message.author
-      embed = discord.Embed(title=f"{target.mention}'s Profile", colour=discord.Colour.yellow())
-      embed.setImage(target.avatarURL())
+      embed = discord.Embed(title=f"{target.user}'s Profile", colour=discord.Colour.yellow())
+      embed.set_image(url=str(target.avatar))
+      userdata = get_userdata(target)
+      userkeys = userdata.keys()
       for key in PROFILE_STATS.keys():
             if key in userkeys:
                   embed.add_field(name=PROFILE_STATS[key], value=userdata[key])

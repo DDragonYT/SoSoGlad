@@ -5,6 +5,7 @@ import scrython
 from random import randint
 from userdata import *
 import discord
+from embed import gen_error
 
 
 class MTGPack:
@@ -17,19 +18,14 @@ class MTGPack:
 
 
 CARD_IMAGE = "resources/images/cards"
-RARITIES = ["mythic","rare","uncommon","common"]
+RARITIES = ["mythic", "rare", "uncommon", "common"]
 PACKS = {
-    "2ED":MTGPack(
+    "2ED": MTGPack(
         60,
         "2ED",
         "https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/6/6d/Unlimited_booster.jpg/revision/latest?cb=20131109150010",
         "Unlimited Edition",
-        [
-            101,
-            90,
-            60,
-            0
-        ]
+        [101, 90, 60, 0],
     )
 }
 
@@ -61,7 +57,7 @@ def display_binder(set_name):
     return new_im
 
 
-def get_set_data(set:MTGPack):
+def get_set_data(set: MTGPack):
     with open("cards.json", "r") as cardj:
         return json.load(cardj)[set]
 
@@ -111,24 +107,42 @@ def get_random_card(rarity, mtg_pack):
     card = raritydata[randint(0, card_amt)]
     return card
 
-def get_rarity(weight, pack:MTGPack):
+
+def get_rarity(weight, pack: MTGPack):
     roll: float = (randint(1, 1000000) / 10000) + weight
     for value, rarityroll in enumerate(pack.rarity_chances):
         if roll > rarityroll:
             print(RARITIES[value])
             return RARITIES[value]
 
-def open_pack(pack,packobj, user: str, weight: float = 0):
-        rarity = get_rarity(weight, packobj)
-        card = get_random_card(rarity, pack)
-        print(card)
+
+def open_pack(pack, packobj, user: str, weight: float = 0):
+    rarity = get_rarity(weight, packobj)
+    card = get_random_card(rarity, pack)
+    print(card)
+
 
 async def attempt_open_pack(self, message):
+    user = message.author
+    command_params = message.content.split(" ")
 
-    packobj = PACKS[pack]
-    userdata = get_userdata(user)
-    if userdata["coins"] >= packobj.price:
-        open_pack(pack,packobj,message.author,0)
+    if len(command_params) < 2:
+        await message.reply(gen_error("Please supply a pack ID."))
+        return
+    else:
+        pack = command_params[1]
+    if not pack in PACKS.keys():
+        await message.reply(gen_error("That is not a valid pack ID."))
+        return
+    else:
+        packobj = PACKS[pack]
+        userdata = get_userdata(user)
+    if userdata["coins"] < packobj.price:
+        await message.reply(gen_error("You do not have enough money to make this purchase."))
+        return
+    else:
+        open_pack(pack, packobj, message.author, 0)
+
 
 async def show_packs(self, message):
     embed = discord.Embed(title=f"Shop", colour=discord.Colour.orange())

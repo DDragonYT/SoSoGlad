@@ -22,7 +22,7 @@
       "lvl": 1
     },
     "thrill_seeker": {
-      "lvl": 3
+      "lvl": 4
     },
     "racially_motivated": {
       "lvl": 3
@@ -42,10 +42,10 @@
       "lvl": 1
     }
   },
-  "coins": 1440,
+  "coins": 1968,
   "gems": 0,
   "last_daily": "2026-07-14",
-  "badgeinvvalue": 97629,
+  "badgeinvvalue": 97631,
   "inventory": {
     "pet_crate": {
       "quantity": 8328

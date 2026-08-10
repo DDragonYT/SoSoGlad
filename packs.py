@@ -9,12 +9,13 @@ from embed import gen_error
 
 
 class MTGPack:
-    def __init__(self, price, id, image, name, rarity_chances):
+    def __init__(self, price, id, image, name, rarity_chances, description):
         self.price = price
         self.id = id
         self.image = image
         self.name = name
-        self.rarity_chances = rarity_chances
+        self.rarity_chances = rarity_chances,
+        self.description = description
 
 
 CARD_IMAGE = "resources/images/cards"
@@ -26,6 +27,7 @@ PACKS = {
         "https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/6/6d/Unlimited_booster.jpg/revision/latest?cb=20131109150010",
         "Unlimited Edition",
         [101, 90, 60, 0],
+        "Unlimited Edition, or Unlimited is the second edition of the core set. This white-bordered set consisted of the same 302 cards as the Beta print run. It was released in December 1993. "
     )
 }
 
@@ -143,23 +145,19 @@ async def attempt_open_pack(self, message):
     else:
         open_pack(pack, packobj, message.author, 0)
 
-
 async def show_packs(self, message):
-    embed = discord.Embed(title=f"Shop", colour=discord.Colour.orange())
+    embed = discord.Embed(title=f"Pack Shop", colour=discord.Colour.orange())
     for pack in PACKS.keys():
-        packdata = PACKS[pack]
-        value = ""
-        for key in packdata:
-            if packdata[key] and key != "name":
-                if packdata[key] == "gem_price" or packdata[key] == "coin_price":
-                    if packdata[key] < 0:
-                        break
-                value += f"""**{"ID" if key == "id" else key.replace("_"," ").capitalize()}**: {"`" if key == "id" else ""} {itemdata[key]} {"`" if key == "id" else ""} \n"""
+        packdata:MTGPack = PACKS[pack]
+        value = f"""Cost: {packdata.price} 🪙
+ID: `{packdata.id}`
+DESCRIPTION: `{packdata.description}`
+"""
         embed.add_field(
             name=f"[{packdata.id}] {packdata.name} Pack",
             value=value,
         )
-
+    embed.set_thumbnail(url="https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/6/6d/Unlimited_booster.jpg/revision/latest?cb=20131109150010")
     await message.reply(embed=embed)
 
 

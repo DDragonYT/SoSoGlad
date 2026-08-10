@@ -7,7 +7,7 @@
       "lvl": 1
     },
     "thrill_seeker": {
-      "lvl": 1
+      "lvl": 2
     },
     "racially_motivated": {
       "lvl": 32
@@ -47,11 +47,14 @@
     },
     "flip_7": {
       "lvl": 1
+    },
+    "jasper": {
+      "lvl": 1
     }
   },
-  "coins": 29189492046,
-  "gems": 19,
-  "last_daily": "2026-07-03",
+  "coins": 29189492146,
+  "gems": 21,
+  "last_daily": "2026-08-10",
   "badgeinvvalue": 54093,
   "inventory": {
     "pet_crate": {
@@ -402,5 +405,9 @@
     "fern": {
       "quantity": 2
     }
-  }
+  },
+  "exp": 17,
+  "level": 3,
+  "xp_needed": 102,
+  "net_worth": 29189546239
 }

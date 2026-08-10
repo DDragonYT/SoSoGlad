@@ -24,6 +24,7 @@ LEVEL_UP_BADGES = {
 PROFILE_STATS = {
       "level" : "Level",
       "exp" : "XP",
+      "xp_needed":"XP to Next Level",
       "net_worth" : "Net Worth",
       #"eqipped_pet" : "Equipped Pet",
       #"favourite_card" : "Favourite Card",
@@ -45,23 +46,22 @@ def amount_for_level(level):
 
 async def experience_check(self, message, amount:int = 1):
     if message.author != self.user:
-        userdata = get_userdata(message.author)
-        userkeys = userdata.keys()
-        if not "exp" in userkeys:
-                userdata["exp"] = 0
-                userkeys = userdata.keys()
-        if not "level" in userkeys:
-                userdata["level"] = 1
-                userkeys = userdata.keys()                
-        userdata["exp"] += randint(2,5) 
-        userdata["xp_needed"] = amount_for_level(userdata["level"])
-        if userdata["exp"] > userdata["xp_needed"]:
-              userdata["level"] += amount
-              userdata["exp"] -= userdata["xp_needed"]
-              message.reply(embed=discord.Embed(title = f"Congratulations {message.author.mention} you are now level {userdata["level"]}!"))
-              set_userdata(message.author, userdata)
-              level_up_badge(self, message, userdata["level"])
-
+      userdata = get_userdata(message.author)
+      userkeys = userdata.keys()
+      if not "exp" in userkeys:
+            userdata["exp"] = 0
+            userkeys = userdata.keys()
+      if not "level" in userkeys:
+            userdata["level"] = 1
+            userkeys = userdata.keys()                
+      userdata["exp"] += randint(2,5) 
+      userdata["xp_needed"] = amount_for_level(userdata["level"])
+      if userdata["exp"] > userdata["xp_needed"]:
+            userdata["level"] += amount
+            userdata["exp"] -= userdata["xp_needed"]
+            await message.reply(embed=discord.Embed(description = f"Congratulations {message.author.mention} you are now level {userdata["level"]}!"))
+            level_up_badge(self, message, userdata["level"])
+      set_userdata(message.author, userdata)
               
 async def profile(self, message, target=2):
       command = str(message.content).split(" ")
@@ -74,14 +74,16 @@ async def profile(self, message, target=2):
                   target = message.author
       else:
             target = message.author
-      embed = discord.Embed(title=f"{target.user}'s Profile", colour=discord.Colour.yellow())
-      embed.set_image(url=str(target.avatar))
+      embed = discord.Embed(title=f"{target}'s Profile", colour=discord.Colour.yellow())
+      embed.set_thumbnail(url=str(target.avatar))
       userdata = get_userdata(target)
       userkeys = userdata.keys()
       for key in PROFILE_STATS.keys():
             if key in userkeys:
                   embed.add_field(name=PROFILE_STATS[key], value=userdata[key])
-            await message.reply(embed=embed)
+            else:
+                  embed.add_field(name=PROFILE_STATS[key], value=f"No {PROFILE_STATS[key]}.")               
+      await message.reply(embed=embed)
 
 
 if __name__ == "__main__":

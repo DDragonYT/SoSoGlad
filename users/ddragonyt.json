@@ -22,13 +22,16 @@
       "lvl": 1
     },
     "thrill_seeker": {
-      "lvl": 4
+      "lvl": 6
     },
     "racially_motivated": {
-      "lvl": 3
+      "lvl": 4
     },
     "six_seven": {
       "lvl": 1
+    },
+    "maga": {
+      "lvl": 2
     }
   },
   "legacy_badges": {
@@ -42,10 +45,10 @@
       "lvl": 1
     }
   },
-  "coins": 1968,
-  "gems": 0,
-  "last_daily": "2026-07-14",
-  "badgeinvvalue": 97631,
+  "coins": 2068,
+  "gems": 10,
+  "last_daily": "2026-08-10",
+  "badgeinvvalue": 97658,
   "inventory": {
     "pet_crate": {
       "quantity": 8328
@@ -871,5 +874,9 @@
     "cotton": {
       "quantity": 3
     }
-  }
+  },
+  "exp": 1,
+  "level": 6,
+  "xp_needed": 106,
+  "net_worth": 99726
 }

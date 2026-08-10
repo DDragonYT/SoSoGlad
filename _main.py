@@ -13,6 +13,7 @@ from resource import *
 from pet import *
 from craft import *
 from experience import *
+from packs import *
 
 datajson = json.load(open("data.json", "r"))
 REFERENCES = datajson["references"]
@@ -33,6 +34,7 @@ COMMANDS = {  # Defines what to enter to run a command
     "!gift":gift,
     "!gamble" : gamble,
     "!profile" : profile,
+    "!packs":show_packs
 
     # "!gather": gather,
     # "!resources":show_resources,
@@ -111,6 +113,7 @@ async def on_message(message):
     else:
         await roll_event(bot, message)
         await experience_check(bot, message)
+
         if message.author != bot.user:
             for key in REFERENCES.keys():
                 if key in message.content.lower():

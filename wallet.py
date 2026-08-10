@@ -10,7 +10,7 @@ WALLET_STATS = {  # What should we call these stats?
     "gems": "Gems 💎",
     "last_daily": "Last Daily",
     "badgeinvvalue": "Badges Value",
-    "net-worth": "Net Worth",
+    "net_worth": "Net Worth",
 }
 
 DAILY_AMOUNT = 100
@@ -32,14 +32,15 @@ async def wallet_stats(self, message, target=2):
     userdata = get_userdata(target)
     userkeys = userdata.keys()
     embed = discord.Embed(title=f"{target}'s Wallet", colour=discord.Colour.yellow())
+    embed.set_thumbnail(url="https://em-content.zobj.net/source/huawei/442/purse_1f45b.png")
     if not "coins" in userkeys:
         userdata["coins"] = 0
         userkeys = userdata.keys()
-    userdata["net-worth"] = userdata["badgeinvvalue"] + userdata["coins"]
-
+    userdata["net_worth"] = userdata["badgeinvvalue"] + userdata["coins"]
     for key in WALLET_STATS.keys():
         if key in userkeys:
             embed.add_field(name=WALLET_STATS[key], value=userdata[key])
+    set_userdata(target, userdata)
     await message.reply(embed=embed)
 
 

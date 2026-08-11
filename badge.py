@@ -67,7 +67,7 @@ async def player_badges(self, message):
 
                 for badge in userdata[badgetype]:
                     badgedata = BADGE_DATA[badge]
-                    leveltext = f" Level {userdata[badgetype][badge]["lvl"]}" if userdata[badgetype][badge]["lvl"] > 1 else ""
+                    leveltext = f" Tier {userdata[badgetype][badge]["lvl"]}" if userdata[badgetype][badge]["lvl"] > 1 else ""
                     value += f"\n- [{badgedata.image}] {badgedata.title}{leveltext} ({badgedata.rarity.name})"
                 embed.add_field(name=badgetype.replace("_"," ").capitalize(), value=value)
 

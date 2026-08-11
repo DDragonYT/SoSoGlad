@@ -23,4 +23,12 @@ async def leaderboard(self, message):
     await message.reply(embed)
 
 def update_leaderboard_variables():
-    pass
+    base_list = []
+    for file in os.listdir("users"):
+        user = file.split(" ")[0]
+        userdata = get_userdata(user)
+        base_list.append(userdata)
+    print('base_list')
+
+if __name__ == "__main__":
+    update_leaderboard_variables()

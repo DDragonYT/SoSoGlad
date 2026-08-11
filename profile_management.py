@@ -6,7 +6,7 @@ from badge import calc_inv, BADGE_DATA
 from random import randint
 from embed import gen_error
 from datetime import date
-
+from item import get_itemdata
 
 async def wallet_stats(self, message, target=2):
     "Calculates a users inventory, then displays their details"
@@ -55,24 +55,31 @@ async def profile(self, message, target=2):
     userkeys = userdata.keys()
     for key in PROFILE_STATS.keys():
         if key in userkeys:
-            if key != "equipped_badge":
-                embed.add_field(name=PROFILE_STATS[key], value=userdata[key])
-            elif key == "xp_needed":
-                embed.add_field(
-                    name=PROFILE_STATS[key],
-                    value=(int(userdata["xp_needed"]) - int(userdata["exp"])),
-                )
-            else:
+            if key == "equipped_badge":
                 badge = userdata["equipped_badge"]
                 badgetype = "badges"
                 badgedata = BADGE_DATA[badge]
                 leveltext = (
-                    f" Level {userdata[badgetype][badge]["lvl"]}"
+                    f" Tier {userdata[badgetype][badge]["lvl"]}"
                     if userdata[badgetype][badge]["lvl"] > 1
                     else ""
                 )
                 value = f"[{badgedata.image}] {badgedata.title}{leveltext} ({badgedata.rarity.name})"
                 embed.add_field(name=PROFILE_STATS[key], value=value)
+            elif key == "xp_needed":
+                embed.add_field(
+                    name=PROFILE_STATS[key],
+                    value=(int(userdata["xp_needed"]) - int(userdata["exp"])),
+                )
+            elif key == "equipped_pet":
+                pet = userdata["equipped_pet"]
+                pet_data = get_itemdata(pet)
+                leveltext = f" Level {userdata["pets"][pet]["level"]}"
+                value = f"[{pet_data["icon"]}] {pet_data["name"]}{leveltext} ({pet_data["rarity"].upper()})"
+                embed.add_field(name=PROFILE_STATS[key], value=value)
+            else:
+                embed.add_field(name=PROFILE_STATS[key], value=userdata[key])
+                
         else:
             embed.add_field(name=PROFILE_STATS[key], value=f"No {PROFILE_STATS[key]}.")
     await message.reply(embed=embed)

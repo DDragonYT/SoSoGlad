@@ -14,10 +14,13 @@ async def pet_info(self, message):
     """Checks if a pet exists, if it does generate an embed and send it"""
     await item_info(self, message, "pet")
 
+def add_xp(amount,userdata, id):
+    userdata["pets"][id]["xp"] += amount
+
 def add_pet(id, qty, user, level = 0):
     userdata = get_userdata(user)
     if not "pets" in userdata.keys():
-        userdata["pets"] = []
+        userdata["pets"] = {}
     if not id in userdata["pets"]:
         for i in range(qty):
             userdata["pets"][id] = {
@@ -30,9 +33,8 @@ def add_pet(id, qty, user, level = 0):
         set_userdata(user, userdata)
     else:
         pet_data = get_itemdata(id)
-        if userdata["pets"][id]["level"] < pet_data[id].max_level:
-            userdata["pets"][id]["xp"] += 10
-            
+        if userdata["pets"][id]["level"] < 101:
+            userdata = add_xp(10, userdata)
         set_userdata(user, userdata)
 
 async def show_pets(self, message, target = 2):
@@ -51,7 +53,8 @@ async def show_pets(self, message, target = 2):
             title=f"{target}'s Pets", colour=discord.Colour.orange()
         )
         output = ""
-        for petobj in userinv:
+        for petid in userinv.keys():
+            petobj = userinv[petid]
             pet = petobj["id"]
             itemdata = get_itemdata(pet)
             output += f"""- [{itemdata["icon"]}] {itemdata["name"]} (Level {petobj["level"]})\n"""
@@ -85,13 +88,9 @@ async def equip_pet(self, message, target=2):
                     title=f"{pet_data[target]["name"]} Equipped", colour=discord.Colour.green()
                 )
             else:
-                embed = discord.Embed(
-                    title=f"You do not own a {pet_data[target]["name"]}", colour=discord.Colour.red()
-                )
+                embed = gen_error(f"You do not own a {pet_data[target]["name"]}")
         else:
-            embed = discord.Embed(
-                title=f"{target} does not exist", colour=discord.Colour.red()
-            )
+            embed = gen_error(f"{target} does not exist")
         await message.reply(embed=embed)
         set_userdata(message.author, userdata)
 
@@ -101,7 +100,7 @@ async def pet_xp(self, message):
         userkeys = userdata.keys()
         if "equipped_pet" in userkeys:
             equipped_pet = "equipped_pet"
-            for eqipped_pet in userdata["pets"]:
+            for equipped_pet in userdata["pets"]:
                 equipped_pet_data = userdata["pets"][equipped_pet]
                 equipped_pet_data["xp"] += randint(2,5)
                 equipped_pet_data["xp_needed"] = pet_xp_required(equipped_pet_data["level"])

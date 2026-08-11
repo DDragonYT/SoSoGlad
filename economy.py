@@ -8,6 +8,7 @@ from badge import calc_inv
 from crate import open_crate
 from item import *
 from profile import *
+from wallet import *
 
 
 async def show_inventory(self, message, target=2):

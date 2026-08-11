@@ -58,7 +58,7 @@
   "badgeinvvalue": 55126,
   "inventory": {
     "pet_crate": {
-      "quantity": 67
+      "quantity": 0
     },
     "stone": {
       "quantity": 2
@@ -70,25 +70,91 @@
       "quantity": 0
     }
   },
-  "exp": 92,
-  "level": 7,
-  "xp_needed": 112,
+  "exp": 67,
+  "level": 8,
+  "xp_needed": 116,
   "net_worth": 29187117370,
   "equipped_badge": "six_seven",
   "biggest_win": 1396518,
-  "pets": [
-    {
+  "equipped_pet": "tiger",
+  "pets": {
+    "fish": {
       "id": "fish",
       "name": "Fish",
       "level": 1,
-      "xp": 0
+      "xp": 50
     },
-    {
+    "pig": {
       "id": "pig",
       "name": "Pig",
       "level": 1,
+      "xp": 90
+    },
+    "tiger": {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1,
+      "xp": 70
+    },
+    "dog": {
+      "id": "dog",
+      "name": "Dog",
+      "level": 1,
+      "xp": 30
+    },
+    "mouse": {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1,
+      "xp": 20
+    },
+    "monkey": {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1,
+      "xp": 70
+    },
+    "bird": {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1,
+      "xp": 40
+    },
+    "horse": {
+      "id": "horse",
+      "name": "Horse",
+      "level": 1,
+      "xp": 20
+    },
+    "moose": {
+      "id": "moose",
+      "name": "Moose",
+      "level": 1,
       "xp": 0
+    },
+    "cat": {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1,
+      "xp": 30
+    },
+    "gorilla": {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1,
+      "xp": 20
+    },
+    "orangutan": {
+      "id": "orangutan",
+      "name": "Orangutan",
+      "level": 1,
+      "xp": 0
+    },
+    "shark": {
+      "id": "shark",
+      "name": "Shark",
+      "level": 1,
+      "xp": 10
     }
-  ],
-  "equipped_pet": "none"
+  }
 }

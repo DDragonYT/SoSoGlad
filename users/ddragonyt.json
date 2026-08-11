@@ -1,7 +1,7 @@
 {
-  "badgeinvvalue": 25,
-  "coins": 101,
-  "net_worth": 122,
+  "badgeinvvalue": 36,
+  "coins": 0,
+  "net_worth": 10036,
   "badges": {
     "hacker": {
       "lvl": 1
@@ -14,13 +14,102 @@
     },
     "trigger": {
       "lvl": 1
+    },
+    "thrill_seeker": {
+      "lvl": 1
     }
   },
   "gems": 18,
   "last_daily": "2026-08-11",
-  "exp": 49,
+  "exp": 170,
   "level": 40,
   "xp_needed": 500,
   "equipped_badge": "maga",
-  "biggest_win": 75
+  "biggest_win": 75,
+  "inventory": {
+    "pet_crate": {
+      "quantity": 41
+    }
+  },
+  "pets": {
+    "gorilla": {
+      "id": "gorilla",
+      "name": "Gorilla",
+      "level": 1,
+      "xp": 0
+    },
+    "horse": {
+      "id": "horse",
+      "name": "Horse",
+      "level": 1,
+      "xp": 30
+    },
+    "cat": {
+      "id": "cat",
+      "name": "Cat",
+      "level": 1,
+      "xp": 40
+    },
+    "pig": {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1,
+      "xp": 40
+    },
+    "dog": {
+      "id": "dog",
+      "name": "Dog",
+      "level": 1,
+      "xp": 40
+    },
+    "bird": {
+      "id": "bird",
+      "name": "Bird",
+      "level": 1,
+      "xp": 110
+    },
+    "fish": {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1,
+      "xp": 110
+    },
+    "mouse": {
+      "id": "mouse",
+      "name": "Mouse",
+      "level": 1,
+      "xp": 50
+    },
+    "orangutan": {
+      "id": "orangutan",
+      "name": "Orangutan",
+      "level": 1,
+      "xp": 0
+    },
+    "monkey": {
+      "id": "monkey",
+      "name": "Monkey",
+      "level": 1,
+      "xp": 30
+    },
+    "lion": {
+      "id": "lion",
+      "name": "Lion",
+      "level": 1,
+      "xp": 20
+    },
+    "whale": {
+      "id": "whale",
+      "name": "Whale",
+      "level": 1,
+      "xp": 0
+    },
+    "tiger": {
+      "id": "tiger",
+      "name": "Tiger",
+      "level": 1,
+      "xp": 0
+    }
+  },
+  "equipped_pet": "fish"
 }

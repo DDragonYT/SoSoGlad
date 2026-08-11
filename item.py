@@ -52,7 +52,7 @@ def get_itemdata(itemname=None):
 
 def get_recipedata(itemname=None):
     itemrecipe = itemname = itemname + "_recipe"
-    with open("recipes.json", "rb") as itemjson:
+    with open("resources/data/recipes.json", "rb") as itemjson:
         itemjson = load(itemjson)
 
         print(itemjson)

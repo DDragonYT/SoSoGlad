@@ -101,7 +101,7 @@ async def pet_xp(self, message):
         userkeys = userdata.keys()
         if "equipped_pet" in userkeys:
             equipped_pet = "equipped_pet"
-            for "eqipped_pet" in userdata["pets"]:
+            for eqipped_pet in userdata["pets"]:
                 equipped_pet_data = userdata["pets"][equipped_pet]
                 equipped_pet_data["xp"] += randint(2,5)
                 equipped_pet_data["xp_needed"] = pet_xp_required(equipped_pet_data["level"])

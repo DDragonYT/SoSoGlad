@@ -21,4 +21,6 @@ async def leaderboard(self, message):
     await message.reply(embed)
     embed = discord.Embed(title=f"Coin Leaderboard", colour=discord.Colour.yellow(),description=f"{sorted_coin_list}")
     await message.reply(embed)
-        
+
+def update_leaderboard_variables():
+    pass

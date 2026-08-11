@@ -86,6 +86,7 @@ async def gamble(self, message):
                 title=f"You gamble {bet_amt} coins...",
                 colour=discord.Colour.yellow(),
             )
+            embed.set_thumbnail(url="https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3e99627091900881d8abc_61.png")
             await message.reply(embed=embed)
             userdata["coins"] -= bet_amt
             set_userdata(message.author, userdata)
@@ -103,6 +104,7 @@ async def gamble(self, message):
                 title=f"You hit the Jackpot! 🎰 You get {result} coins back!",
                 colour=discord.Colour.yellow(),
             )
+                embed.set_thumbnail(url="https://cdn3.emoji.gg/emojis/88021-bluemoji-75.png")
 
 
             if result > bet_amt:   
@@ -113,18 +115,25 @@ async def gamble(self, message):
                 else:
                     if profit > userdata["biggest_win"]:
                         userdata["biggest_win"] = profit
-                embed.description += "\n\nThat is your new biggest win!!"
+                        embed.description += "\n\nThat is your new biggest win!!"
 
             elif bet_amt > result:
                 embed.colour = discord.Colour.red()
                 embed.description  =f" You lost {bet_amt - result} coins. That's a {round(((result)/bet_amt)*100,2)}% return rate." 
+                if not embed.thumbnail:
+                    embed.set_thumbnail(url="https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3ea739479633d9833e202_41.png")
+
             else:
                 embed.description = f" You profit nothing and lose nothing. Impressive"
+                if not embed.thumbnail:
+                    embed.set_thumbnail(url="https://api.fstik.app/file/AAMCAgADFQABanknfdS_FA1jxWRKzKhZ7QY50rEAAscSAAJcDWFI4dVw6EqR6p0BAAdtAAM9BA/sticker.webp")
+
                 if bet_amt > 9:
                     await add_badge(self, message, f"even")
 
             set_userdata(message.author, userdata)
-
+            if not embed.thumbnail:
+                embed.set_thumbnail(url="https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/64fae09ea069231209494e10_90.png")
         else:
             embed_too_poor = discord.Embed(
                     title=f"You can't afford that bet.", colour=discord.Colour.red()

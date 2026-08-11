@@ -16,7 +16,7 @@ def add_pet(id, qty, user, level = 0):
             {
                 "id":id,
                 "name": get_itemdata(id)["name"],
-                "level":level
+                "level":level,
                 "xp" : 0
             }
             )

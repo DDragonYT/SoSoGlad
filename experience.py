@@ -6,7 +6,7 @@ import os
 from embed import *
 from badge import *
 from wallet import wallet_stats
-from pets import *
+from pet import *
 from item import *
 
 LEVEL_UP_BADGES = {

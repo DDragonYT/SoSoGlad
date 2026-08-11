@@ -5,7 +5,7 @@ import discord
 import os
 from embed import *
 from badge import add_badge
-from wallet import *
+from profile import *
 from experience import *
 
 users_on_leaderboard = 10

@@ -1,10 +1,11 @@
+from _globalvars import *
+
 from embed import gen_error
 from item import get_itemdata
 import discord
 import json
 from userdata import get_userdata, set_userdata
 
-RECIPES:dict = json.load(open("recipes.json", "r"))
 
 async def show_recipe(self,message):
     command_params:list = message.content.split(" ")

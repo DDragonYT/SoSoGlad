@@ -1,233 +1,11 @@
+from _globalvars import *
+
 from enum import Enum
 from random import randint
 from userdata import *
 import discord
 import os
 from embed import *
-
-datajson = json.load(open("data.json","r"))
-ANNOUNCEMENT_CHANNEL = int(datajson["announcement_channel"])
-SELL_PRICE = int(datajson["sell_price"])
-BADGE_VALUES = {}
-
-
-class BadgeRarity(Enum):
-    COMMON = "Common"
-    UNCOMMON = "Uncommon"
-    RARE = "Rare"
-    EPIC = "Epic"
-    LEGENDARY = "Legendary"
-    UNREAL = "Unreal"
-    GODLY = "Godly"
-
-rarity_values = {
-    BadgeRarity.COMMON: 10,
-    BadgeRarity.UNCOMMON: 25,
-    BadgeRarity.RARE: 50,
-    BadgeRarity.EPIC: 500,
-    BadgeRarity.LEGENDARY: 3000,
-    BadgeRarity.UNREAL:20000,
-    BadgeRarity.GODLY:50000,
-
-}
-
-BADGE_TYPES = ["badges", "deluxe_badges"]
-
-class Badge():
-    def __init__(self, title, description, image, rarity, max_level = 30, sellable = True):
-        self.title = title
-        self.description = description
-        self.image = image
-        self.rarity = rarity
-        self.max_level = max_level
-        self.sellable = sellable
-
-BADGE_DATA = {
-    "scare_survivor": Badge(
-        title="Scare Survivor Badge",
-        description="Survive a super scary encounter. So so brave.",
-        image="👻",
-        rarity=BadgeRarity.RARE
-    ),
-    "high_roller":Badge(
-        title="High Roller Badge",
-        description="Roll a 1000! You really should hit Crown.",
-        image="🎰",
-        rarity=BadgeRarity.EPIC
-    ),
-    "consistent_6":Badge(
-        title="Rookie Gambler Badge",
-        description="Roll the same number three times in a row on a D6.",
-        image="🎲",
-        rarity=BadgeRarity.UNCOMMON,
-        max_level=50
-    ),
-    "consistent_10":Badge(
-        title="Novice Gambler Badge",
-        description="Roll the same number three times in a row on a D10. Nice!",
-        image="🎲",
-        rarity=BadgeRarity.UNCOMMON,
-        max_level=50
-    ),
-    "consistent_20":Badge(
-        title="Pro Gambler Badge",
-        description="Roll the same number three times in a row on a D20. Awesome job!",
-        image="🎲",
-        rarity=BadgeRarity.LEGENDARY
-    ),
-    "consistent_100":Badge(
-        title="Gambling Legend Badge",
-        description="Roll the same number three times in a row on a D100. This is crazy. Congratulations.",
-        image="🎲",
-        rarity=BadgeRarity.UNREAL
-    ),
-    "consistent_1000":Badge(
-        title="Gambling God Badge",
-        description="Roll the same number three times in a row on a D1000. Stop cheating bro.",
-        image="🎲",
-        rarity=BadgeRarity.GODLY
-    ),
-
-    "kirky":Badge(
-        title="Kirkified Badge",
-        description="Earned by getting Kirkified 100 times.",
-        image="🔫",
-        rarity=BadgeRarity.UNCOMMON
-    ),
-    "victim":Badge(
-        title="The Victim Badge",
-        description="Get absolutely unfairly robbed.",
-        image="🍺",
-        rarity=BadgeRarity.COMMON
-    ),
-    "flip_5":Badge(
-        title="Mini Flipper Badge",
-        description="Flip the same face 5 times in a row! Nice job!",
-        image="🪙",
-        rarity=BadgeRarity.COMMON,
-        max_level=50
-    ),
-    "flip_7":Badge(
-        title="Medium Flipper Badge",
-        description="Flip the same face 7 times in a row! Wow! Thats almost unbelievable",
-        image="🪙",
-        rarity=BadgeRarity.UNCOMMON,
-        max_level=50
-    ),
-    "flip_10":Badge(
-        title="Massive Flipper Badge",
-        description="Flip the same face 10 times in a row! Are you cheating?",
-        image="🪙",
-        rarity=BadgeRarity.EPIC
-    ),
-    "flip_15":Badge(
-        title="Elder Flipper Badge",
-        description="Flip the same face 15 times in a row! Bro is wallhacking.",
-        image="🪙",
-        rarity=BadgeRarity.UNREAL
-    ),
-    "flip_25":Badge(
-        title="Statistical Anomaly Badge",
-        description="Flip the same face 25 times IN A ROW. Are we fucking for real.",
-        image="🪙",
-        rarity=BadgeRarity.GODLY
-    ),
-    "yapper":Badge(
-        title="Yapper Badge",
-        description="Send 1000 messages, holy fucking yap.",
-        image="🗣️",
-        rarity=BadgeRarity.EPIC,
-    ),
-    "deluxe_badge":Badge(
-        title="Badge Hunter DX",
-        description="Acquire a deluxe badge!",
-        image="🥇",
-        rarity=BadgeRarity.EPIC,
-    ),
-    "deluxe_badge_dx":Badge(
-        title="Deluxe Badge Hunter DX",
-        description="Acquire a 10 deluxe badges!",
-        image="🎖️",
-        rarity=BadgeRarity.UNREAL,
-    ),
-    "trigger" : Badge(
-        title="Triggerer Badge",
-        description="Trigger one of SoSoGlad's post traumatic stress disorders.",
-        image="🤖",
-        rarity=BadgeRarity.COMMON,
-        max_level=1,
-        ),
-    "hacker" : Badge(
-        title="Hackerman Badge",
-        description="Use a SoSoGlad command. What a tech master.",
-        image="🧑🏻‍💻",
-        rarity=BadgeRarity.COMMON,
-        max_level=1
-        ),
-    "thrill_seeker" : Badge(
-        title="Thrill Seeker Badge",
-        description="Be lucky enough to encounter an event.",
-        image="🪂",
-        rarity=BadgeRarity.COMMON,
-        max_level=50
-        ),
-    "racially_motivated" : Badge(
-        title="Racially Motivated Badge",
-        description="Acquired by being randomly racially motivated for no reason.",
-        image="🙍🏿",
-        rarity=BadgeRarity.COMMON,
-        max_level=100,
-        ),
-    "maga" : Badge(
-        title="MAGA Badge",
-        description="You really shouldn't have this one, supporter of the orange man.",
-        image="🍊",
-        rarity=BadgeRarity.UNCOMMON,
-        max_level=100,
-        ),
-    "six_seven" : Badge(
-        title="67 Badge",
-        description="Do I really need to explain this one.",
-        image="♿",
-        rarity=BadgeRarity.EPIC
-        ),
-    "shiny_hunter" : Badge(
-        title="Shiny Hunter Badge",
-        description="Get a job bro, thats crazy.",
-        image="✨",
-        rarity=BadgeRarity.LEGENDARY
-        ),
-    "alpha_shiny_hunter" : Badge(
-        title="Alpha Shiny Hunter",
-        description="Okay, there's no way you got this badge.",
-        image="🔥",
-        rarity=BadgeRarity.UNREAL
-        ),
-    "perfect_alpha_shiny_hunter" : Badge(
-            title="Alpha Shiny Hunter Badge",
-            description="What. The. Fuck.",
-            image="🪽",
-            rarity=BadgeRarity.GODLY
-            ),
-    "jasper" : Badge(
-        title="Jasper Badge",
-        description="You've been Jaspered",
-        image="👨",
-        rarity=BadgeRarity.RARE   
-        ),
-    "jackpot" : Badge(
-        title ="Jackpot Hitter Badge",
-        description ="You're very lucky",
-        image ="🎰",
-        rarity=BadgeRarity.UNCOMMON
-        ),
-    "even" : Badge(
-        title = "Even Stevens Badge",
-        description= "You gambled and made net zero, impressive",
-        image = "⚖️",
-        rarity =BadgeRarity.COMMON
-    ),   
-}   
 
 def badge_search(name):
     """I dunno"""
@@ -359,15 +137,15 @@ def calc_badges():
                                     else:
                                         badge_totals[badge] = fileobj[badge_type][badge]['lvl']
                                 else:
-                                    basevalue = rarity_values[BADGE_DATA[badge].rarity]
+                                    basevalue = RARITY_VALUES[BADGE_DATA[badge].rarity]
                                     BADGE_VALUES["deluxe_badges"][badge] = basevalue * 10
     for badge in BADGE_DATA.keys():
         for badge_type in ["badges", "deluxe_badges"]:
             if badge not in BADGE_VALUES[badge_type].keys():
-                BADGE_VALUES[badge_type][badge] = rarity_values[BADGE_DATA[badge].rarity]
+                BADGE_VALUES[badge_type][badge] = RARITY_VALUES[BADGE_DATA[badge].rarity]
     for badge in badge_totals.keys():
         badgeqty = badge_totals[badge]
-        basevalue = rarity_values[BADGE_DATA[badge].rarity]
+        basevalue = RARITY_VALUES[BADGE_DATA[badge].rarity]
 
         if badgeqty > basevalue / 5:
             valuecurve = 0.99

@@ -1,3 +1,5 @@
+from _globalvars import *
+
 import discord
 from discord import app_commands
 import json
@@ -6,19 +8,16 @@ import time
 
 from event import *
 from economy import *
-from shop import *
 from gambling import *
 from badge import *
 from resource import *
 from pet import *
 from craft import *
-from experience import *
 from packs import *
-from leaderboard import *
+from leaderboard import leaderboard
+from profile_management import wallet, wallet_daily, gift, profile, equip_badge, experience_check
 
-datajson = json.load(open("data.json", "r"))
-REFERENCES = datajson["references"]
-ODDS_REFERENCES = datajson["odds_references"]
+
 COMMANDS = {  # Defines what to enter to run a command
     "!odds": tell_odds,
     "!stolengif": stolengif,
@@ -57,10 +56,6 @@ COMMANDS = {  # Defines what to enter to run a command
 message_counts = {}
 last_price_update = -1
 
-with open("secret.key", "r") as keysecret:
-    api_key = keysecret.readline()
-
-
 class MyClient(discord.Client):
     user: discord.ClientUser
 
@@ -74,7 +69,7 @@ bot = MyClient(intents=intents)
 @bot.event
 async def on_ready():
     print(f"Logged on as {bot.user}!")
-    with open("stolengif.txt", "r") as stolen:
+    with open("resources/data/stolengif.txt", "r") as stolen:
         bot.stolen_gif = stolen.readline()
     bot.roll_history = {"6": [], "10": [], "20": [], "100": [], "1000": []}
 
@@ -160,4 +155,4 @@ async def on_message(message):
         )
 
 
-bot.run(api_key)
+bot.run(API_KEY)

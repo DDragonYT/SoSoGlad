@@ -1,6 +1,6 @@
 import discord
 from discord import app_commands
-from wallet import *
+from profile import *
 from random import randint
 import asyncio
 from embed import *

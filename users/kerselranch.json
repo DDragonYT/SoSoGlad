@@ -55,10 +55,10 @@
   "coins": 29190637552,
   "gems": 27,
   "last_daily": "2026-08-11",
-  "badgeinvvalue": 55152,
+  "badgeinvvalue": 55173,
   "inventory": {
     "pet_crate": {
-      "quantity": 69
+      "quantity": 67
     },
     "stone": {
       "quantity": 2
@@ -73,7 +73,22 @@
   "exp": 71,
   "level": 7,
   "xp_needed": 112,
-  "net_worth": 29190692604,
+  "net_worth": 29190692725,
   "equipped_badge": "jasper",
-  "biggest_win": 1396518
+  "biggest_win": 1396518,
+  "pets": [
+    {
+      "id": "fish",
+      "name": "Fish",
+      "level": 1,
+      "xp": 0
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "level": 1,
+      "xp": 0
+    }
+  ],
+  "equipped_pet": "none"
 }

@@ -1,14 +1,11 @@
+from _globalvars import *
+
 from badge import Badge, BADGE_DATA, add_badge, badge_search, sell_badge
 from random import randint
 import json
 import discord
 from embed import gen_error
 from enum import Enum
-
-
-datajson = json.load(open("data.json","r"))
-ANNOUNCEMENT_CHANNEL = int(datajson["announcement_channel"])
-
 
 class EventType(Enum):
     TEXT = 1

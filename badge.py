@@ -226,73 +226,7 @@ BADGE_DATA = {
         description= "You gambled and made net zero, impressive",
         image = "⚖️",
         rarity =BadgeRarity.COMMON
-    ),
-    "level_10" : Badge(
-            title = "Glad Badge",
-            description= "You got to level 10. Nice. Want a medal or something?",
-            image = "🧿",
-            rarity =BadgeRarity.COMMON
-        ),
-    "level_20" : Badge(
-                title = "More Glad Badge",
-                description= "You got to level 20. Cool.",
-                image = "🧿",
-                rarity =BadgeRarity.UNCOMMON
-            ),
-    "level_30" : Badge(
-                title = "Very Glad Badge",
-                description= "You got to level 30. Good job!",
-                image = "🧿",
-                rarity =BadgeRarity.RARE
-            ),
-    "level_50" : Badge(
-                    title = "Very Very Glad Badge",
-                    description= "You got to level 50. Genuine props to you.",
-                    image = "🧿",
-                    rarity =BadgeRarity.RARE
-                ),
-    "level_75" : Badge(
-                title = "So Glad Badge",
-                description= "You got to level 75. That's pretty sweet.",
-                image = "🧿",
-                rarity =BadgeRarity.EPIC
-            ),
-    "level_100" : Badge(
-                title = "So So Glad Badge",
-                description= "You got to level 100. That's it, you won.",
-                image = "🧿",
-                rarity =BadgeRarity.LEGENDARY
-            ),
-    "level_150" : Badge(
-                title = "Glad",
-                description= "You got to level 150. Are you satisfied?",
-                image = "🧿",
-                rarity = BadgeRarity.GODLY
-            ),
-    "level_200" : Badge(
-                title = "Glad",
-                description= "You got to level 200. Honestly, very impressive.",
-                image = "🧿",
-                rarity =BadgeRarity.UNREAL
-            ),
-    "level_300" : Badge(
-                title = "Glad",
-                description= "You got to level 300. That is insane.",
-                image = "🧿",
-                rarity =BadgeRarity.UNREAL
-            ),
-    "level_500" : Badge(
-                title = "Glad",
-                description= "You got to level 500. Absolutely unreal.",
-                image = "🧿",
-                rarity =BadgeRarity.UNREAL
-            ),
-    "level_1000" : Badge(
-                title = "Glad",
-                description= "You got to level 1000. You are actually god.",
-                image = "🧿",
-                rarity =BadgeRarity.UNREAL
-            ),        
+    ),   
 }   
 
 def badge_search(name):

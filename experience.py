@@ -9,20 +9,6 @@ from wallet import wallet_stats
 from pet import *
 from item import *
 
-LEVEL_UP_BADGES = {
-    10: "level_10",
-    20: "level_20",
-    30: "level_30",
-    50: "level_50",
-    75: "level_75",
-    100: "level_100",
-    150: "level_150",
-    200: "level_200",
-    300: "level_300",
-    500: "level_500",
-    500: "level_1000",
-}
-
 PROFILE_STATS = {
     "level": "Level",
     "exp": "XP",
@@ -37,12 +23,6 @@ PROFILE_STATS = {
 LEVEL_DIVIDER = 2
 LEVEL_CURVE = 2
 LEVEL_BASE = 100
-
-
-def level_up_badge(self, message, level):
-    if level in LEVEL_UP_BADGES.keys():
-        add_badge(self, message, LEVEL_UP_BADGES[level])
-
 
 def amount_for_level(level):
     return int((level / LEVEL_DIVIDER) ** LEVEL_CURVE + LEVEL_BASE)
@@ -64,7 +44,6 @@ async def experience_check(self, message, amount: int = 1):
         if userdata["exp"] > userdata["xp_needed"]:
             userdata["level"] += 1
             userdata["exp"] -= userdata["xp_needed"]
-            level_up_badge(self, message, userdata["level"])
             set_userdata(message.author, userdata)
             embed = discord.Embed(
                 description=f"Congratulations {message.author.mention} you are now level {userdata["level"]}!", colour=discord.Colour.green()

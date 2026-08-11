@@ -1,6 +1,14 @@
 from userdata import *
 import discord
 from item import *
+from random import randint
+
+LEVEL_DIVIDER = 2
+LEVEL_CURVE = 2
+LEVEL_BASE = 100
+
+def pet_xp_required(level):
+    return int((level / LEVEL_DIVIDER) ** LEVEL_CURVE + LEVEL_BASE)
 
 async def pet_info(self, message):
     """Checks if a pet exists, if it does generate an embed and send it"""
@@ -12,14 +20,13 @@ def add_pet(id, qty, user, level = 0):
         userdata["pets"] = []
     if not id in userdata["pets"]:
         for i in range(qty):
-            userdata["pets"].append(
-            {
+            userdata["pets"][id] = {
                 "id":id,
                 "name": get_itemdata(id)["name"],
                 "level":level,
                 "xp" : 0
             }
-            )
+
         set_userdata(user, userdata)
     else:
         pet_data = get_itemdata(id)
@@ -62,23 +69,50 @@ async def equip_pet(self, message, target=2):
     command = str(message.content).split(" ")
     if not "eqipped_pet" in userkeys:
         userdata["equipped_pet"] = "none"
-
-    target = command[1]
-    pet_data = get_itemdata()
-    user_pets = userdata["pets"]
-    if target in pet_data.keys():
-        if target in user_pets:
-            userdata["equipped_pet"] = target
-            embed = discord.Embed(
-                title=f"{pet_data[target]["name"]} Equipped", colour=discord.Colour.green()
-            )
+    if not "pets" in userkeys:
+        embed.discord.Embed(
+            title=f"You have no pets"
+        )
+        await message.reply
+    else:
+        target = command[1]
+        pet_data = get_itemdata()
+        user_pets = userdata["pets"]
+        if target in pet_data.keys():
+            if target in user_pets:
+                userdata["equipped_pet"] = target
+                embed = discord.Embed(
+                    title=f"{pet_data[target]["name"]} Equipped", colour=discord.Colour.green()
+                )
+            else:
+                embed = discord.Embed(
+                    title=f"You do not own a {pet_data[target]["name"]}", colour=discord.Colour.red()
+                )
         else:
             embed = discord.Embed(
-                title=f"You do not own a {pet_data[target]["name"]}", colour=discord.Colour.red()
+                title=f"{target} does not exist", colour=discord.Colour.red()
             )
-    else:
-        embed = discord.Embed(
-            title=f"{target} does not exist", colour=discord.Colour.red()
-        )
-    await message.reply(embed=embed)
-    set_userdata(message.author, userdata)
+        await message.reply(embed=embed)
+        set_userdata(message.author, userdata)
+
+async def pet_xp(self, message):
+    if message.author != self.user:
+        userdata = get_userdata(message.author)
+        userkeys = userdata.keys()
+        if "equipped_pet" in userkeys:
+            equipped_pet = "equipped_pet"
+            for "eqipped_pet" in userdata["pets"]:
+                equipped_pet_data = userdata["pets"][equipped_pet]
+                equipped_pet_data["xp"] += randint(2,5)
+                equipped_pet_data["xp_needed"] = pet_xp_required(equipped_pet_data["level"])
+            if equipped_pet_data["xp"] > equipped_pet_data["xp_needed"]:
+                equipped_pet_data["level"] += 1
+                equipped_pet_data["xp"] - equipped_pet_data["xp_needed"]
+                equipped_pet_data
+                embed = discord.Embed(
+                                description=f"Congratulations {message.author.mention} your {"eqiupped_pet"} is now level {equipped_pet_data["level"]}!", colour=discord.Colour.green()
+                            )
+            userdata["pets"][equipped_pet] = equipped_pet_data
+            set_userdata(message.author, userdata)
+            await message.reply(embed)
+

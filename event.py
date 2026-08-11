@@ -128,7 +128,8 @@ async def help_command(self, message):
 - !gift [user] [coins] - Gifts target user chosen amount of your coins
 - !odds - Displays the odds of rolling a special event
 - !profile [user] - Displays yours or target users profile
-- !equip [badge ID] Equips a badge to your profile""")
+- !equip_badge [badge ID] - Equips a badge to your profile
+- !equip_pet [pet ID] - Equips a pet to your profile""")
     await message.reply(embed=embed)
 
 async def tell_odds(self, message):

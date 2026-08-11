@@ -6,6 +6,8 @@ import os
 from embed import *
 from badge import *
 from wallet import wallet_stats
+from pets import *
+from item import *
 
 LEVEL_UP_BADGES = {
     10: "level_10",
@@ -26,7 +28,7 @@ PROFILE_STATS = {
     "exp": "XP",
     "xp_needed": "XP to Next Level",
     "net_worth": "Net Worth",
-    # "eqipped_pet" : "Equipped Pet",
+    "eqipped_pet" : "Equipped Pet",
     # "favourite_card" : "Favourite Card",
     "equipped_badge": "Equipped Badge",
     "biggest_win":"Biggest Gambling Win"

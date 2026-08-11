@@ -65,7 +65,7 @@ async def equip_pet(self, message, target=2):
 
     target = command[1]
     pet_data = get_itemdata()
-    if target in pet_data():
+    if target in pet_data.keys():
         if target in userdata["pets"]:
             userdata["equipped_pet"] = target
             embed = discord.Embed(

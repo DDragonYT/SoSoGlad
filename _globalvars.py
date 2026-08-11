@@ -5,6 +5,28 @@ _FILEDATAJSON = json.load(open("resources/data/data.json", "r"))
 
 RECIPES:dict = json.load(open("resources/data/recipes.json", "r"))
 
+class MTGPack:
+    def __init__(self, price, id, image, name, rarity_chances, description):
+        self.price = price
+        self.id = id
+        self.image = image
+        self.name = name
+        self.rarity_chances = rarity_chances,
+        self.description = description
+
+
+CARD_IMAGE = "resources/images/cards"
+RARITIES = ["mythic", "rare", "uncommon", "common"]
+PACKS = {
+    "2ED": MTGPack(
+        60,
+        "2ED",
+        "https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/6/6d/Unlimited_booster.jpg/revision/latest?cb=20131109150010",
+        "Unlimited Edition",
+        [101, 90, 60, 0],
+        "Unlimited Edition, or Unlimited is the second edition of the core set. This white-bordered set consisted of the same 302 cards as the Beta print run. It was released in December 1993. "
+    )
+}
 
 with open("resources/data/secret.key", "r") as keysecret:
     API_KEY = keysecret.readline()

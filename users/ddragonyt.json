@@ -1,7 +1,7 @@
 {
-  "badgeinvvalue": 21,
-  "coins": 97,
-  "net_worth": 360,
+  "badgeinvvalue": 25,
+  "coins": 101,
+  "net_worth": 122,
   "badges": {
     "hacker": {
       "lvl": 1
@@ -11,11 +11,14 @@
     },
     "racially_motivated": {
       "lvl": 1
+    },
+    "trigger": {
+      "lvl": 1
     }
   },
   "gems": 18,
   "last_daily": "2026-08-11",
-  "exp": 29,
+  "exp": 49,
   "level": 40,
   "xp_needed": 500,
   "equipped_badge": "maga",

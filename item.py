@@ -43,7 +43,7 @@ def gen_item_list(itemdata):
 
 
 def get_itemdata(itemname=None):
-    with open("items.json", "rb") as itemjson:
+    with open("resources/data/items.json", "rb") as itemjson:
         if itemname:
             return load(itemjson)[itemname]
         else:

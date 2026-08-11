@@ -49,13 +49,13 @@
       "lvl": 1
     },
     "jasper": {
-      "lvl": 2
+      "lvl": 1
     }
   },
-  "coins": 29190637552,
-  "gems": 27,
+  "coins": 29187062244,
+  "gems": 23,
   "last_daily": "2026-08-11",
-  "badgeinvvalue": 55173,
+  "badgeinvvalue": 55126,
   "inventory": {
     "pet_crate": {
       "quantity": 67
@@ -70,11 +70,11 @@
       "quantity": 0
     }
   },
-  "exp": 71,
+  "exp": 83,
   "level": 7,
   "xp_needed": 112,
-  "net_worth": 29190692725,
-  "equipped_badge": "jasper",
+  "net_worth": 29187117370,
+  "equipped_badge": "six_seven",
   "biggest_win": 1396518,
   "pets": [
     {

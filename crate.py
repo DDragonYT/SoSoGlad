@@ -1,3 +1,5 @@
+from _ssg_utils import gen_error
+
 from random import randint
 from item import get_itemdata, item_details
 import discord
@@ -48,7 +50,7 @@ async def open_crate(self, message, item):
     itemdata = get_itemdata(acquired_item)
     itemname = itemdata["name"]
     if itemdata["type"] == "pet":
-        add_pet(id = acquired_item, qty = 1, level = 1, user = message.author)
+        await add_pet(message = message, id = acquired_item, qty = 1, level = 1, user = message.author)
     else:
         add_to_inv(user = message.author, userdata= get_userdata(message.author), quantity= 1, item = acquired_item)
     description = ""

@@ -3,7 +3,7 @@ from _globalvars import *
 from datetime import date
 from userdata import *
 from random import randint
-from embed import *
+from _ssg_utils import *
 from badge import calc_inv
 from crate import open_crate
 from item import *

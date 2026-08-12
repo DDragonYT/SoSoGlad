@@ -1,23 +1,20 @@
+from _globalvars import *
+from _ssg_utils import gen_error
+
 from userdata import *
 import discord
 from item import *
 from random import randint
 
-LEVEL_DIVIDER = 2
-LEVEL_CURVE = 2
-LEVEL_BASE = 100
-
-def pet_xp_required(level):
-    return int((level / LEVEL_DIVIDER) ** LEVEL_CURVE + LEVEL_BASE)
+def pet_xp_required(level,rarity):
+    mult = PET_RARITY_MULTIPLER[rarity]
+    return int(((level / PET_LEVEL_DIVIDER) ** PET_LEVEL_CURVE + PET_LEVEL_BASE)*mult) 
 
 async def pet_info(self, message):
     """Checks if a pet exists, if it does generate an embed and send it"""
     await item_info(self, message, "pet")
 
-def add_xp(amount,userdata, id):
-    userdata["pets"][id]["xp"] += amount
-
-def add_pet(id, qty, user, level = 0):
+async def add_pet(message, id, qty, user, level = 0):
     userdata = get_userdata(user)
     if not "pets" in userdata.keys():
         userdata["pets"] = {}
@@ -34,18 +31,14 @@ def add_pet(id, qty, user, level = 0):
     else:
         pet_data = get_itemdata(id)
         if userdata["pets"][id]["level"] < 101:
-            userdata = add_xp(10, userdata)
+            await add_xp(message, 10, userdata, id)
         set_userdata(user, userdata)
 
 async def show_pets(self, message, target = 2):
-    command = str(message.content).split(" ")
-    if len(command) > target:
-        target = command[len(command) - 1]
-        if "<" in target:
-            user_id = int(target.strip("<>@"))
-            target = self.get_user(user_id)
-    else:
-        target = message.author
+    """Shows the pets of a target user"""
+
+    target = target_from_message(self, message)
+
     userdata = get_userdata(target)
     if "pets" in userdata.keys():
         userinv = userdata["pets"]
@@ -94,24 +87,25 @@ async def equip_pet(self, message, target=2):
         await message.reply(embed=embed)
         set_userdata(message.author, userdata)
 
+async def add_xp(message, amount,userdata, id):
+    userdata["pets"][id]["xp"] += amount
+    userdata["pets"][id]["xp_needed"] = pet_xp_required(userdata["pets"][id]["level"], userdata["pets"][id]["rarity"])
+
+    if userdata["pets"][id]["xp"] > userdata["pets"][id]["xp_needed"]:
+        userdata["pets"][id]["level"] += 1
+        userdata["pets"][id]["xp"] -= userdata["pets"][id]["xp_needed"]
+        petdata = get_itemdata(id)
+        embed = discord.Embed(
+                        description=f"Congratulations {message.author.mention} your {petdata["name"]} is now level {userdata["pets"][id]["level"]}!",
+                        colour=discord.Colour.green(),
+                    )
+        await message.reply(embed=embed)
+    set_userdata(message.author, userdata)
+    return userdata
+    
 async def pet_xp(self, message):
     if message.author != self.user:
         userdata = get_userdata(message.author)
         userkeys = userdata.keys()
         if "equipped_pet" in userkeys:
-            equipped_pet = "equipped_pet"
-            for equipped_pet in userdata["pets"]:
-                equipped_pet_data = userdata["pets"][equipped_pet]
-                equipped_pet_data["xp"] += randint(2,5)
-                equipped_pet_data["xp_needed"] = pet_xp_required(equipped_pet_data["level"])
-            if equipped_pet_data["xp"] > equipped_pet_data["xp_needed"]:
-                equipped_pet_data["level"] += 1
-                equipped_pet_data["xp"] - equipped_pet_data["xp_needed"]
-                equipped_pet_data
-                embed = discord.Embed(
-                                description=f"Congratulations {message.author.mention} your {"eqiupped_pet"} is now level {equipped_pet_data["level"]}!", colour=discord.Colour.green()
-                            )
-            userdata["pets"][equipped_pet] = equipped_pet_data
-            set_userdata(message.author, userdata)
-            await message.reply(embed)
-
+            await add_xp(message, randint(2,5), userdata, userdata["equipped_pet"])

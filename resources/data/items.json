@@ -1,312 +1,311 @@
 {
-    "dog":{
-        "name":"Dog",
-        "type":"pet",
-        "icon":"🐶",
-        "rarity":"common",
-        "image":"https://em-content.zobj.net/source/serenityos/459/dog_1f415.png",
-        "max_level" : 30
+    "dog": {
+        "name": "Dog",
+        "type": "pet",
+        "icon": "🐶",
+        "rarity": "common",
+        "image": "https://em-content.zobj.net/source/serenityos/459/dog_1f415.png",
+        "max_level": 30
     },
-    "cat":{
-        "name":"Cat",
-        "type":"pet",
-        "icon":"😺",
-        "rarity":"common",
-        "image":"https://em-content.zobj.net/source/serenityos/459/cat_1f408.png",
-        "max_level" : 30
-        
+    "cat": {
+        "name": "Cat",
+        "type": "pet",
+        "icon": "😺",
+        "rarity": "common",
+        "image": "https://em-content.zobj.net/source/serenityos/459/cat_1f408.png",
+        "max_level": 30
     },
-    "pig":{
-        "name":"Pig",
-        "type":"pet",
-        "icon":"🐖",
-        "rarity":"common",
-        "image":"https://em-content.zobj.net/source/serenityos/459/pig_1f416.png",
-        "max_level" : 30
+    "pig": {
+        "name": "Pig",
+        "type": "pet",
+        "icon": "🐖",
+        "rarity": "common",
+        "image": "https://em-content.zobj.net/source/serenityos/459/pig_1f416.png",
+        "max_level": 30
     },
-    "mouse":{
-        "name":"Mouse",
-        "type":"pet",
-        "icon":"🐭",
-        "rarity":"common",
-        "image":"https://em-content.zobj.net/source/serenityos/459/mouse_1f401.png",
-        "max_level" : 30
+    "mouse": {
+        "name": "Mouse",
+        "type": "pet",
+        "icon": "🐭",
+        "rarity": "common",
+        "image": "https://em-content.zobj.net/source/serenityos/459/mouse_1f401.png",
+        "max_level": 30
     },
-    "fish":{
-        "name":"Fish",
-        "type":"pet",
-        "icon":"🐟",
-        "rarity":"common",
-        "image":"https://em-content.zobj.net/source/serenityos/459/fish_1f41f.png",
-        "max_level" : 30
+    "fish": {
+        "name": "Fish",
+        "type": "pet",
+        "icon": "🐟",
+        "rarity": "common",
+        "image": "https://em-content.zobj.net/source/serenityos/459/fish_1f41f.png",
+        "max_level": 30
     },
-    "bird":{
-        "name":"Bird",
-        "type":"pet",
-        "icon":"🕊️",
-        "rarity":"common",
-        "image":"https://em-content.zobj.net/source/serenityos/459/bird_1f426.png",
-        "max_level" : 30
+    "bird": {
+        "name": "Bird",
+        "type": "pet",
+        "icon": "🕊️",
+        "rarity": "common",
+        "image": "https://em-content.zobj.net/source/serenityos/459/bird_1f426.png",
+        "max_level": 30
     },
-    "monkey":{
-        "name":"Monkey",
-        "type":"pet",
-        "icon":"🐵",
-        "rarity":"common",
-        "image":"https://em-content.zobj.net/source/serenityos/459/monkey_1f412.png",
-        "max_level" : 30
+    "monkey": {
+        "name": "Monkey",
+        "type": "pet",
+        "icon": "🐵",
+        "rarity": "common",
+        "image": "https://em-content.zobj.net/source/serenityos/459/monkey_1f412.png",
+        "max_level": 30
     },
-    "gorilla":{
-        "name":"Gorilla",
-        "type":"pet",
-        "icon":"🦍",
-        "rarity":"rare",
-        "image":"https://em-content.zobj.net/source/serenityos/459/gorilla_1f98d.png",
-        "max_level" : 30
+    "gorilla": {
+        "name": "Gorilla",
+        "type": "pet",
+        "icon": "🦍",
+        "rarity": "rare",
+        "image": "https://em-content.zobj.net/source/serenityos/459/gorilla_1f98d.png",
+        "max_level": 30
     },
-    "tiger":{
-        "name":"Tiger",
-        "type":"pet",
-        "icon":"🐯",
-        "rarity":"rare",
-        "image":"https://em-content.zobj.net/source/serenityos/459/tiger_1f405.png",
-        "max_level" : 30
+    "tiger": {
+        "name": "Tiger",
+        "type": "pet",
+        "icon": "🐯",
+        "rarity": "rare",
+        "image": "https://em-content.zobj.net/source/serenityos/459/tiger_1f405.png",
+        "max_level": 30
     },
-    "horse":{
-        "name":"Horse",
-        "type":"pet",
-        "icon":"🐎",
-        "rarity":"rare",
-        "image":"https://em-content.zobj.net/source/serenityos/459/horse_1f40e.png",
-        "max_level" : 30
+    "horse": {
+        "name": "Horse",
+        "type": "pet",
+        "icon": "🐎",
+        "rarity": "rare",
+        "image": "https://em-content.zobj.net/source/serenityos/459/horse_1f40e.png",
+        "max_level": 30
     },
-    "orangutan":{
-        "name":"Orangutan",
-        "type":"pet",
-        "icon":"🦧",
-        "rarity":"epic",
-        "image":"https://em-content.zobj.net/source/serenityos/459/orangutan_1f9a7.png",
-        "max_level" : 30
+    "orangutan": {
+        "name": "Orangutan",
+        "type": "pet",
+        "icon": "🦧",
+        "rarity": "epic",
+        "image": "https://em-content.zobj.net/source/serenityos/459/orangutan_1f9a7.png",
+        "max_level": 30
     },
-    "lion":{
-        "name":"Lion",
-        "type":"pet",
-        "icon":"🦁",
-        "rarity":"epic",
-        "image":"https://em-content.zobj.net/source/serenityos/459/lion_1f981.png",
-        "max_level" : 30
+    "lion": {
+        "name": "Lion",
+        "type": "pet",
+        "icon": "🦁",
+        "rarity": "epic",
+        "image": "https://em-content.zobj.net/source/serenityos/459/lion_1f981.png",
+        "max_level": 30
     },
-    "whale":{
-        "name":"Whale",
-        "type":"pet",
-        "icon":"🐋",
-        "rarity":"epic",
-        "image":"https://em-content.zobj.net/source/serenityos/459/whale_1f40b.png",
-        "max_level" : 30
+    "whale": {
+        "name": "Whale",
+        "type": "pet",
+        "icon": "🐋",
+        "rarity": "epic",
+        "image": "https://em-content.zobj.net/source/serenityos/459/whale_1f40b.png",
+        "max_level": 30
     },
-    "shark":{
-        "name":"Shark",
-        "type":"pet",
-        "icon":"🦈",
-        "rarity":"legendary",
-        "image":"https://em-content.zobj.net/source/serenityos/459/shark_1f988.png",
-        "max_level" : 30
+    "shark": {
+        "name": "Shark",
+        "type": "pet",
+        "icon": "🦈",
+        "rarity": "legendary",
+        "image": "https://em-content.zobj.net/source/serenityos/459/shark_1f988.png",
+        "max_level": 30
     },
-    "zebra":{
-        "name":"Zebra",
-        "type":"pet",
-        "icon":"🦓",
-        "rarity":"legendary",
-        "image":"https://em-content.zobj.net/source/serenityos/459/zebra_1f993.png",
-        "max_level" : 30
+    "zebra": {
+        "name": "Zebra",
+        "type": "pet",
+        "icon": "🦓",
+        "rarity": "legendary",
+        "image": "https://em-content.zobj.net/source/serenityos/459/zebra_1f993.png",
+        "max_level": 30
     },
-    "moose":{
-        "name":"Moose",
-        "type":"pet",
-        "icon":"🫎",
-        "rarity":"legendary",
-        "image":"https://em-content.zobj.net/source/serenityos/459/moose_1face.png",
-        "max_level" : 30
+    "moose": {
+        "name": "Moose",
+        "type": "pet",
+        "icon": "🫎",
+        "rarity": "legendary",
+        "image": "https://em-content.zobj.net/source/serenityos/459/moose_1face.png",
+        "max_level": 30
     },
-    "phoenix":{
-        "name":"Phoenix",
-        "type":"pet",
-        "icon":"🐦‍🔥",
-        "rarity":"mythic",
-        "image":"https://em-content.zobj.net/source/serenityos/459/phoenix-bird_1f426-200d-1f525.png",
-        "max_level" : 30
+    "phoenix": {
+        "name": "Phoenix",
+        "type": "pet",
+        "icon": "🐦‍🔥",
+        "rarity": "mythic",
+        "image": "https://em-content.zobj.net/source/serenityos/459/phoenix-bird_1f426-200d-1f525.png",
+        "max_level": 30
     },
-    "unicorn":{
-        "name":"Unicorn",
-        "type":"pet",
-        "icon":"🦄",
-        "rarity":"godly",
-        "image":"https://em-content.zobj.net/source/serenityos/459/unicorn_1f984.png",
-        "max_level" : 30
+    "unicorn": {
+        "name": "Unicorn",
+        "type": "pet",
+        "icon": "🦄",
+        "rarity": "godly",
+        "image": "https://em-content.zobj.net/source/serenityos/459/unicorn_1f984.png",
+        "max_level": 30
     },
-    "t-rex":{
-        "name":"T-Rex",
-        "type":"pet",
-        "icon":"🦖",
-        "rarity":"mythic",
-        "image":"https://em-content.zobj.net/source/serenityos/459/t-rex_1f996.png",
-        "max_level" : 30
+    "t-rex": {
+        "name": "T-Rex",
+        "type": "pet",
+        "icon": "🦖",
+        "rarity": "mythic",
+        "image": "https://em-content.zobj.net/source/serenityos/459/t-rex_1f996.png",
+        "max_level": 30
     },
-    "dragon":{
-        "name":"Dragon",
-        "type":"pet",
-        "icon":"🐉",
-        "rarity":"mythic",
-        "image":"https://em-content.zobj.net/source/serenityos/459/dragon_1f409.png",
-        "max_level" : 30
+    "dragon": {
+        "name": "Dragon",
+        "type": "pet",
+        "icon": "🐉",
+        "rarity": "mythic",
+        "image": "https://em-content.zobj.net/source/serenityos/459/dragon_1f409.png",
+        "max_level": 30
     },
-    "rock":{
-        "name":"Rock",
-        "type":"pet",
-        "icon":"🪨",
-        "rarity":"common",
-        "image":"https://em-content.zobj.net/source/serenityos/459/rock_1faa8.png",
-        "max_level" : 30
+    "rock": {
+        "name": "Rock",
+        "type": "pet",
+        "icon": "🪨",
+        "rarity": "common",
+        "image": "https://em-content.zobj.net/source/serenityos/459/rock_1faa8.png",
+        "max_level": 30
     },
-
-    "57_leaf_clover":{
-        "name":"57 Leaf Clover",
-        "type":"booster",
-        "rarity":"rare"
+    "57_leaf_clover": {
+        "name": "57 Leaf Clover",
+        "type": "booster",
+        "rarity": "rare"
     },
-    "gamma_gummies":{
-        "name":"Gamma Gummies",
-        "type":"booster",
-        "rarity":"rare"
+    "gamma_gummies": {
+        "name": "Gamma Gummies",
+        "type": "booster",
+        "rarity": "rare"
     },
-
-    "listenite_gem":{
-        "name":"Listenite Gem",
-        "type":"booster",
-        "rarity":"epic"
+    "listenite_gem": {
+        "name": "Listenite Gem",
+        "type": "booster",
+        "rarity": "epic"
     },
-
-    "dollar_store_dollar":{
-        "name":"Dollar Store Dollar",
-        "type":"booster",
-        "rarity":"legendary"
+    "dollar_store_dollar": {
+        "name": "Dollar Store Dollar",
+        "type": "booster",
+        "rarity": "legendary"
     },
-    "luck_booster":{
-        "name":"Luck Booster",
-        "type":"booster",
-        "rarity":"common"
+    "luck_booster": {
+        "name": "Luck Booster",
+        "type": "booster",
+        "rarity": "common"
     },
-
-    "pet_crate":{
-        "name":"Pet Crate",
-        "type":"crate",
-        "rarity":"common",
-        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839865128554656/PetCrate.png?ex=6a464b52&is=6a44f9d2&hm=4767c089545405d6cb91c66ad29d66702199ce47908cb40c1d3f1079285082af&"
+    "pet_crate": {
+        "name": "Pet Crate",
+        "type": "crate",
+        "rarity": "common",
+        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839865128554656/PetCrate.png?ex=6a464b52&is=6a44f9d2&hm=4767c089545405d6cb91c66ad29d66702199ce47908cb40c1d3f1079285082af&"
     },
-    "basic_crate":{
-        "name":"Basic Crate",
-        "type":"crate",
-        "rarity":"common",
-        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839862276165632/BasicCrate.png?ex=6a464b51&is=6a44f9d1&hm=ce405bd66e0b76d3c523e6e635639015870ad5d4c0c8b38035df075cc09d0b68&"
+    "basic_crate": {
+        "name": "Basic Crate",
+        "type": "crate",
+        "rarity": "common",
+        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839862276165632/BasicCrate.png?ex=6a464b51&is=6a44f9d1&hm=ce405bd66e0b76d3c523e6e635639015870ad5d4c0c8b38035df075cc09d0b68&"
     },
-    "juicy_crate":{
-        "name":"Juicy Crate",
-        "type":"crate",
-        "rarity":"uncommon",
-        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839863408627792/JuicyCrate.png?ex=6a464b51&is=6a44f9d1&hm=16718398f77ed4592e37d9936f716b450d7405e5b51f561d56cb7232bd9e68cf&"
+    "juicy_crate": {
+        "name": "Juicy Crate",
+        "type": "crate",
+        "rarity": "uncommon",
+        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839863408627792/JuicyCrate.png?ex=6a464b51&is=6a44f9d1&hm=16718398f77ed4592e37d9936f716b450d7405e5b51f561d56cb7232bd9e68cf&"
     },
-    "succulent_crate":{
-        "name":"Succulent Crate",
-        "type":"crate",
-        "rarity":"rare",
-        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839865761628321/SucculentCrate.png?ex=6a464b52&is=6a44f9d2&hm=a56da89725fb50bec13f10da0f91e47d6ca2bcae0da367391837b2a9fd412e92&"
+    "succulent_crate": {
+        "name": "Succulent Crate",
+        "type": "crate",
+        "rarity": "rare",
+        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839865761628321/SucculentCrate.png?ex=6a464b52&is=6a44f9d2&hm=a56da89725fb50bec13f10da0f91e47d6ca2bcae0da367391837b2a9fd412e92&"
     },
-    "luscious_crate":{
-        "name":"Luscious Crate",
-        "type":"crate",
-        "rarity":"epic",
-        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839863811408022/LusciousCrate.png?ex=6a464b51&is=6a44f9d1&hm=2a9e4b4e3553631e983876b4a02463a338b7b9f81f7fef09976ee88b94be4e79&"
+    "luscious_crate": {
+        "name": "Luscious Crate",
+        "type": "crate",
+        "rarity": "epic",
+        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839863811408022/LusciousCrate.png?ex=6a464b51&is=6a44f9d1&hm=2a9e4b4e3553631e983876b4a02463a338b7b9f81f7fef09976ee88b94be4e79&"
     },
-    "overstimulating_crate":{
-        "name":"Overstimulating Crate",
-        "type":"crate",
-        "rarity":"legendary",
-        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839864700600441/OverstimulatingCrate.png?ex=6a464b52&is=6a44f9d2&hm=54bce93bb6ec08835b6bb4e75505e12084352d5179c2fe9b80b40e4d9fb4c5c5&"
+    "overstimulating_crate": {
+        "name": "Overstimulating Crate",
+        "type": "crate",
+        "rarity": "legendary",
+        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839864700600441/OverstimulatingCrate.png?ex=6a464b52&is=6a44f9d2&hm=54bce93bb6ec08835b6bb4e75505e12084352d5179c2fe9b80b40e4d9fb4c5c5&"
     },
-    "hyperactive_crate":{
-        "name":"Hyperactive Crate",
-        "type":"crate",
-        "rarity":"unreal",
-        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839862918021130/HyperactiveCrate.png?ex=6a464b51&is=6a44f9d1&hm=09c5f55a146f4341bbb7ffced327e0cf4b458b3ed60a9c3ec9c114bf2d96296c&"
+    "hyperactive_crate": {
+        "name": "Hyperactive Crate",
+        "type": "crate",
+        "rarity": "unreal",
+        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839862918021130/HyperactiveCrate.png?ex=6a464b51&is=6a44f9d1&hm=09c5f55a146f4341bbb7ffced327e0cf4b458b3ed60a9c3ec9c114bf2d96296c&"
     },
-    "orgasm_crate":{
-        "name":"Orgasm Crate",
-        "type":"crate",
-        "rarity":"godly",
-        "image":"https://cdn.discordapp.com/attachments/1521409324365385758/1521839864268460052/OrgasmCrate.png?ex=6a464b52&is=6a44f9d2&hm=9c655a7cf7a88d708e8b33beee45004376b6a1f99f08f8aee2be2721c52b2edb&"
+    "orgasm_crate": {
+        "name": "Orgasm Crate",
+        "type": "crate",
+        "rarity": "godly",
+        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839864268460052/OrgasmCrate.png?ex=6a464b52&is=6a44f9d2&hm=9c655a7cf7a88d708e8b33beee45004376b6a1f99f08f8aee2be2721c52b2edb&"
     },
-
-    "20_coins":{
-        "name":"20 Coins",
-        "type":"currency",
-        "rarity":"common",
-        "coin_amt":20,
-        "gem_amt":0
+    "2ED": {
+        "name": "Unlimited Edition Pack",
+        "type": "pack",
+        "rarity": "common",
+        "image": "https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/6/6d/Unlimited_booster.jpg/revision/latest?cb=20131109150010"
     },
-    "200_coins":{
-        "name":"200 Coins",
-        "type":"currency",
-        "rarity":"common",
-        "coin_amt":200,
-        "gem_amt":0
+    "20_coins": {
+        "name": "20 Coins",
+        "type": "currency",
+        "rarity": "common",
+        "coin_amt": 20,
+        "gem_amt": 0
     },
-    
-    "stone":{
-        "name":"Stone",
-        "type":"resource",
-        "rarity":"common",
-        "icon":"🪨"
+    "200_coins": {
+        "name": "200 Coins",
+        "type": "currency",
+        "rarity": "common",
+        "coin_amt": 200,
+        "gem_amt": 0
     },
-     "wood":{
-        "name":"Wood",
-        "type":"resource",
-        "rarity":"common",
-        "icon":"🪵"
+    "stone": {
+        "name": "Stone",
+        "type": "resource",
+        "rarity": "common",
+        "icon": "🪨"
     },
-     "string":{
-        "name":"String",
-        "type":"resource",
-        "rarity":"common",
-        "icon":"🧵"
+    "wood": {
+        "name": "Wood",
+        "type": "resource",
+        "rarity": "common",
+        "icon": "🪵"
     },
-    "flower":{
-        "name":"Flower",
-        "type":"resource",
-        "rarity":"uncommon",
-        "icon":"🌻"
+    "string": {
+        "name": "String",
+        "type": "resource",
+        "rarity": "common",
+        "icon": "🧵"
     },
-    "fern":{
-        "name":"Fern",
-        "type":"resource",
-        "rarity":"common",
-        "icon":"🪴"
+    "flower": {
+        "name": "Flower",
+        "type": "resource",
+        "rarity": "uncommon",
+        "icon": "🌻"
     },
-    "crystal":{
-        "name":"Crystal",
-        "type":"resource",
-        "rarity":"uncommon",
-        "icon":"💠"
+    "fern": {
+        "name": "Fern",
+        "type": "resource",
+        "rarity": "common",
+        "icon": "🪴"
     },
-    "cotton":{
-        "name":"Cotton",
-        "type":"resource",
-        "rarity":"uncommon",
-        "icon":"☁️"
+    "crystal": {
+        "name": "Crystal",
+        "type": "resource",
+        "rarity": "uncommon",
+        "icon": "💠"
     },
-    "artifact":{
-        "name":"Artifact",
-        "type":"resource",
-        "rarity":"rare",
-        "icon":"🗿"
+    "cotton": {
+        "name": "Cotton",
+        "type": "resource",
+        "rarity": "uncommon",
+        "icon": "☁️"
+    },
+    "artifact": {
+        "name": "Artifact",
+        "type": "resource",
+        "rarity": "rare",
+        "icon": "🗿"
     }
 }

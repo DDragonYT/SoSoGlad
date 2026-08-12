@@ -10,25 +10,28 @@
       "lvl": 1
     },
     "racially_motivated": {
-      "lvl": 1
+      "lvl": 2
     },
     "trigger": {
       "lvl": 1
     },
     "thrill_seeker": {
       "lvl": 1
+    },
+    "scare_survivor": {
+      "lvl": 1
     }
   },
   "gems": 18,
   "last_daily": "2026-08-11",
-  "exp": 170,
+  "exp": 351,
   "level": 40,
   "xp_needed": 500,
   "equipped_badge": "maga",
   "biggest_win": 75,
   "inventory": {
     "pet_crate": {
-      "quantity": 41
+      "quantity": 0
     }
   },
   "pets": {
@@ -36,61 +39,71 @@
       "id": "gorilla",
       "name": "Gorilla",
       "level": 1,
-      "xp": 0
+      "xp": 10,
+      "xp_needed": 100
     },
     "horse": {
       "id": "horse",
       "name": "Horse",
       "level": 1,
-      "xp": 30
+      "xp": 60,
+      "xp_needed": 100
     },
     "cat": {
       "id": "cat",
       "name": "Cat",
       "level": 1,
-      "xp": 40
+      "xp": 80,
+      "xp_needed": 100
     },
     "pig": {
       "id": "pig",
       "name": "Pig",
       "level": 1,
-      "xp": 40
+      "xp": 80,
+      "xp_needed": 100
     },
     "dog": {
       "id": "dog",
       "name": "Dog",
       "level": 1,
-      "xp": 40
+      "xp": 60,
+      "xp_needed": 100
     },
     "bird": {
       "id": "bird",
       "name": "Bird",
-      "level": 1,
-      "xp": 110
+      "level": 2,
+      "xp": 70,
+      "xp_needed": 101
     },
     "fish": {
       "id": "fish",
       "name": "Fish",
-      "level": 1,
-      "xp": 110
+      "level": 2,
+      "xp": 70,
+      "xp_needed": 101
     },
     "mouse": {
       "id": "mouse",
       "name": "Mouse",
       "level": 1,
-      "xp": 50
+      "xp": 90,
+      "xp_needed": 100
     },
     "orangutan": {
       "id": "orangutan",
       "name": "Orangutan",
       "level": 1,
-      "xp": 0
+      "xp": 10,
+      "xp_needed": 100
     },
     "monkey": {
       "id": "monkey",
       "name": "Monkey",
       "level": 1,
-      "xp": 30
+      "xp": 80,
+      "xp_needed": 100
     },
     "lion": {
       "id": "lion",
@@ -102,13 +115,15 @@
       "id": "whale",
       "name": "Whale",
       "level": 1,
-      "xp": 0
+      "xp": 20,
+      "xp_needed": 100
     },
     "tiger": {
       "id": "tiger",
       "name": "Tiger",
       "level": 1,
-      "xp": 0
+      "xp": 30,
+      "xp_needed": 100
     }
   },
   "equipped_pet": "fish"

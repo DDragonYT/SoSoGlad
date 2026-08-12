@@ -1,23 +1,11 @@
 from _globalvars import *
+from _ssg_utils import gen_error
 
 from badge import Badge, BADGE_DATA, add_badge, badge_search, sell_badge
 from random import randint
 import json
 import discord
-from embed import gen_error
 from enum import Enum
-
-class EventType(Enum):
-    TEXT = 1
-    TEXT_USER = 2
-    ACTION = 3
-
-class Event():
-    def __init__(self, chance: int, event_type : EventType, event, badge = None):
-        self.chance = chance
-        self.badge = badge
-        self.event = event
-        self.event_type = event_type
 
 async def stolengif(self:discord.User, message:discord.Message):
     await message.channel.send(self.stolen_gif)

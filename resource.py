@@ -1,9 +1,10 @@
+from _ssg_utils import *
+
 import discord
 from discord import app_commands
 from profile import *
 from random import randint
 import asyncio
-from embed import *
 from item import get_itemdata
 from crate_calcs import *
 

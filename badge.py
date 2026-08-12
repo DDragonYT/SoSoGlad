@@ -1,11 +1,11 @@
 from _globalvars import *
+from _ssg_utils import gen_error, target_from_message
 
 from enum import Enum
 from random import randint
 from userdata import *
 import discord
 import os
-from embed import *
 
 def badge_search(name):
     """I dunno"""
@@ -34,7 +34,9 @@ def badge_details(ibadge, badge):
 
 async def badge_info(self, message):
     """Checks if a badge exists, if it does generate an embed and send it"""
+
     command_params = message.content.split(" ")
+    
     if len(command_params) > 1:
         badge = badge_search(command_params[1])
         if badge:
@@ -47,15 +49,9 @@ async def badge_info(self, message):
         await message.reply(embed = gen_error("Please enter a badge name."))
 
 async def player_badges(self, message):
-    """"""
-    command = str(message.content).split(" ")
-    if len(command) > 1:
-        target = command[1]
-        if "<" in target:
-            user_id = int(target.strip("<>@"))
-            target = self.get_user(user_id)
-    else:
-        target = message.author
+    """Displays the badges of a target user"""
+
+    target = target_from_message(self, message)
     
     userdata = get_userdata(target)
     if "badges" in userdata.keys() or "deluxe_badges" in userdata.keys():
@@ -76,6 +72,7 @@ async def player_badges(self, message):
         await message.reply(embed = gen_error(f"{target} doesn't have any badges!"))
 
 async def add_badge(self, message, badge):
+    """Adds a badge to the message.author's inventory"""
     if randint(1,300) == 1 and BADGE_DATA[badge].max_level != 1:
         badge_type = "deluxe_badges"
     else:
@@ -101,6 +98,7 @@ async def add_badge(self, message, badge):
 
 async def announce_badge(self, user, badge, badge_type):
     """Generate an embed and send it in the announcement channel"""
+
     channel = self.get_channel(ANNOUNCEMENT_CHANNEL) # Locate the announcement channel from the ID
     badge_info = BADGE_DATA[badge] # Load the badge data of the announced badge
     if badge_type == "deluxe_badges":
@@ -157,6 +155,7 @@ def calc_badges():
 
 def sell_badge(user, badgename, deluxe = False, qty=1):
     """If user has the item, sell it based on half of it's current value"""
+
     if deluxe:
         badge_type = "deluxe_badges"
     else:
@@ -195,5 +194,6 @@ def calc_inv(user):
             for badge in userdata[badgetype]:
                 inventory_value += BADGE_VALUES[badgetype][badge] * userdata[badgetype][badge]["lvl"]
     userdata["badgeinvvalue"] = inventory_value
+    userdata["net_worth"] = userdata["badgeinvvalue"] + userdata["coins"]
     set_userdata(user, userdata)
     return inventory_value

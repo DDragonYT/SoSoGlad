@@ -1,32 +1,19 @@
+from _globalvars import *
+from _ssg_utils import gen_error, target_from_message
+
+
 import discord
 from userdata import *
 from badge import calc_inv
 from random import randint
-from embed import gen_error
 from datetime import date
-
-WALLET_STATS = {  # What should we call these stats?
-    "coins": "Coins 🪙",
-    "gems": "Gems 💎",
-    "last_daily": "Last Daily",
-    "badgeinvvalue": "Badges Value",
-    "net_worth": "Net Worth",
-}
-
-DAILY_AMOUNT = 100
 
 
 async def wallet_stats(self, message, target=2):
     "Calculates a users inventory, then displays their details"
 
-    command = str(message.content).split(" ")
-    if len(command) > target:
-        target = command[len(command) - 1]
-        if "<" in target:
-            user_id = int(target.strip("<>@"))
-            target = self.get_user(user_id)
-    else:
-        target = message.author
+    target = target_from_message(self,message)
+
 
     calc_inv(target)
     userdata = get_userdata(target)

@@ -1,4 +1,6 @@
 from _globalvars import *
+from _ssg_utils import gen_error
+
 
 from PIL import Image
 import os
@@ -7,8 +9,6 @@ import scrython
 from random import randint
 from userdata import *
 import discord
-from embed import gen_error
-
 
 def display_binder(set_name):
     cards = os.listdir(f"{CARD_IMAGE}/{set_name}/")

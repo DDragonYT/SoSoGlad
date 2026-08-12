@@ -1,5 +1,5 @@
 from json import load
-from embed import gen_error
+from _ssg_utils import gen_error
 from userdata import get_userdata
 import discord
 

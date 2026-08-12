@@ -1,9 +1,10 @@
+from _ssg_utils import *
+
 from badge import Badge, BADGE_DATA, add_badge, badge_search, sell_badge
 from random import randint
 from userdata import *
 import json
 import discord
-from embed import gen_error
 from enum import Enum
 from asyncio import sleep
 

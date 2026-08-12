@@ -1,24 +1,19 @@
 from _globalvars import *
+from _ssg_utils import gen_error, target_from_message
 
 import discord
 from userdata import *
 from badge import calc_inv, BADGE_DATA
 from random import randint
-from embed import gen_error
+from _ssg_utils import gen_error
 from datetime import date
 from item import get_itemdata
+
 
 async def wallet_stats(self, message, target=2):
     "Calculates a users inventory, then displays their details"
 
-    command = str(message.content).split(" ")
-    if len(command) > target:
-        target = command[len(command) - 1]
-        if "<" in target:
-            user_id = int(target.strip("<>@"))
-            target = self.get_user(user_id)
-    else:
-        target = message.author
+    target = target_from_message(self, message)
 
     calc_inv(target)
     userdata = get_userdata(target)
@@ -39,22 +34,18 @@ async def wallet_stats(self, message, target=2):
 
 
 async def profile(self, message, target=2):
-    command = str(message.content).split(" ")
-    if len(command) > 1:
-        target = command[1]
-        if "<" in target:
-            user_id = int(target.strip("<>@"))
-            target = self.get_user(user_id)
-        else:
-            target = message.author
-    else:
-        target = message.author
+    """Calculates a users inventory statistics, then displays an overall profile."""
+
+    target = target_from_message(self, message)
+
     embed = discord.Embed(title=f"{target}'s Profile", colour=discord.Colour.yellow())
     embed.set_thumbnail(url=str(target.avatar))
     userdata = get_userdata(target)
     userkeys = userdata.keys()
+    calc_inv(target)
     for key in PROFILE_STATS.keys():
         if key in userkeys:
+
             if key == "equipped_badge":
                 badge = userdata["equipped_badge"]
                 badgetype = "badges"
@@ -66,128 +57,38 @@ async def profile(self, message, target=2):
                 )
                 value = f"[{badgedata.image}] {badgedata.title}{leveltext} ({badgedata.rarity.name})"
                 embed.add_field(name=PROFILE_STATS[key], value=value)
+
             elif key == "xp_needed":
                 embed.add_field(
                     name=PROFILE_STATS[key],
                     value=(int(userdata["xp_needed"]) - int(userdata["exp"])),
                 )
+
             elif key == "equipped_pet":
                 pet = userdata["equipped_pet"]
                 pet_data = get_itemdata(pet)
                 leveltext = f" Level {userdata["pets"][pet]["level"]}"
                 value = f"[{pet_data["icon"]}] {pet_data["name"]}{leveltext} ({pet_data["rarity"].upper()})"
                 embed.add_field(name=PROFILE_STATS[key], value=value)
+
             else:
+                # If nothing else hits, just do the base information.
                 embed.add_field(name=PROFILE_STATS[key], value=userdata[key])
-                
+
         else:
+            # If the user does not have a stat, simply respond that they do not have it.
             embed.add_field(name=PROFILE_STATS[key], value=f"No {PROFILE_STATS[key]}.")
     await message.reply(embed=embed)
 
 
-async def claim_daily(self, message, userdata=None):
-    """Add their daily and then set their last claimed daily"""
-
-    gem_reward = randint(0, 10)
-    coin_reward = DAILY_AMOUNT
-    wallet_add(userdata, coin_reward)
-    wallet_add(userdata, gem_reward, "gems")
-    userdata["last_daily"] = str(date.today())
-    embed = discord.Embed(
-        title="You claimed a daily login reward of:", colour=discord.Color.yellow()
-    )
-    embed.add_field(name=WALLET_STATS["coins"], value=coin_reward)
-    embed.add_field(name=WALLET_STATS["gems"], value=gem_reward)
-    await message.reply(embed=embed)
-
-
-async def wallet_daily(self, message):
-    """Check if daily has been claimed, if it hasn't, claim_daily"""
-    userdata = get_userdata(message.author)
-    if "last_daily" in userdata.keys():
-        if userdata["last_daily"] != str(date.today()):
-            await claim_daily(self, message, userdata)
-        else:
-            await message.reply(
-                embed=gen_error(
-                    "You have already claimed your daily login reward today."
-                )
-            )
-    else:
-        await claim_daily(self, message, userdata)
-    set_userdata(str(message.author), userdata)
-
-
-def wallet_add(userdata, amount, currency="coins"):
-    "Adds an amount of a currency to a user"
-    if currency in userdata.keys():
-        userdata[
-            currency
-        ] += amount  # If the player has had this currency before, add money
-    else:
-        userdata[currency] = amount  # otherwise, set money
-    return userdata
-
-
-WALLET_CMDS = {"daily": wallet_daily, "view": wallet_stats}
-
-async def wallet(self, message):
-    command_params = message.content.split(" ")
-    if len(command_params) > 1:
-        if command_params[1] in WALLET_CMDS.keys():
-            await WALLET_CMDS[command_params[1]](self, message)
-        else:
-            await wallet_stats(self, message, 1)
-    else:
-        await wallet_stats(self, message, 1)
-
-
-def add_to_inv(user, userdata, item, quantity):
-    if not "inventory" in userdata.keys():
-        userdata["inventory"] = {}
-    if not item in userdata["inventory"]:
-        userdata["inventory"][item] = {"quantity": 0}
-    userdata["inventory"][item]["quantity"] += quantity
-    set_userdata(user, userdata)
-
-
-async def gift(self, message, target=2):
-    command = str(message.content).split(" ")
-    if message.author != self.user:
-        if len(command) > 1:
-            target = command[1]
-            if "<" in target:
-                user_id = int(target.strip("<>@"))
-                target = self.get_user(user_id)
-        try:
-            gift_amt = int(command[2])
-            sender_userdata = get_userdata(message.author)
-            if gift_amt > 0:
-                if sender_userdata["coins"] >= gift_amt:
-                    userdata = get_userdata(target)
-                    userdata["coins"] += gift_amt
-                    set_userdata(target, userdata)
-                    sender_userdata["coins"] -= gift_amt
-                    set_userdata(message.author, sender_userdata)
-                    embed = discord.Embed(
-                        title="Successful Gift",
-                        description=f"{message.author.mention} has gifted {target.mention} {gift_amt} coins!",
-                        colour=discord.Colour.green(),
-                    )
-                    await message.reply(embed=embed)
-                else:
-                    await message.reply(embed=gen_error("You cannot afford this gift."))
-            else:
-                await message.reply(embed=gen_error("You cant gift nothing."))
-        except:
-            await message.reply(embed=gen_error(f"Failed to gift to {target}"))
-
-
 def amount_for_level(level):
+    """Calculates the amount of experience required to level up, based on their current level."""
     return int((level / LEVEL_DIVIDER) ** LEVEL_CURVE + LEVEL_BASE)
 
 
 async def experience_check(self, message, amount: int = 1):
+    """Checks and handles the addition of experience to a user."""
+
     if message.author != self.user:
         userdata = get_userdata(message.author)
         userkeys = userdata.keys()

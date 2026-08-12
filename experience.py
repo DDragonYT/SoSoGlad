@@ -1,28 +1,14 @@
+from _ssg_utils import *
+
 from enum import Enum
 from random import randint
 from userdata import *
 import discord
 import os
-from embed import *
 from badge import *
 from wallet import wallet_stats
 from pet import *
 from item import *
-
-PROFILE_STATS = {
-    "level": "Level",
-    "exp": "XP",
-    "xp_needed": "XP to Next Level",
-    "net_worth": "Net Worth",
-    "eqipped_pet" : "Equipped Pet",
-    # "favourite_card" : "Favourite Card",
-    "equipped_badge": "Equipped Badge",
-    "biggest_win":"Biggest Gambling Win"
-}
-
-LEVEL_DIVIDER = 2
-LEVEL_CURVE = 2
-LEVEL_BASE = 100
 
 def amount_for_level(level):
     return int((level / LEVEL_DIVIDER) ** LEVEL_CURVE + LEVEL_BASE)

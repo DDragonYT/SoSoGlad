@@ -5,6 +5,18 @@ _FILEDATAJSON = json.load(open("resources/data/data.json", "r"))
 
 RECIPES:dict = json.load(open("resources/data/recipes.json", "r"))
 
+class EventType(Enum):
+    TEXT = 1
+    TEXT_USER = 2
+    ACTION = 3
+
+class Event():
+    def __init__(self, chance: int, event_type : EventType, event, badge = None):
+        self.chance = chance
+        self.badge = badge
+        self.event = event
+        self.event_type = event_type
+
 class MTGPack:
     def __init__(self, price, id, image, name, rarity_chances, description):
         self.price = price
@@ -14,9 +26,41 @@ class MTGPack:
         self.rarity_chances = rarity_chances,
         self.description = description
 
+class BadgeRarity(Enum):
+    COMMON = "Common"
+    UNCOMMON = "Uncommon"
+    RARE = "Rare"
+    EPIC = "Epic"
+    LEGENDARY = "Legendary"
+    UNREAL = "Unreal"
+    GODLY = "Godly"
 
+class Badge():
+    def __init__(self, title, description, image, rarity, max_level = 30, sellable = True):
+        self.title = title
+        self.description = description
+        self.image = image
+        self.rarity = rarity
+        self.max_level = max_level
+        self.sellable = sellable
+
+DAILY_AMOUNT = 100
+LEVEL_DIVIDER = 2
+LEVEL_CURVE = 2
+LEVEL_BASE = 100
+DAILY_AMOUNT = 100
+PET_LEVEL_DIVIDER = 2
+PET_LEVEL_CURVE = 2
+PET_LEVEL_BASE = 100
+BADGE_TYPES = ["badges", "deluxe_badges"]
+REFERENCES = _FILEDATAJSON["references"]
+ODDS_REFERENCES = _FILEDATAJSON["odds_references"]
+ANNOUNCEMENT_CHANNEL = int(_FILEDATAJSON["announcement_channel"])
+SELL_PRICE = int(_FILEDATAJSON["sell_price"])
+BADGE_VALUES = {}
 CARD_IMAGE = "resources/images/cards"
 RARITIES = ["mythic", "rare", "uncommon", "common"]
+
 PACKS = {
     "2ED": MTGPack(
         60,
@@ -31,11 +75,25 @@ PACKS = {
 with open("resources/data/secret.key", "r") as keysecret:
     API_KEY = keysecret.readline()
 
-REFERENCES = _FILEDATAJSON["references"]
-ODDS_REFERENCES = _FILEDATAJSON["odds_references"]
-ANNOUNCEMENT_CHANNEL = int(_FILEDATAJSON["announcement_channel"])
-SELL_PRICE = int(_FILEDATAJSON["sell_price"])
-BADGE_VALUES = {}
+
+
+WALLET_STATS = {  # What should we call these stats?
+    "coins": "Coins 🪙",
+    "gems": "Gems 💎",
+    "last_daily": "Last Daily",
+    "badgeinvvalue": "Badges Value",
+    "net_worth": "Net Worth",
+}
+
+PET_RARITY_MULTIPLER = {
+    "common":1,
+    "uncommon":1.2,
+    "rare":1.5,
+    "epic":1.75,
+    "legendary":2,
+    "unreal":3,
+    "godly":5,
+}
 
 PROFILE_STATS = {
     "level": "Level",
@@ -48,22 +106,6 @@ PROFILE_STATS = {
     "biggest_win": "Biggest Gambling Win",
 }
 
-LEVEL_DIVIDER = 2
-LEVEL_CURVE = 2
-LEVEL_BASE = 100
-BADGE_TYPES = ["badges", "deluxe_badges"]
-
-
-WALLET_STATS = {  # What should we call these stats?
-    "coins": "Coins 🪙",
-    "gems": "Gems 💎",
-    "last_daily": "Last Daily",
-    "badgeinvvalue": "Badges Value",
-    "net_worth": "Net Worth",
-}
-
-DAILY_AMOUNT = 100
-
 RARITY_KEYS = [
     "common",
     "uncommon",
@@ -71,17 +113,6 @@ RARITY_KEYS = [
     "epic",
     "legendary"
 ]
-
-
-
-class BadgeRarity(Enum):
-    COMMON = "Common"
-    UNCOMMON = "Uncommon"
-    RARE = "Rare"
-    EPIC = "Epic"
-    LEGENDARY = "Legendary"
-    UNREAL = "Unreal"
-    GODLY = "Godly"
 
 RARITY_VALUES = {
     BadgeRarity.COMMON: 10,
@@ -93,15 +124,6 @@ RARITY_VALUES = {
     BadgeRarity.GODLY:50000,
 
 }
-
-class Badge():
-    def __init__(self, title, description, image, rarity, max_level = 30, sellable = True):
-        self.title = title
-        self.description = description
-        self.image = image
-        self.rarity = rarity
-        self.max_level = max_level
-        self.sellable = sellable
 
 BADGE_DATA = {
     "scare_survivor": Badge(

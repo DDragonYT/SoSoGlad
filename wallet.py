@@ -97,28 +97,47 @@ def add_to_inv(user, userdata, item, quantity):
     set_userdata(user, userdata)
 
 async def gift(self, message, target=2):
+    target = target_from_message(self, message)
     command = str(message.content).split(" ")
-    if message.author != self.user:
-        if len(command) > 1:
-            target = command[1]
-            if "<" in target:
-                user_id = int(target.strip("<>@"))
-                target = self.get_user(user_id)
-        try:
-            gift_amt = int(command[2])
-            sender_userdata = get_userdata(message.author)
-            if gift_amt > 0:
-                if sender_userdata["coins"] >= gift_amt:
-                    userdata = get_userdata(target)
-                    userdata["coins"] += gift_amt
-                    set_userdata(target, userdata)
-                    sender_userdata["coins"] -= gift_amt
-                    set_userdata(message.author, sender_userdata)
-                    embed = discord.Embed(title="Successful Gift",description=f"{message.author.mention} has gifted {target.mention} {gift_amt} coins!", colour=discord.Colour.green())
-                    await message.reply(embed = embed)
-                else:
-                    await message.reply(embed=gen_error("You cannot afford this gift."))
-            else: 
-                await message.reply(embed=gen_error("You cant gift nothing."))
-        except:
-            await message.reply(embed=gen_error(f"Failed to gift to {target}"))
+
+    if not target:
+        await message.reply(embed=gen_error("Please enter a valid target."))
+        return
+    
+    if message.author == self.user:
+        await message.reply(embed=gen_error("I cannot gift money, I am a sad lonely robot."))
+
+    if not len(command) > 1:
+        await message.reply(embed=gen_error("Please enter an amount to gift.")) 
+        return
+    
+    gift_amt:str = int(command[2])
+
+    if not gift_amt.strip(" ").isdigit():
+        await message.reply(embed=gen_error("Please enter a valid gif amount."))
+        return
+
+    if message.author == target:
+       await message.reply(embed=gen_error("You can't gift money to yourself."))
+       return 
+
+    gift_amt = int(gift_amt)
+    sender_userdata = get_userdata(message.author)
+    target_userdata = get_userdata(target)
+
+    if gift_amt < 0:
+        await message.reply(embed=gen_error("You cant gift nothing."))
+        return
+    
+    if not sender_userdata["coins"] >= gift_amt:
+        await message.reply(embed=gen_error("You cannot afford this gift."))
+        return
+
+    sender_userdata["coins"] -= gift_amt
+    target_userdata["coins"] += gift_amt
+
+    set_userdata(target, target_userdata)
+    set_userdata(message.author, sender_userdata)
+
+    embed = discord.Embed(title="Successful Gift",description=f"{message.author.mention} has gifted {target.mention} {gift_amt} coins!", colour=discord.Colour.green())
+    await message.reply(embed = embed)

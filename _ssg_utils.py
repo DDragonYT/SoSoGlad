@@ -9,6 +9,7 @@ def gen_error(text):
 
 def target_from_message(self, message):
     command = str(message.content).split(" ")
+    target = None
     if len(command) > 1:
         target = command[1]
         if "<" in target:

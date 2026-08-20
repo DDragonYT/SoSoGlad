@@ -40,19 +40,19 @@ COMMANDS = {  # Defines what to enter to run a command
     "!leaderboard" : leaderboard,
     "!bequip" : equip_badge,
     
-    "!pequip" : equip_pet,
+    # "!pequip" : equip_pet,
     # "!gather": gather,
     # "!resources":show_resources,
     # "!craft": craft,
     # "!iinfo": item_info
-    "!iinfo":pet_info,
-    "!inventory": show_inventory,
-    "!buy": attempt_purchase,
-    "!use": attempt_use_item,
-    "!pets": show_pets,
+    # "!iinfo":pet_info,
+    # "!inventory": show_inventory,
+    # "!buy": attempt_purchase,
+    # "!use": attempt_use_item,
+    # "!pets": show_pets,
     # "!give": give_stuff,
-    "!shop": show_shop,
-    "!inv": show_inventory,
+    # "!shop": show_shop,
+    # "!inv": show_inventory,
 }
 
 message_counts = {}

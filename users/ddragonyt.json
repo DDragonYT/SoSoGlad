@@ -31,7 +31,7 @@
   "biggest_win": 75,
   "inventory": {
     "pet_crate": {
-      "quantity": 12
+      "quantity": 6
     }
   },
   "pets": {
@@ -53,7 +53,7 @@
       "id": "cat",
       "name": "Cat",
       "level": 2,
-      "xp": 30,
+      "xp": 50,
       "xp_needed": 101,
       "shiny": true
     },
@@ -68,15 +68,15 @@
       "id": "dog",
       "name": "Dog",
       "level": 1,
-      "xp": 80,
+      "xp": 90,
       "xp_needed": 100
     },
     "bird": {
       "id": "bird",
       "name": "Bird",
       "level": 3,
-      "xp": 9,
-      "xp_needed": 101,
+      "xp": 19,
+      "xp_needed": 102,
       "shiny": true
     },
     "fish": {
@@ -105,14 +105,17 @@
       "id": "monkey",
       "name": "Monkey",
       "level": 2,
-      "xp": 30,
-      "xp_needed": 101
+      "xp": 40,
+      "xp_needed": 101,
+      "shiny": true
     },
     "lion": {
       "id": "lion",
       "name": "Lion",
       "level": 1,
-      "xp": 20
+      "xp": 30,
+      "shiny": true,
+      "xp_needed": 175
     },
     "whale": {
       "id": "whale",

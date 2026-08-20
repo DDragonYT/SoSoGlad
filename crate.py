@@ -79,7 +79,7 @@ async def open_crate(self, message: discord.Message, item):
         description += (f"\nIt was converted into xp, as it's a duplicate.")
 
     embed, image = item_details(
-        itemid=acquired_item, title="Crate Result", description=description
+        itemid=acquired_item, title="Crate Result", description=description, shiny = shiny
     )
     crate_image = discord.File(fp=f"""{ITEM_IMAGE}/{get_itemdata(item)["image"]}.png""")
     embed.set_thumbnail(url=f"attachment://{crate_image.filename}")

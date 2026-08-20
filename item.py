@@ -67,13 +67,13 @@ def get_recipedata(itemname=None):
             return itemjson
 
 
-def item_details(itemid, show_type=True, title="", description=""):
+def item_details(itemid, show_type=True, title="", description="", shiny = False):
     embed = discord.Embed(
         title=title, colour=discord.Colour.orange(), description=description
     )
     itemdata = get_itemdata(itemid)
     if "image" in itemdata.keys():
-        item_image = discord.File(fp=f"""{ITEM_IMAGE}/{itemdata["image"]}.png""")
+        item_image = discord.File(fp=f"""{ITEM_IMAGE}/{itemdata["image"]}{"_shiny" if shiny else ""}.png""")
         print(f"attachment://{item_image.filename}")
         embed.set_thumbnail(url=f"attachment://{item_image.filename}")
     recipedata = get_recipedata(itemid)

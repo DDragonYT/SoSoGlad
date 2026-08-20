@@ -1,7 +1,6 @@
 from _globalvars import *
-from _ssg_utils import gen_error
+from _ssg_utils import gen_error, get_userdata, set_userdata
 
-from userdata import *
 import discord
 from item import *
 from random import randint
@@ -109,3 +108,6 @@ async def pet_xp(self, message):
         userkeys = userdata.keys()
         if "equipped_pet" in userkeys:
             await add_xp(message, randint(2,5), userdata, userdata["equipped_pet"])
+
+async def hunt(self, message):
+    pass

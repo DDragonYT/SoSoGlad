@@ -5,7 +5,7 @@
         "icon": "🐶",
         "rarity": "common",
         "image": "https://em-content.zobj.net/source/serenityos/459/dog_1f415.png",
-        "max_level": 30
+        "max_level": 100
     },
     "cat": {
         "name": "Cat",
@@ -13,7 +13,7 @@
         "icon": "😺",
         "rarity": "common",
         "image": "https://em-content.zobj.net/source/serenityos/459/cat_1f408.png",
-        "max_level": 30
+        "max_level": 100
     },
     "pig": {
         "name": "Pig",
@@ -21,7 +21,7 @@
         "icon": "🐖",
         "rarity": "common",
         "image": "https://em-content.zobj.net/source/serenityos/459/pig_1f416.png",
-        "max_level": 30
+        "max_level": 100
     },
     "mouse": {
         "name": "Mouse",
@@ -29,7 +29,7 @@
         "icon": "🐭",
         "rarity": "common",
         "image": "https://em-content.zobj.net/source/serenityos/459/mouse_1f401.png",
-        "max_level": 30
+        "max_level": 100
     },
     "fish": {
         "name": "Fish",
@@ -37,7 +37,7 @@
         "icon": "🐟",
         "rarity": "common",
         "image": "https://em-content.zobj.net/source/serenityos/459/fish_1f41f.png",
-        "max_level": 30
+        "max_level": 100
     },
     "bird": {
         "name": "Bird",
@@ -45,7 +45,7 @@
         "icon": "🕊️",
         "rarity": "common",
         "image": "https://em-content.zobj.net/source/serenityos/459/bird_1f426.png",
-        "max_level": 30
+        "max_level": 100
     },
     "monkey": {
         "name": "Monkey",
@@ -53,7 +53,7 @@
         "icon": "🐵",
         "rarity": "common",
         "image": "https://em-content.zobj.net/source/serenityos/459/monkey_1f412.png",
-        "max_level": 30
+        "max_level": 100
     },
     "gorilla": {
         "name": "Gorilla",
@@ -61,7 +61,7 @@
         "icon": "🦍",
         "rarity": "rare",
         "image": "https://em-content.zobj.net/source/serenityos/459/gorilla_1f98d.png",
-        "max_level": 30
+        "max_level": 100
     },
     "tiger": {
         "name": "Tiger",
@@ -69,7 +69,7 @@
         "icon": "🐯",
         "rarity": "rare",
         "image": "https://em-content.zobj.net/source/serenityos/459/tiger_1f405.png",
-        "max_level": 30
+        "max_level": 100
     },
     "horse": {
         "name": "Horse",
@@ -77,7 +77,7 @@
         "icon": "🐎",
         "rarity": "rare",
         "image": "https://em-content.zobj.net/source/serenityos/459/horse_1f40e.png",
-        "max_level": 30
+        "max_level": 100
     },
     "orangutan": {
         "name": "Orangutan",
@@ -85,7 +85,7 @@
         "icon": "🦧",
         "rarity": "epic",
         "image": "https://em-content.zobj.net/source/serenityos/459/orangutan_1f9a7.png",
-        "max_level": 30
+        "max_level": 100
     },
     "lion": {
         "name": "Lion",
@@ -93,7 +93,7 @@
         "icon": "🦁",
         "rarity": "epic",
         "image": "https://em-content.zobj.net/source/serenityos/459/lion_1f981.png",
-        "max_level": 30
+        "max_level": 100
     },
     "whale": {
         "name": "Whale",
@@ -101,7 +101,7 @@
         "icon": "🐋",
         "rarity": "epic",
         "image": "https://em-content.zobj.net/source/serenityos/459/whale_1f40b.png",
-        "max_level": 30
+        "max_level": 100
     },
     "shark": {
         "name": "Shark",
@@ -109,7 +109,7 @@
         "icon": "🦈",
         "rarity": "legendary",
         "image": "https://em-content.zobj.net/source/serenityos/459/shark_1f988.png",
-        "max_level": 30
+        "max_level": 100
     },
     "zebra": {
         "name": "Zebra",
@@ -117,7 +117,7 @@
         "icon": "🦓",
         "rarity": "legendary",
         "image": "https://em-content.zobj.net/source/serenityos/459/zebra_1f993.png",
-        "max_level": 30
+        "max_level": 100
     },
     "moose": {
         "name": "Moose",
@@ -125,7 +125,7 @@
         "icon": "🫎",
         "rarity": "legendary",
         "image": "https://em-content.zobj.net/source/serenityos/459/moose_1face.png",
-        "max_level": 30
+        "max_level": 100
     },
     "phoenix": {
         "name": "Phoenix",
@@ -133,7 +133,7 @@
         "icon": "🐦‍🔥",
         "rarity": "mythic",
         "image": "https://em-content.zobj.net/source/serenityos/459/phoenix-bird_1f426-200d-1f525.png",
-        "max_level": 30
+        "max_level": 100
     },
     "unicorn": {
         "name": "Unicorn",
@@ -141,7 +141,7 @@
         "icon": "🦄",
         "rarity": "godly",
         "image": "https://em-content.zobj.net/source/serenityos/459/unicorn_1f984.png",
-        "max_level": 30
+        "max_level": 100
     },
     "t-rex": {
         "name": "T-Rex",
@@ -149,7 +149,7 @@
         "icon": "🦖",
         "rarity": "mythic",
         "image": "https://em-content.zobj.net/source/serenityos/459/t-rex_1f996.png",
-        "max_level": 30
+        "max_level": 100
     },
     "dragon": {
         "name": "Dragon",
@@ -157,7 +157,7 @@
         "icon": "🐉",
         "rarity": "mythic",
         "image": "https://em-content.zobj.net/source/serenityos/459/dragon_1f409.png",
-        "max_level": 30
+        "max_level": 100
     },
     "rock": {
         "name": "Rock",
@@ -165,7 +165,11 @@
         "icon": "🪨",
         "rarity": "common",
         "image": "https://em-content.zobj.net/source/serenityos/459/rock_1faa8.png",
-        "max_level": 30
+        "max_level": 100,
+        "ability":{
+            "id":"gold_luck",
+            "base_level":0.1
+        }
     },
     "57_leaf_clover": {
         "name": "57 Leaf Clover",
@@ -196,6 +200,7 @@
         "name": "Pet Crate",
         "type": "crate",
         "rarity": "common",
+        "description":"A basic crate containing a pet.",
         "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839865128554656/PetCrate.png?ex=6a464b52&is=6a44f9d2&hm=4767c089545405d6cb91c66ad29d66702199ce47908cb40c1d3f1079285082af&"
     },
     "basic_crate": {

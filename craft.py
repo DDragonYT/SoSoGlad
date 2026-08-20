@@ -1,11 +1,10 @@
 from _globalvars import *
-from _ssg_utils import gen_error
+from _ssg_utils import gen_error, set_userdata, get_userdata
 
 
 from item import get_itemdata
 import discord
 import json
-from userdata import get_userdata, set_userdata
 
 async def show_recipe(self,message):
     command_params:list = message.content.split(" ")

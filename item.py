@@ -1,6 +1,5 @@
 from json import load
-from _ssg_utils import gen_error
-from userdata import get_userdata
+from _ssg_utils import gen_error, get_userdata
 import discord
 
 ITEM_ICONS = {  # Used to define what icon an item type should have

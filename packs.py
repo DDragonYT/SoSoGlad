@@ -1,5 +1,5 @@
 from _globalvars import *
-from _ssg_utils import gen_error
+from _ssg_utils import gen_error, get_userdata, set_userdata
 
 
 from PIL import Image
@@ -7,7 +7,6 @@ import os
 import json
 import scrython
 from random import randint
-from userdata import *
 import discord
 
 def display_binder(set_name):

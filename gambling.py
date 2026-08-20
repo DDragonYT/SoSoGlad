@@ -1,12 +1,13 @@
 from _ssg_utils import *
+from _globalvars import *
 
 from badge import Badge, BADGE_DATA, add_badge, badge_search, sell_badge
 from random import randint
-from userdata import *
 import json
 import discord
 from enum import Enum
 from asyncio import sleep
+
 
 DIE_SIDES = ["6", "10", "20", "100", "1000"]
 DEFAULT_DECK = ["AS", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "10S", "JS", "QS", "KS",
@@ -24,6 +25,7 @@ class BlackjackGame():
         self.player_hand = []
         self.dealer_hand = []
     
+
 
 async def coinflip(self, message):
     flip = randint(1, 2)
@@ -70,7 +72,12 @@ async def dieroll(self, message):
     if roll == 1000:
         await add_badge(self, message, "high_roller")
 
+
 async def gamble(self, message):
+    if message.author.name in BUSY_USER.keys():
+        if BUSY_USER[message.author.name]:
+            await message.reply(embed=gen_error("You are already busy."))
+            return
     bet_amt = 10
     userdata = get_userdata(message.author)
     command_params = message.content.split(" ")
@@ -91,8 +98,10 @@ async def gamble(self, message):
             await message.reply(embed=embed)
             userdata["coins"] -= bet_amt
             set_userdata(message.author, userdata)
+            BUSY_USER[message.author.name] = True # Let the game know that the user is busy
 
             await sleep(3)
+            BUSY_USER[message.author.name] = False # Once the user is done, make sure they can do stuff again
 
             userdata["coins"] += result
             embed = discord.Embed(
@@ -175,5 +184,3 @@ async def gamble(self, message):
 #         if not command_params[1] in BLACKJACK_ACTIONS:
 #             message.reply(embed = gen_error(f"{command_params[1]} is not a valid Blackjack action."))
 
-
-    

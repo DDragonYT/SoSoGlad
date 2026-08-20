@@ -2,7 +2,6 @@ from _ssg_utils import *
 
 from enum import Enum
 from random import randint
-from userdata import *
 import discord
 import os
 from badge import *

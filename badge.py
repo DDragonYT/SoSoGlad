@@ -1,9 +1,8 @@
 from _globalvars import *
-from _ssg_utils import gen_error, target_from_message
+from _ssg_utils import gen_error, target_from_message, get_userdata, set_userdata
 
 from enum import Enum
 from random import randint
-from userdata import *
 import discord
 import os
 

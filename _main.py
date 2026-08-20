@@ -14,8 +14,9 @@ from resource import *
 from pet import *
 from craft import *
 from packs import *
-from leaderboard import leaderboard
-from profile_management import wallet, wallet_daily, gift, profile, equip_badge, experience_check
+from leaderboard import leaderboard, calc_leaderboard
+from profile_management import *
+from wallet import *
 
 
 COMMANDS = {  # Defines what to enter to run a command
@@ -38,12 +39,13 @@ COMMANDS = {  # Defines what to enter to run a command
     "!buypack":attempt_open_pack,
     "!leaderboard" : leaderboard,
     "!bequip" : equip_badge,
+    
     "!pequip" : equip_pet,
     # "!gather": gather,
     # "!resources":show_resources,
     # "!craft": craft,
     # "!iinfo": item_info
-    "!pinfo":pet_info,
+    "!iinfo":pet_info,
     "!inventory": show_inventory,
     "!buy": attempt_purchase,
     "!use": attempt_use_item,
@@ -75,18 +77,7 @@ async def on_ready():
 
     bot.flip_streak = {"num": 0, "len": 0}
     calc_badges()
-
-
-async def add_msgcount(user):
-    """Ups the message count dictionary of the user who sent a message"""
-    global message_counts
-    if user in message_counts:
-        message_counts[user] += 1
-    else:
-        message_counts[user] = 1
-
-    if message_counts[user] % 1000 == 0:
-        await add_badge(user, "yapper")
+    calc_leaderboard()
 
 
 @bot.event
@@ -94,14 +85,13 @@ async def on_message(message):
     """Triggers every time a message is sent"""
     global last_price_update
     print(f"Message from {message.author}: {message.content}")
-    await add_msgcount(message.author)
     curtime = int(time.localtime().tm_min / 10)
     if curtime != last_price_update:
-        last_price_update = curtime
         calc_badges()
-        # channel = bot.get_channel(ANNOUNCEMENT_CHANNEL)
-        # embed = discord.Embed(title="Badge prices have updated!", colour=discord.Colour.green())
-        # await channel.send(embed = embed)
+        calc_leaderboard()
+        last_price_update = curtime
+
+        
 
     if message.content.split(" ")[0].lower() in COMMANDS.keys():
         await COMMANDS[message.content.split(" ")[0].lower()](bot, message)
@@ -144,15 +134,7 @@ async def on_message(message):
         await add_badge(bot, message, "victim")
         with open("stolengif.txt", "w+") as stolen:
             stolen.write(bot.stolen_gif)
-        for x in range(3):
+        for x in range(1):
             await message.channel.send(bot.stolen_gif)
-
-    if str(message.author) == ".sawyadalawya":
-        await message.add_reaction("🫃")
-    if str(message.author) == "awenshock" and randint(1, 20) == 1:
-        await message.reply(
-            "https://tenor.com/view/sheppy-shisha-shisha-sheppy-husky-maid-gif-21097707"
-        )
-
 
 bot.run(API_KEY)

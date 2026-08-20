@@ -1,11 +1,10 @@
-from _ssg_utils import gen_error
+from _ssg_utils import gen_error, get_userdata, set_userdata
 
 from random import randint
 from item import get_itemdata, item_details
 import discord
 from pet import add_pet
 from wallet import add_to_inv
-from userdata import get_userdata
 from crate_calcs import *
 
 # All crates besides basic and pet are currently unobtainable

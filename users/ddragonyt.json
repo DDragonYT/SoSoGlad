@@ -1,7 +1,7 @@
 {
-  "badgeinvvalue": 36,
-  "coins": 0,
-  "net_worth": 10036,
+  "badgeinvvalue": 78,
+  "coins": 80,
+  "net_worth": 78,
   "badges": {
     "hacker": {
       "lvl": 1
@@ -22,9 +22,9 @@
       "lvl": 1
     }
   },
-  "gems": 18,
-  "last_daily": "2026-08-11",
-  "exp": 351,
+  "gems": 24,
+  "last_daily": "2026-08-19",
+  "exp": 361,
   "level": 40,
   "xp_needed": 500,
   "equipped_badge": "maga",
@@ -126,5 +126,6 @@
       "xp_needed": 100
     }
   },
-  "equipped_pet": "fish"
+  "equipped_pet": "fish",
+  "username": "ddragonyt"
 }

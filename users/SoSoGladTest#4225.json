@@ -1,10 +1,10 @@
 {
   "badges": {
     "racially_motivated": {
-      "lvl": 38
+      "lvl": 40
     },
     "scare_survivor": {
-      "lvl": 18
+      "lvl": 19
     },
     "maga": {
       "lvl": 23
@@ -32,5 +32,8 @@
     }
   },
   "badgeinvvalue": 26168,
-  "coins": 9500
+  "coins": 9500,
+  "gems": 0,
+  "username": "SoSoGladTest#4225",
+  "level": 0
 }

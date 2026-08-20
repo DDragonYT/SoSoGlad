@@ -1,11 +1,9 @@
 from _globalvars import *
-from _ssg_utils import gen_error, target_from_message
+from _ssg_utils import gen_error, target_from_message, get_userdata, set_userdata
 
 import discord
-from userdata import *
 from badge import calc_inv, BADGE_DATA
 from random import randint
-from _ssg_utils import gen_error
 from datetime import date
 from item import get_itemdata
 
@@ -37,6 +35,12 @@ async def profile(self, message, target=2):
     """Calculates a users inventory statistics, then displays an overall profile."""
 
     target = target_from_message(self, message)
+
+    if not target:
+        message.reply(embed = gen_error("This is not a valid user."))
+        return
+
+    calc_inv(target)
 
     embed = discord.Embed(title=f"{target}'s Profile", colour=discord.Colour.yellow())
     embed.set_thumbnail(url=str(target.avatar))

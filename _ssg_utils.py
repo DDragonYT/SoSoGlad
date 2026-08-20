@@ -1,4 +1,5 @@
 import discord
+import json
 
 def gen_error(text):
     embed = discord.Embed(
@@ -20,3 +21,16 @@ def target_from_message(self, message):
     else:
         target = message.author
     return target
+
+
+def get_userdata(user):
+    try:
+        with open(f"users/{user}.json", "rb") as userjson:
+            return json.load(userjson)
+    except:
+        return {}
+
+def set_userdata(user, userdata):
+    with open(f"users/{user}.json", "w+") as userjson:
+        json.dump(userdata, userjson, indent=2)
+

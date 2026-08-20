@@ -1,4 +1,5 @@
 from _ssg_utils import *
+from _globalvars import *
 
 import discord
 from discord import app_commands
@@ -8,25 +9,25 @@ import asyncio
 from item import get_itemdata
 from crate_calcs import *
 
-action_using = {}
 GATHERABLE_TYPES = {
     "stone": {
         "toughness":5,
         "icon":"🪨",
         "common": {
-            "chance": 69,
+            "chance": 74,
             "options": [{"item":"stone","min_qty":2,"max_qty":4}],
         },
         "uncommon": {
-            "chance": 28,
+            "chance": 25,
             "options": [
-                {"item":"crystal","min_qty":1,"max_qty":3}
+                {"item":"crystal","min_qty":1,"max_qty":3},
             ],
         },
         "epic": {
-            "chance": 3,
+            "chance": 1,
             "options": [
-                {"item":"artifact","min_qty":1,"max_qty":1}
+                {"item":"artifact","min_qty":1,"max_qty":1},
+                {"item":"gold","min_qty":2,"max_qty":4}
             ],
         }
     },
@@ -56,8 +57,8 @@ GATHERABLE_TYPES = {
 
 async def gather(self, message):
     command_params = message.content.split(" ")
-    if message.author.name in action_using.keys():
-        if action_using[message.author.name]:
+    if message.author.name in BUSY_USER.keys():
+        if BUSY_USER[message.author.name]:
             await message.reply(embed=gen_error("You are already busy."))
             return
     if command_params[1].lower() in GATHERABLE_TYPES.keys():
@@ -73,14 +74,17 @@ async def gather(self, message):
             description=f"(Please wait {gatherdata["toughness"]*1} to {gatherdata["toughness"]*2} seconds)",
         )
         await message.reply(embed=embed)
-        action_using[message.author.name] = True
+
+        BUSY_USER[message.author.name] = True # Let the game know that the user is busy
+
         sleep_time = randint(gatherdata["toughness"] * 2, gatherdata["toughness"] * 3)
         await asyncio.sleep(sleep_time)
 
-        action_using[message.author.name] = False
+
+        BUSY_USER[message.author.name] = False # Once the user is done, make sure they can do stuff again
 
         if rarity != "common":
-            rarity_dialogue = f"{rarity.capitalize()} DROP. "
+            rarity_dialogue = f"[{rarity.capitalize()} DROP] "
         else:
             rarity_dialogue = None
         embed = discord.Embed(

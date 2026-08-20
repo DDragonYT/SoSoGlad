@@ -1,0 +1,10 @@
+{
+    "basic":{
+        "cost":30,
+        "pets":{
+            "common":{},
+            "uncommon":{},
+            "rare":{}
+        }
+    }
+}

@@ -1,8 +1,8 @@
-from _ssg_utils import *
+from _ssg_utils import gen_error, set_userdata, get_userdata
+from _globalvars import WALLET_STATS, BASE_LEADERBOARD
 
 from enum import Enum
 from random import randint
-from userdata import *
 import discord
 import os
 from badge import add_badge
@@ -11,25 +11,56 @@ from experience import *
 
 users_on_leaderboard = 10
 
-async def leaderboard(self, message):
-    coin_list = []
-    for file in os.listdir("users"):
-        user = file.split(" ")[0]
-        userdata = get_userdata(user)
-        coin_list.append(user,userdata["coins"])
-    sorted_coin_list = dict(sorted(coin_list.items(), key=lambda x: x[1]["coins"], reverse=True))
-    embed = discord.Embed(title=f"coin list",description=f"{coin_list}")
-    await message.reply(embed)
-    embed = discord.Embed(title=f"Coin Leaderboard", colour=discord.Colour.yellow(),description=f"{sorted_coin_list}")
-    await message.reply(embed)
+LEADERBOARD_TYPES = {
+    "coins": "Coins Leaderboard",
+    "gems": "Gems Leaderboard",
+    "badgeinvvalue": "Badges Value Leaderboard",
+    "level": "Level Leaderboard",
+}
+BASE_LIST = []
 
-def update_leaderboard_variables():
+async def leaderboard(self, message):
+    command = str(message.content).split(" ")
+    if len(command) > 1:
+        type = command[1]
+    else:
+        type = "coins"
+
+
+    if not type in LEADERBOARD_TYPES.keys():
+        await message.reply(embed = gen_error("This is not a valid leaderboard."))
+        return
+
+    await message.reply(embed = list_for_type(BASE_LEADERBOARD, type), view = leaderboard)
+    
+
+def calc_leaderboard():
+    global BASE_LEADERBOARD
     base_list = []
     for file in os.listdir("users"):
-        user = file.split(" ")[0]
-        userdata = get_userdata(user)
+        with open("users/" + file, "r") as userjson:
+            userdata = json.load(userjson)
+        for key in LEADERBOARD_TYPES.keys():
+            if not key in userdata.keys():
+                if key == "level":
+                    userdata[key] = 1
+                else:
+                    userdata[key] = 0
+        userdata["username"] = file.split(".")[0]
+        set_userdata(file.split(".")[0], userdata)
         base_list.append(userdata)
-    print('base_list')
+    BASE_LEADERBOARD = base_list
 
-if __name__ == "__main__":
-    update_leaderboard_variables()
+
+def list_for_type(base_list, type):
+    newlist = sorted(base_list, key=lambda d: d[type], reverse=True)
+    listlen = len(newlist) if len(newlist) < 10 else 10
+    value = ""
+    for i in range(listlen):
+        userdata = newlist[i]
+        value += (
+            f"{i+1}. {userdata["username"]} - {userdata[type]} {WALLET_STATS[type]} \n"
+        )
+    print(value)
+    embed = discord.Embed(title=LEADERBOARD_TYPES[type], colour=discord.Colour.yellow(), description = value)
+    return embed

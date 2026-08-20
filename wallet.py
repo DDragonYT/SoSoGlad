@@ -1,20 +1,20 @@
 from _globalvars import *
-from _ssg_utils import gen_error, target_from_message
+from _ssg_utils import gen_error, target_from_message, set_userdata, get_userdata
 
 
 import discord
-from userdata import *
 from badge import calc_inv
 from random import randint
 from datetime import date
+from os import path
 
 
 async def wallet_stats(self, message, target=2):
     "Calculates a users inventory, then displays their details"
 
     target = target_from_message(self,message)
-
-
+    if not path.isfile(f"users/{target}.json"):
+        message.reply(embed = gen_error("This user does not exist."))
     calc_inv(target)
     userdata = get_userdata(target)
     userkeys = userdata.keys()
@@ -113,7 +113,7 @@ async def gift(self, message, target=2):
     
     gift_amt:str = int(command[2])
 
-    if not gift_amt.strip(" ").isdigit():
+    if not str(gift_amt).strip(" ").isdigit():
         await message.reply(embed=gen_error("Please enter a valid gif amount."))
         return
 

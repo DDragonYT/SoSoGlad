@@ -1,5 +1,6 @@
 from json import load
 from _ssg_utils import gen_error, get_userdata
+from _globalvars import *
 import discord
 
 ITEM_ICONS = {  # Used to define what icon an item type should have
@@ -71,16 +72,21 @@ def item_details(itemid, show_type=True, title="", description=""):
         title=title, colour=discord.Colour.orange(), description=description
     )
     itemdata = get_itemdata(itemid)
+    if "image" in itemdata.keys():
+        item_image = discord.File(fp=f"""{ITEM_IMAGE}/{itemdata["image"]}.png""")
+        print(f"attachment://{item_image.filename}")
+        embed.set_thumbnail(url=f"attachment://{item_image.filename}")
     recipedata = get_recipedata(itemid)
     embed.add_field(name="Item Name", value=itemdata["name"])
     embed.add_field(name="Rarity", value=itemdata["rarity"].capitalize())
     if show_type:
         embed.add_field(name="Type", value=itemdata["type"].capitalize())
-    if "image" in itemdata.keys():
-        embed.set_thumbnail(url=itemdata["image"])
+    
+
+
     if recipedata:
         embed.add_field(name="Recipe", value=gen_item_list(recipedata["items_needed"]))
-    return embed
+    return embed, item_image
 
 
 async def item_info(self, message, type="item"):

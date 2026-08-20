@@ -4,7 +4,7 @@
         "type": "pet",
         "icon": "🐶",
         "rarity": "common",
-        "image": "https://em-content.zobj.net/source/serenityos/459/dog_1f415.png",
+        "image": "basic_pets/dog",
         "max_level": 100
     },
     "cat": {
@@ -12,7 +12,7 @@
         "type": "pet",
         "icon": "😺",
         "rarity": "common",
-        "image": "https://em-content.zobj.net/source/serenityos/459/cat_1f408.png",
+        "image": "basic_pets/cat",
         "max_level": 100
     },
     "pig": {
@@ -20,7 +20,7 @@
         "type": "pet",
         "icon": "🐖",
         "rarity": "common",
-        "image": "https://em-content.zobj.net/source/serenityos/459/pig_1f416.png",
+        "image": "basic_pets/pig",
         "max_level": 100
     },
     "mouse": {
@@ -28,7 +28,7 @@
         "type": "pet",
         "icon": "🐭",
         "rarity": "common",
-        "image": "https://em-content.zobj.net/source/serenityos/459/mouse_1f401.png",
+        "image": "basic_pets/mouse",
         "max_level": 100
     },
     "fish": {
@@ -36,7 +36,7 @@
         "type": "pet",
         "icon": "🐟",
         "rarity": "common",
-        "image": "https://em-content.zobj.net/source/serenityos/459/fish_1f41f.png",
+        "image": "basic_pets/fish",
         "max_level": 100
     },
     "bird": {
@@ -44,7 +44,7 @@
         "type": "pet",
         "icon": "🕊️",
         "rarity": "common",
-        "image": "https://em-content.zobj.net/source/serenityos/459/bird_1f426.png",
+        "image": "basic_pets/bird",
         "max_level": 100
     },
     "monkey": {
@@ -52,7 +52,7 @@
         "type": "pet",
         "icon": "🐵",
         "rarity": "common",
-        "image": "https://em-content.zobj.net/source/serenityos/459/monkey_1f412.png",
+        "image": "basic_pets/monkey",
         "max_level": 100
     },
     "gorilla": {
@@ -60,7 +60,7 @@
         "type": "pet",
         "icon": "🦍",
         "rarity": "rare",
-        "image": "https://em-content.zobj.net/source/serenityos/459/gorilla_1f98d.png",
+        "image": "basic_pets/gorilla",
         "max_level": 100
     },
     "tiger": {
@@ -68,7 +68,7 @@
         "type": "pet",
         "icon": "🐯",
         "rarity": "rare",
-        "image": "https://em-content.zobj.net/source/serenityos/459/tiger_1f405.png",
+        "image": "basic_pets/tiger",
         "max_level": 100
     },
     "horse": {
@@ -76,7 +76,7 @@
         "type": "pet",
         "icon": "🐎",
         "rarity": "rare",
-        "image": "https://em-content.zobj.net/source/serenityos/459/horse_1f40e.png",
+        "image": "basic_pets/horse",
         "max_level": 100
     },
     "orangutan": {
@@ -84,7 +84,7 @@
         "type": "pet",
         "icon": "🦧",
         "rarity": "epic",
-        "image": "https://em-content.zobj.net/source/serenityos/459/orangutan_1f9a7.png",
+        "image": "basic_pets/orangutan",
         "max_level": 100
     },
     "lion": {
@@ -92,7 +92,7 @@
         "type": "pet",
         "icon": "🦁",
         "rarity": "epic",
-        "image": "https://em-content.zobj.net/source/serenityos/459/lion_1f981.png",
+        "image": "basic_pets/lion",
         "max_level": 100
     },
     "whale": {
@@ -100,7 +100,7 @@
         "type": "pet",
         "icon": "🐋",
         "rarity": "epic",
-        "image": "https://em-content.zobj.net/source/serenityos/459/whale_1f40b.png",
+        "image": "basic_pets/whale",
         "max_level": 100
     },
     "shark": {
@@ -108,7 +108,7 @@
         "type": "pet",
         "icon": "🦈",
         "rarity": "legendary",
-        "image": "https://em-content.zobj.net/source/serenityos/459/shark_1f988.png",
+        "image": "basic_pets/shark",
         "max_level": 100
     },
     "zebra": {
@@ -116,7 +116,7 @@
         "type": "pet",
         "icon": "🦓",
         "rarity": "legendary",
-        "image": "https://em-content.zobj.net/source/serenityos/459/zebra_1f993.png",
+        "image": "basic_pets/zebra",
         "max_level": 100
     },
     "moose": {
@@ -124,7 +124,7 @@
         "type": "pet",
         "icon": "🫎",
         "rarity": "legendary",
-        "image": "https://em-content.zobj.net/source/serenityos/459/moose_1face.png",
+        "image": "basic_pets/moose",
         "max_level": 100
     },
     "phoenix": {
@@ -132,7 +132,7 @@
         "type": "pet",
         "icon": "🐦‍🔥",
         "rarity": "mythic",
-        "image": "https://em-content.zobj.net/source/serenityos/459/phoenix-bird_1f426-200d-1f525.png",
+        "image": "basic_pets/phoenix",
         "max_level": 100
     },
     "unicorn": {
@@ -140,7 +140,7 @@
         "type": "pet",
         "icon": "🦄",
         "rarity": "godly",
-        "image": "https://em-content.zobj.net/source/serenityos/459/unicorn_1f984.png",
+        "image": "basic_pets/unicorn",
         "max_level": 100
     },
     "t-rex": {
@@ -148,7 +148,7 @@
         "type": "pet",
         "icon": "🦖",
         "rarity": "mythic",
-        "image": "https://em-content.zobj.net/source/serenityos/459/t-rex_1f996.png",
+        "image": "basic_pets/t-rex",
         "max_level": 100
     },
     "dragon": {
@@ -156,7 +156,7 @@
         "type": "pet",
         "icon": "🐉",
         "rarity": "mythic",
-        "image": "https://em-content.zobj.net/source/serenityos/459/dragon_1f409.png",
+        "image": "basic_pets/dragon",
         "max_level": 100
     },
     "rock": {
@@ -164,12 +164,13 @@
         "type": "pet",
         "icon": "🪨",
         "rarity": "common",
-        "image": "https://em-content.zobj.net/source/serenityos/459/rock_1faa8.png",
+        "image": "basic_pets/rock",
         "max_level": 100,
         "ability":{
             "id":"gold_luck",
             "base_level":0.1
-        }
+        },
+        "description":"Rock."
     },
     "57_leaf_clover": {
         "name": "57 Leaf Clover",
@@ -201,49 +202,49 @@
         "type": "crate",
         "rarity": "common",
         "description":"A basic crate containing a pet.",
-        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839865128554656/PetCrate.png?ex=6a464b52&is=6a44f9d2&hm=4767c089545405d6cb91c66ad29d66702199ce47908cb40c1d3f1079285082af&"
+        "image": "crates/pet_crate"
     },
     "basic_crate": {
         "name": "Basic Crate",
         "type": "crate",
         "rarity": "common",
-        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839862276165632/BasicCrate.png?ex=6a464b51&is=6a44f9d1&hm=ce405bd66e0b76d3c523e6e635639015870ad5d4c0c8b38035df075cc09d0b68&"
+        "image": "crates/basic_crate"
     },
     "juicy_crate": {
         "name": "Juicy Crate",
         "type": "crate",
         "rarity": "uncommon",
-        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839863408627792/JuicyCrate.png?ex=6a464b51&is=6a44f9d1&hm=16718398f77ed4592e37d9936f716b450d7405e5b51f561d56cb7232bd9e68cf&"
+        "image": "crates/juicy_crate"
     },
     "succulent_crate": {
         "name": "Succulent Crate",
         "type": "crate",
         "rarity": "rare",
-        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839865761628321/SucculentCrate.png?ex=6a464b52&is=6a44f9d2&hm=a56da89725fb50bec13f10da0f91e47d6ca2bcae0da367391837b2a9fd412e92&"
+        "image": "crates/succulent_crate"
     },
     "luscious_crate": {
         "name": "Luscious Crate",
         "type": "crate",
         "rarity": "epic",
-        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839863811408022/LusciousCrate.png?ex=6a464b51&is=6a44f9d1&hm=2a9e4b4e3553631e983876b4a02463a338b7b9f81f7fef09976ee88b94be4e79&"
+        "image": "crates/luscious_crate"
     },
     "overstimulating_crate": {
         "name": "Overstimulating Crate",
         "type": "crate",
         "rarity": "legendary",
-        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839864700600441/OverstimulatingCrate.png?ex=6a464b52&is=6a44f9d2&hm=54bce93bb6ec08835b6bb4e75505e12084352d5179c2fe9b80b40e4d9fb4c5c5&"
+        "image": "crates/overstimulating_crate"
     },
     "hyperactive_crate": {
         "name": "Hyperactive Crate",
         "type": "crate",
         "rarity": "unreal",
-        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839862918021130/HyperactiveCrate.png?ex=6a464b51&is=6a44f9d1&hm=09c5f55a146f4341bbb7ffced327e0cf4b458b3ed60a9c3ec9c114bf2d96296c&"
+        "image": "crates/hyperactive_crate"
     },
     "orgasm_crate": {
         "name": "Orgasm Crate",
         "type": "crate",
         "rarity": "godly",
-        "image": "https://cdn.discordapp.com/attachments/1521409324365385758/1521839864268460052/OrgasmCrate.png?ex=6a464b52&is=6a44f9d2&hm=9c655a7cf7a88d708e8b33beee45004376b6a1f99f08f8aee2be2721c52b2edb&"
+        "image": "crates/orgasm_crate"
     },
     "2ED": {
         "name": "Unlimited Edition Pack",

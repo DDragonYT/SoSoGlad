@@ -1,5 +1,5 @@
 from _globalvars import *
-from _ssg_utils import gen_error, get_userdata, set_userdata
+from _ssg_utils import gen_error, get_userdata, set_userdata, target_from_message
 
 import discord
 from item import *
@@ -14,6 +14,8 @@ async def pet_info(self, message):
     await item_info(self, message, "pet")
 
 async def add_pet(message, id, qty, user, level = 0):
+    shininess:bool = (randint(1,SHINY_ODDS) == 1)
+    converted_to_xp = False
     userdata = get_userdata(user)
     if not "pets" in userdata.keys():
         userdata["pets"] = {}
@@ -23,15 +25,20 @@ async def add_pet(message, id, qty, user, level = 0):
                 "id":id,
                 "name": get_itemdata(id)["name"],
                 "level":level,
-                "xp" : 0
+                "xp" : 0,
+                "shiny":shininess
             }
 
         set_userdata(user, userdata)
     else:
         pet_data = get_itemdata(id)
         if userdata["pets"][id]["level"] < 101:
-            await add_xp(message, 10, userdata, id)
+            converted_to_xp = True
+            if shininess:
+                userdata["pets"][id]["shiny"] = shininess
+            await add_pet_xp(message, 10, userdata, id)
         set_userdata(user, userdata)
+    return converted_to_xp, shininess
 
 async def show_pets(self, message, target = 2):
     """Shows the pets of a target user"""
@@ -86,9 +93,9 @@ async def equip_pet(self, message, target=2):
         await message.reply(embed=embed)
         set_userdata(message.author, userdata)
 
-async def add_xp(message, amount,userdata, id):
+async def add_pet_xp(message, amount,userdata, id):
     userdata["pets"][id]["xp"] += amount
-    userdata["pets"][id]["xp_needed"] = pet_xp_required(userdata["pets"][id]["level"], userdata["pets"][id]["rarity"])
+    userdata["pets"][id]["xp_needed"] = pet_xp_required(userdata["pets"][id]["level"], get_itemdata(id)["rarity"])
 
     if userdata["pets"][id]["xp"] > userdata["pets"][id]["xp_needed"]:
         userdata["pets"][id]["level"] += 1
@@ -107,7 +114,7 @@ async def pet_xp(self, message):
         userdata = get_userdata(message.author)
         userkeys = userdata.keys()
         if "equipped_pet" in userkeys:
-            await add_xp(message, randint(2,5), userdata, userdata["equipped_pet"])
+            await add_pet_xp(message, randint(2,5), userdata, userdata["equipped_pet"])
 
 async def hunt(self, message):
     pass

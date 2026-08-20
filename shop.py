@@ -1,8 +1,9 @@
 import discord
-from userdata import get_userdata
+
+from _ssg_utils import *
+
 from wallet import *
 from item import *
-from userdata import *
 
 SHOP_ITEMS = {
     "pet_crate": {
@@ -72,7 +73,7 @@ async def make_purchase(user, shopitemdata, message, quantity):
         userdata = wallet_add(userdata, gems_got, "gems")
         set_userdata(user, userdata)
         embed = discord.Embed(
-            title=f"""Exchanged {f"{coins_got} coins" if coins_got else ""}{f"{gems_got} gems" if gems_got else ""} for {f"{coins_spent} coins" if coins_spent else ""}{f"{gems_spent} gems" if gems_spent else ""}.""",
+            title=f"""Gave {f"{coins_spent} coins" if coins_spent else ""}{f"{gems_spent} gems" if gems_spent else ""} for {f"{coins_got} coins" if coins_got else ""}{f"{gems_got} gems" if gems_got else ""}.""",
             colour=discord.Colour.orange(),
         )
         await message.reply(embed=embed)
@@ -114,7 +115,7 @@ async def attempt_purchase(self, message):
             await message.reply(
                 embed=gen_error(
                     f"""You do not have enough currency to make this purchase.
-Required Coins: {item["coin_price"]} → Current Coins: {userdata["coins"]}
-Required Gems: {item["gem_price"]} → Current Gems: {userdata["gems"]}"""
+Required Coins: {item["coin_price"]*purchase_qty} → Current Coins: {userdata["coins"]}
+Required Gems: {item["gem_price"]*purchase_qty} → Current Gems: {userdata["gems"]}"""
                 )
             )

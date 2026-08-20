@@ -31,7 +31,7 @@ async def leaderboard(self, message):
         await message.reply(embed = gen_error("This is not a valid leaderboard."))
         return
 
-    await message.reply(embed = list_for_type(BASE_LEADERBOARD, type), view = leaderboard)
+    await message.reply(embed = list_for_type(BASE_LEADERBOARD, type))
     
 
 def calc_leaderboard():
@@ -59,7 +59,7 @@ def list_for_type(base_list, type):
     for i in range(listlen):
         userdata = newlist[i]
         value += (
-            f"{i+1}. {userdata["username"]} - {userdata[type]} {WALLET_STATS[type]} \n"
+            f"{i+1}. {userdata["username"]} - {userdata[type]} {USER_STATS[type]} \n"
         )
     print(value)
     embed = discord.Embed(title=LEADERBOARD_TYPES[type], colour=discord.Colour.yellow(), description = value)

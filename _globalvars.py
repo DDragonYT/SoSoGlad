@@ -66,8 +66,10 @@ SELL_PRICE = int(_FILEDATAJSON["sell_price"])
 BADGE_VALUES = {}
 BASE_LEADERBOARD = []
 CARD_IMAGE = "resources/images/cards"
+ITEM_IMAGE = "resources/images/items"
 RARITIES = ["mythic", "rare", "uncommon", "common"]
 BUSY_USER = {}
+SHINY_ODDS = 2
 
 PACKS = {
     "2ED": MTGPack(
@@ -85,6 +87,14 @@ with open("resources/data/secret.key", "r") as keysecret:
 
 
 WALLET_STATS = {  # What should we call these stats?
+    "coins": "Coins 🪙",
+    "gems": "Gems 💎",
+    "last_daily": "Last Daily",
+    "badgeinvvalue": "Badges Value",
+    "net_worth": "Net Worth",
+}
+
+USER_STATS = {  # What should we call these stats?
     "coins": "Coins 🪙",
     "gems": "Gems 💎",
     "last_daily": "Last Daily",

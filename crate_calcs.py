@@ -24,11 +24,9 @@ def apply_luck_mult(crate, luck_mult):
 def get_crate_result(cratesdict, crate, luck_multiplier=1):
     crate = cratesdict[crate].copy()
     mod_crate = apply_luck_mult(crate, luck_multiplier)
-    print(mod_crate)
     roll = randint(1, 1000000) / 10000
     totalraritychance = 0
 
-    print(f"{roll=}")
     for rarity in mod_crate.keys():
         if rarity in RARITY_KEYS:
             craterarity = mod_crate[rarity]

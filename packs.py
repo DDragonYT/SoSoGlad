@@ -9,6 +9,7 @@ import scrython
 from random import randint
 import discord
 
+
 def display_binder(set_name):
     cards = os.listdir(f"{CARD_IMAGE}/{set_name}/")
     print(cards)
@@ -43,6 +44,7 @@ def get_set_data(set: MTGPack):
 
 def get_card_image(cardname, set_name):
     new_im = f"""{CARD_IMAGE}/{set_name}/{cardname}.full.jpg"""
+    print(new_im)
     return new_im
 
 
@@ -136,14 +138,13 @@ async def attempt_open_pack(self, message):
         )
         card_image = "!sososad.png"
         card_image = get_card_image(cardname, pack)
-        embed.set_thumbnail(
-            url=f"attachment://{discord.File(fp=packobj.image).filename}"
-        )
+        embed.set_thumbnail(url=packobj.image)
         embed.set_image(
-                    url=f"attachment://{discord.File(fp=get_card_image(cardname, pack)).filename}"
-                )
+            url=f"attachment://{discord.File(fp=get_card_image(cardname, pack)).filename}"
+        )
         await message.reply(
-            embed=embed, file=discord.File(card_image), 
+            embed=embed,
+            file=discord.File(card_image),
         )
 
 

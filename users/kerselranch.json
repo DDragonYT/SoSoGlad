@@ -55,7 +55,7 @@
   "coins": 29186962264,
   "gems": 23,
   "last_daily": "2026-08-11",
-  "badgeinvvalue": 55193,
+  "badgeinvvalue": 55177,
   "inventory": {
     "pet_crate": {
       "quantity": 967
@@ -70,10 +70,10 @@
       "quantity": 0
     }
   },
-  "exp": 108,
+  "exp": 110,
   "level": 10,
   "xp_needed": 125,
-  "net_worth": 29187017457,
+  "net_worth": 29187017441,
   "equipped_badge": "six_seven",
   "biggest_win": 1396518,
   "equipped_pet": "tiger",

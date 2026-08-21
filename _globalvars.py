@@ -118,7 +118,7 @@ PROFILE_STATS = {
     "exp": "XP",
     "xp_needed": "XP to Next Level",
     "net_worth": "Net Worth",
-    "equipped_pet": "Equipped Pet",
+    # "equipped_pet": "Equipped Pet",
     # "favourite_card" : "Favourite Card",
     "equipped_badge": "Equipped Badge",
     "biggest_win": "Biggest Gambling Win",
@@ -297,7 +297,7 @@ BADGE_DATA = {
         rarity=BadgeRarity.UNREAL,
     ),
     "perfect_alpha_shiny_hunter": Badge(
-        title="Alpha Shiny Hunter Badge",
+        title="Perfect Alpha Shiny Hunter Badge",
         description="What. The. Fuck.",
         image="🪽",
         rarity=BadgeRarity.GODLY,

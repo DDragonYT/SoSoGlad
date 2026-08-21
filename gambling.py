@@ -54,7 +54,6 @@ async def dieroll(self, message):
     roll = randint(1, max_roll)
     self.roll_history[str(max_roll)].append(roll)
     output = f"🎲  You rolled a {roll} on a D{max_roll}!  🎲"
-    print(self.roll_history[str(max_roll)])
     if len(self.roll_history[str(max_roll)]) > 2:
         if (
             self.roll_history[str(max_roll)][0]
@@ -74,6 +73,7 @@ async def dieroll(self, message):
 
 
 async def gamble(self, message):
+    badge = None
     if message.author.name in BUSY_USER.keys():
         if BUSY_USER[message.author.name]:
             await message.reply(embed=gen_error("You are already busy."))
@@ -85,6 +85,7 @@ async def gamble(self, message):
         bet_amt = int(command_params[1])
     if bet_amt > 0:
         if userdata["coins"] >= bet_amt:   
+            BUSY_USER[message.author.name] = True # Let the game know that the user is busy
             multiplier = (randint(0, 2000000000000000000000000000000000000000000)) / 1000000000000000000000000000000000000000000
             jackpot_roll = randint(0,30)
             if jackpot_roll == 10:
@@ -98,7 +99,6 @@ async def gamble(self, message):
             await message.reply(embed=embed)
             userdata["coins"] -= bet_amt
             set_userdata(message.author, userdata)
-            BUSY_USER[message.author.name] = True # Let the game know that the user is busy
 
             await sleep(3)
             BUSY_USER[message.author.name] = False # Once the user is done, make sure they can do stuff again
@@ -108,8 +108,8 @@ async def gamble(self, message):
                 title=f"You got {result} coins back!",
                 colour=discord.Colour.yellow(),
             )
-            if multiplier > 2:
-                await add_badge(self, message, f"jackpot")
+            if multiplier > 1:
+                badge = "jackpot"
                 embed = discord.Embed(
                 title=f"You hit the Jackpot! 🎰 You get {result} coins back!",
                 colour=discord.Colour.yellow(),
@@ -139,7 +139,7 @@ async def gamble(self, message):
                     embed.set_thumbnail(url="https://api.fstik.app/file/AAMCAgADFQABanknfdS_FA1jxWRKzKhZ7QY50rEAAscSAAJcDWFI4dVw6EqR6p0BAAdtAAM9BA/sticker.webp")
 
                 if bet_amt > 9:
-                    await add_badge(self, message, f"even")
+                    badge = "even"
 
             set_userdata(message.author, userdata)
             if not embed.thumbnail:
@@ -150,14 +150,16 @@ async def gamble(self, message):
                 )
             await message.reply(embed = embed_too_poor)
             return
+        
         await message.reply(embed = embed)
-
-
     else:
         embed_bet_more_than_zero = discord.Embed(
             title=f"You must bet more than 0 coins", colour=discord.Colour.red()
         )
         await message.reply(embed = embed_bet_more_than_zero)
+
+    if badge:
+        await add_badge(self, message, badge)
 
 # async def blackjack(self, message):
 #     if not message.author in blackjack_games.keys():
@@ -183,4 +185,3 @@ async def gamble(self, message):
 #             return
 #         if not command_params[1] in BLACKJACK_ACTIONS:
 #             message.reply(embed = gen_error(f"{command_params[1]} is not a valid Blackjack action."))
-

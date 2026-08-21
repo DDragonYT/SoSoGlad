@@ -1,34 +1,22 @@
 {
-  "badgeinvvalue": 75,
-  "coins": 500,
-  "net_worth": 575,
+  "badgeinvvalue": 0,
+  "coins": 436,
+  "net_worth": 446,
   "badges": {
     "hacker": {
       "lvl": 1
     },
-    "maga": {
-      "lvl": 1
-    },
-    "racially_motivated": {
-      "lvl": 2
-    },
-    "trigger": {
-      "lvl": 1
-    },
-    "thrill_seeker": {
-      "lvl": 1
-    },
-    "scare_survivor": {
-      "lvl": 1
+    "jackpot": {
+      "lvl": 4
     }
   },
   "gems": 1000,
   "last_daily": "2026-08-20",
-  "exp": 384,
-  "level": 40,
-  "xp_needed": 500,
-  "equipped_badge": "maga",
-  "biggest_win": 75,
+  "exp": 258,
+  "level": 41,
+  "xp_needed": 520,
+  "equipped_badge": "victim",
+  "biggest_win": 79,
   "inventory": {
     "pet_crate": {
       "quantity": 6

@@ -1,25 +1,25 @@
 {
   "badges": {
     "racially_motivated": {
-      "lvl": 42
+      "lvl": 49
     },
     "scare_survivor": {
-      "lvl": 19
+      "lvl": 20
     },
     "maga": {
-      "lvl": 23
+      "lvl": 26
     },
     "thrill_seeker": {
       "lvl": 50
     },
     "six_seven": {
-      "lvl": 6
+      "lvl": 7
     },
     "victim": {
       "lvl": 4
     },
     "jasper": {
-      "lvl": 9
+      "lvl": 11
     },
     "alpha_shiny_hunter": {
       "lvl": 1
@@ -29,10 +29,13 @@
     },
     "hacker": {
       "lvl": 1
+    },
+    "jackpot": {
+      "lvl": 12
     }
   },
   "badgeinvvalue": 26168,
-  "coins": 9500,
+  "coins": 9000,
   "gems": 0,
   "username": "SoSoGladTest#4225",
   "level": 0

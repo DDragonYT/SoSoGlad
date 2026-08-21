@@ -35,15 +35,16 @@ COMMANDS = {  # Defines what to enter to run a command
     "!gift":gift,
     "!gamble" : gamble,
     "!profile" : profile,
-    "!packs":show_packs,
-    "!buypack":attempt_open_pack,
     "!leaderboard" : leaderboard,
     "!bequip" : equip_badge,
-    
-    # "!pequip" : equip_pet,
-    # "!gather": gather,
+
     # "!resources":show_resources,
+    # "!gather": gather,
     # "!craft": craft,
+
+    # "!packs":show_packs,
+    # "!buypack":attempt_open_pack,
+    # "!pequip" : equip_pet,
     # "!iinfo": item_info
     # "!iinfo":pet_info,
     # "!inventory": show_inventory,

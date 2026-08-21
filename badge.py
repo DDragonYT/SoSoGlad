@@ -71,7 +71,6 @@ async def player_badges(self, message):
         await message.reply(embed = gen_error(f"{target} doesn't have any badges!"))
 
 async def add_badge(self, message, badge):
-    """Adds a badge to the message.author's inventory"""
     if randint(1,300) == 1 and BADGE_DATA[badge].max_level != 1:
         badge_type = "deluxe_badges"
     else:
@@ -89,11 +88,12 @@ async def add_badge(self, message, badge):
             badges[badge]["lvl"] += 1
             await announce_badge(self,user,badge,badge_type)
 
+
     else:
         badges[badge] = {"lvl":1}
         await announce_badge(self,user,badge, badge_type)
-
     set_userdata(user, userdata)
+
 
 async def announce_badge(self, user, badge, badge_type):
     """Generate an embed and send it in the announcement channel"""
